@@ -1,0 +1,323 @@
+
+/* select2 */
+.select2-container--default .select2-selection--single{
+    border: 2px solid #EBEBEB;
+    border-radius: 4px; 
+    padding: 4px 0px;
+    height: 40px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    top: 70%
+}
+.select2-selection--single{
+    border: 2px solid green;
+}
+
+/* button ripple */
+/* button-ripple */
+.button {
+    background: #4c8bf5;
+    outline: none;
+    color: rgba(221, 221, 221, .5);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 40px;
+    line-height: 1;
+    font-size: 24px;
+    
+}
+.button-text-white,
+.fa-angle-right{
+    color: white;
+}
+.button:focus{
+    outline: none;
+}
+.button:hover{
+    background: #3e81f4;
+}
+.button-white {
+    background: white;
+    color: rgba(76, 139, 245, 0.4);
+    border: 1px solid #e7e7e7
+}
+.button-white:hover {
+    background: #f2f2f2;
+}
+.button-info{
+    background: #92a8d1;
+    color: rgba(255, 255, 255, .4);
+}
+.button-info:hover{
+    background: #819bca;
+}
+.button-warning{
+    background: orange;
+    color: #ffffff;
+}
+.button-warning:hover{
+    background: #e69500;
+}
+.button-danger{
+    background: #dd4124;
+    color: #ffffff;
+}
+.button-danger:hover{
+    background: #c7381f;
+}
+.button-success{
+    background: #88b04b;
+    color: #ffffff;
+}
+.button-success:hover{
+    background: #7ca145;   
+}
+.button-round {
+    border-radius: 50px;
+    padding: 0.75em;
+    width: 100px;
+    height: 100px;
+}
+.button-ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate(0);
+}
+.button-ripple_content {
+    position: relative;
+    z-index: 1;
+}
+.button-ripple_ripples {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.button-ripple_ripple{
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    margin: -0.5em 0 0 -0.5em;
+    transform: scale(0);
+    top: 0;
+    left: 0;
+    animation: ripple-animation 2s;
+}
+
+@keyframes ripple-animation {
+    from {
+    transform: scale3d(1,1,1);
+    opacity: 0.8;
+    }
+    to {
+    transform: scale3d(100,100,1);
+    opacity: 0;
+    }
+}
+
+/* registration form */
+.changeborder{
+    color:  #3e81f4;
+}
+.reg-back{
+    display: flex;
+    justify-content: center;
+}
+.reg-back div{
+    width: 61%;
+    padding: 7px 7px 3px;
+    width: 54%;
+}
+.back-button{
+    height: 40px;
+    width: 40px !important;
+    border-radius: 50% !important;
+    padding: 11px 12px !important;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    background-color: rgb(255, 255, 255);
+    color: #3e81f4;
+    cursor: pointer;
+}
+.back-button:hover{
+    color: #3e81f4;
+    background-color: rgb(219, 219, 219);
+    text-decoration: underline;
+}
+.skip-form1{
+    margin-left: 130px;
+}
+.skip-form2{
+    font-size: 16px;
+    float: right;
+    color: #3e81f4;
+    text-decoration: underline;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.skip-form2:hover{
+    color: #3f25d1;
+}
+.form-control-img{
+    width: 100%;
+    padding: 0px;
+    height: 30px;
+    color: #161a1d;
+    font-size: 14px;
+    border: 1px solid #301aac;
+    border-radius: 3px;
+}
+
+/* footer */
+.foot-main{
+    color: #d4dbe4;
+}
+.foot-main-one{
+    background-color: #23292f;
+    padding: 20px 0px 5px;
+}
+.foot-main-two{
+    background-color: #161a1d;
+    padding: 7px 0px;
+    text-align: center;
+    font-size: 12px;
+}
+.foot-main-one-top{
+    padding: 15px 0px 5px;
+    text-align: center;
+    font-size: 12px;
+}
+.foot-main-one-bot{
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px 0px;
+    text-transform: uppercase
+}
+.foot-main-one-bot div{
+    border-right: 1px solid #d4dbe4;
+    padding: 0px 7px;
+}
+.foot-main-one-bot div a{
+    color: #d4dbe4;
+    text-decoration: none
+}
+.foot-main-one-bot div a:hover{
+    color: #ffffff;
+    text-decoration: none
+}
+.foot-main-one-bot div:nth-last-child(1){
+    border-right: 0px;
+}
+.foot-five-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0px 0px 20px;
+}
+.foot-five-box div{
+    padding: 10px 20px;
+}
+.foot-five-box-sp{
+    width: 94%;
+    display: block;
+    margin-top: 15px;
+    border-bottom: 1px solid #707275;
+}
+.foot-five-box-he{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0px !important;
+}
+.foot-five-box-he span{
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.foot-five-box-he span:hover{
+    color: #d4dbe4;
+}
+.foot-five-box-he div{
+    font-size: 13px;
+    padding: 0px !important;
+    font-weight: 500;
+}
+.foot-five-box-he div a{
+    color: #d4dbe4;
+    margin-top: 5px;
+    display: block;
+    transition: .3s all ease;
+}
+.foot-five-box-he div a:hover{
+    color: #ffffff;
+    margin-left: 5px;
+}
+.foot-five-box-he-li{
+    margin-top: 10px;
+}
+.foot-five-box-he-li div{
+    margin-top: 4px;
+}
+.foot-caret-icon{
+    display: none;
+    float: right;
+}
+.foot-five-box-he-sub-a:hover{
+    text-decoration: none;
+}
+.foot-five-box-class{
+    display: block !important;
+}
+.foot-caret-icon-down{
+    float: right;
+    display: none;
+}
+
+@media screen and (max-width:768px){
+    .foot-five-box{
+        display: block;
+    }
+    .foot-five-box-he-li{
+        margin-top: 5px;
+        margin: 0px 5px 0px 5px;
+        display: none;
+    }
+    .foot-five-box-he-a,
+    .foot-five-box-he-sub-a{
+        display: block;
+    }
+    .foot-five-box-he-a{
+        padding: 5px;
+    }
+    .foot-five-box-he-a:hover{
+        background-color: #1c252c;
+    }
+    .foot-five-box-he span{
+        color:white;
+        margin-bottom: 0px;
+    }
+    .foot-five-box-he span:hover{
+        color:white;
+    }
+    .foot-five-box div{
+        padding: 3px 0px;
+    }
+    .foot-caret-icon{
+        display: block;
+    }
+    .reg-back div{
+        width: 100%;
+    }
+    #createYourAccount{
+        padding-top: 20px !important
+    }
+    .skip-form1{
+        margin-left: 0px;
+        padding-top: 23px !important;
+    }
+    .skip-form2{
+        text-align: end;
+    }
+}

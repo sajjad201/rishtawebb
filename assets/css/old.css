@@ -1,0 +1,1727 @@
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:5px;  margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#d2c29d}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+#whitePage{background-color:#f4f4f0; border-radius:3px; padding-bottom:15px; border:5px solid #e3dece; box-shadow:0px 0px 10px 0px gray}
+#whitePageChild1{text-align:center; background-color:#f4f4f0; padding:15px; border-radius:2px; padding-top:23px;}
+#whitePageChild2{font-size:25px; font-weight:600; color:#005960;}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:5px; box-shadow:0px 0px 15px gray; border:none}
+	#whitePageChild2{font-size:22px; }
+	.control-label{ font-size:12px; font-family:"Segoe UI"; font-weight:normal}
+}
+
+.mainBody 
+{
+	background-color:#FFFFFF;
+}
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #005960;
+  border-radius:3px;
+}
+ .form-control
+{
+	border:2px solid #cddce5;
+	box-shadow: 0 0 0 0 ;
+	border-radius:3px;
+}
+
+
+
+#headings
+{
+	color:#005960; 
+	text-align:center; 
+	font-family:'Segoe UI'; 
+	font-size:20px; 
+	font-weight:600;
+}
+
+#modalBodyPadding{padding-left:80px; padding-right:80px}#modalTitle{text-align:center; font-weight:600;}
+@media only screen and (max-width: 767px){#modalBodyPadding{ padding-left:20px; padding-right:20px;}#modalTitle{ font-size:20px}}
+
+
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+#loginDivMargin{margin-top:90px; margin-bottom:100px}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#loginDivMargin{margin-top:80px; margin-bottom:40px}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:32px; margin-left:-4px; padding-bottom:1px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #9bbce4;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+#loginDiv{padding:0px; background-color:#FFFFFF; border-radius:5px; box-shadow:0px 0px 10px gray;}
+#innerDiv{ padding:45px; height:inherit}
+@media only screen and (max-width: 767px) {#innerDiv { padding:15px; padding-top:45px; padding-bottom:45px}#loginDiv{box-shadow:0px 0px 10px;}.form-control{ height:40px}}
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#whitePage
+{
+	background-color:#cfb095; border-radius:3px; padding-bottom:15px; border:1px solid #cfb095; box-shadow:0px 0px 0px;
+}
+#createYourAccount{text-align:center; background-color:#cfb095; padding:8px; border-radius:3px; padding-top:23px;}
+#createYourRishtawebAccount{font-size:25px; font-weight:700; color:#463220;}
+@media only screen and (max-width: 767px) {#whitePage {border-radius:12px; border:1px solid #CCCCCC; box-shadow:0px 0px 12px gray;}
+#createYourRishtawebAccount{font-size:16px;} #createYourAccount{ border-radius:12px;}}
+
+.mainBody 
+{
+	background-color:#FFFFFF;
+}
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:1px solid #cfb095;
+}
+ .form-control
+{
+	border:1px solid #D2D2FF;
+	box-shadow: 0 0 0 0 ;
+}
+
+
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:14px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+ul 
+{
+  list-style-type: square;
+}
+#index{color:#999999; border:1px solid #999999; padding:5px; padding-left:10px; padding-right:10px; border-radius:3px; text-decoration:none; font-size:12px}
+
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#target a{color:#333333; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#333333; color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px){
+	.icon-bar{ border:1px solid #A00000}
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{ background-color:#FFFFFF; color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; 
+	border-radius:2px; border-radius:4px; border:1px solid #333333}
+	#navbarToggleButtonTop:hover{background-color:#FFFFFF; border-radius:3px; border:1px solid #333333; color:#333333}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+
+
+#searchIcon{ color:#D69C2F; font-size:16px; border:none; cursor:pointer; margin-top:8px; border-radius:1px;}
+#searchIcon:hover{ background-color:#FFFFFF; }
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+
+
+
+
+
+
+
+	
+@media only screen and (max-width: 800px) {#fadeshow1 {display: none;}}
+
+
+.form-control:focus 
+{
+	box-shadow:0px 0px 0px #9191FF;
+	border:2px solid #00539c;
+	border-radius:2px;
+}
+.form-control
+{
+	border:1px solid #C8C8C8;
+	box-shadow: 0 0 0 0 ;
+}
+
+.tooltip{ font-family:"Segoe UI"; padding:0px;}
+
+/*Collapse styling*/
+.coll:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:9px;}
+.coll.collapsed:after {content: "\e250";}
+
+.collAd:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:13px; margin-top:1px}
+.collAd.collapsed:after {content: "\e250"; font-size:13px; margin-top:1px}
+
+#textcolor:hover{color:#0066CC;}
+
+/*cehck box styling*/
+.checkBoxLabel {display: block; position: relative; padding-left: 35px; margin-bottom: 12px;cursor: pointer;font-size:12px; font-family:sans-serif; font-weight:500;
+-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.checkBoxLabel input { position: absolute; opacity: 0;cursor: pointer;height: 0; width: 0;}
+.checkmark { position: absolute;top: 0;left: 0;height: 20px; width: 20px; background-color: #eee;}
+.checkBoxLabel:hover input ~ .checkmark { background-color: #ccc;}
+.checkBoxLabel input:checked ~ .checkmark { background-color: white;border:1px solid lightgray;}
+.checkmark:after {content: ""; position: absolute; display: none;}
+.checkBoxLabel input:checked ~ .checkmark:after {display: block;}
+.checkBoxLabel .checkmark:after {left: 7px; top: 2px; width: 6px; height: 11px;border:1px solid #00cc00;border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg); transform: rotate(45deg);}
+  
+/*center*/
+#add{background-color:#FFFFFF; border:15px solid #FFFFFF; border-right:0px; border-radius:5px; padding:0px;}
+@media only screen and (max-width: 775px) {#add {border-right:15px solid #FFFFFF;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}  
+@media only screen and (max-width: 775px) 
+{#addBorder {border-right:10px solid #FFFFFF;} #nameBox { height:30px; background-color:#FFFFFF; line-height:30px} #detailBox{ border-top:0px;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}
+#changeCenter{border:1px solid #CCCCCC; background-color:#FFFFFF; padding:0px; border-radius:5px; padding-left:0px; padding-right:0px; margin-bottom:20px; }
+
+#hidePrefrences
+{
+	padding:0px; color:#666666; font-family:'Segoe UI'; margin-top:5px;
+	text-align:right;  text-align:left; padding-left:12px; padding-top:2px;
+}
+
+#hidePrefrencesParent:hover #hidePrefrences{  visibility: visible; opacity: 1;  }
+#aboutText{margin-right:15px; font-weight:700; font-family:'Segoe UI'; color:#00539c; margin-top:4px;}
+#namePadding{padding:5px; text-align:left; margin-top:10px; border:1px solid #EEEEEE; border-radius:5px; 
+										margin-left:auto; margin-right:auto;  padding-top:3px; width:200px; background-color:#FFFFFF }	
+#about{padding:5px; padding-left:25px; padding-right:5px;}													
+#profileId{color:#999999; font-family:'Calibri Light'; margin-top:1px; font-size:11px}
+#visitProfile{padding:6px; border:1px solid #CCCCCC; background-color:#FFFFFF; border-radius:2px; text-align:center; color:#FFFFFF; margin-bottom:10px;
+								font-weight:600; margin-top:5px; width:200px; margin-left:auto; margin-right:auto; font-family:'Segoe UI'; font-size:14px;}
+#body{background-color:#F9F9F9}		
+#advancedSearchText{color:#578CA9; text-align:center; background-color:#F3F3F3; padding-top:12px; padding-bottom:12px;
+									font-family:'Segoe UI'; font-size:16px; border-top-left-radius:5px; border-top-right-radius:5px; font-weight:700}		
+#advancedSearchBox{padding:0px; border-radius:5px; border:1px solid #CCCCCC; background-color:#FFFFFF}	
+#searchButtonHeight{border-radius:2px; font-weight:600; text-align:center;}		
+#sticky{position: -webkit-sticky; position: sticky; bottom: 0px; padding:7px; border-top:1px solid #CCCCCC; background-color:#FFFFFF; box-shadow:0px -2px 2px lightgray}
+#searchByIdBox{padding:15px; border-radius:5px; border:1px solid #CCCCCC; margin-top:0px; background-color:#FFFFFF; }
+#selectOptionText{font-size:12px; font-weight:400; color:#999999}	
+.hide-search{ display:none}	
+									
+@media only screen and (max-width: 768px) 
+{
+	#hidePrefrences{  border-left:2px solid #F4F4FF; }
+	#about{ font-size:12px; padding-left:10px;} #myselfChild{ margin-left:-40px}#aboutText{ margin-right:55px}
+	#changeCenter{ border-radius:3px; border:1px solid #C8C8C8; box-shadow:0px 0px 3px gray}
+	#leftSideBar{ display:none}
+	#namePadding{ padding:4px; height:auto; margin-top:2px; border-radius:2px; margin-bottom:2px;}
+	#hidePrefrences{  visibility: visible; opacity: 1;  }
+	#profileId{ text-align:right}
+	#visitProfile{ margin-bottom:5px;}
+	#body{background-color:#EBEBEB}		
+	#advancedSearchText{color:#FFFFFF; background-color:#89aec2; border-top-left-radius:4px; border-top-right-radius:4px; 
+		border:1px solid #89aec2; margin-bottom:20px; font-size:18px;}	
+	#advancedSearchBox{padding:0px; border-radius:5px; border:1px solid #578ca9; box-shadow:0px 0px 10px gray}		
+	#searchButtonHeight{height:45px}
+	#searchByIdBox{border:1px solid #666666; margin-bottom:25px; box-shadow:0px 0px 10px lightgray }
+	#selectOptionText{font-size:12px; font-weight:400; color:#FFFFFF; }		
+	.hide-search{ display:block}			
+}
+
+#name-tags { display:none}
+@media screen and (min-width: 900px) {
+  #name-tags {
+  	display:block;
+	font-weight:300;
+  	font-family:"Segoe UI";
+	color:#CCCCCC;
+  }
+}
+
+
+
+
+
+
+
+#changeCenter:hover { border:1px solid #B9B9B9; box-shadow:0px 0px 2px lightgray;}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+#loginDivMargin{margin-top:90px; margin-bottom:100px}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#loginDivMargin{margin-top:80px; margin-bottom:40px}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:32px; margin-left:-4px; padding-bottom:1px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #9bbce4;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+#loginDiv{padding:0px; background-color:#FFFFFF; border-radius:5px; box-shadow:0px 0px 10px gray;}
+#innerDiv{ padding:45px; height:inherit}
+@media only screen and (max-width: 767px) {#innerDiv { padding:15px; padding-top:45px; padding-bottom:45px}#loginDiv{box-shadow:0px 0px 10px;}.form-control{ height:40px}}
+
+
+
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#startConversationText1{font-size:30px; font-family:'Segoe UI'; font-weight:600; color:#333333}
+#startConversationText2{font-size:15px; font-family:'Segoe UI'; font-style:italic; color:#333333}
+#rightBorder{height:auto; border-top-left-radius:5px;  background-color:#FFFFFF; border-right:1px solid #CCCCCC;padding:0px; border-bottom:1px solid #F0F0F0}
+#hideRightSide{padding:10px; padding-top:150px; padding-bottom:150px; text-align:center}
+@media only screen and (max-width: 767px) {#startConversationText1 {font-size:30px;}#startConversationText2 {font-size:14px;} 
+#rightBorder{border-top-left-radius:6px; border-top-right-radius:6px; border-right:none}
+#hideRightSide{ display:none}}
+
+
+#singleChat
+{
+	background-color:#F9F9F9;
+}
+
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+
+
+#imagePadding{padding-left:5px}
+@media only screen and (max-width: 767px) {#imagePadding { padding-left:0px;}}
+
+
+.tooltip {
+    font-family: 'Noto Nastaliq Urdu Draft', serif;
+    font-size: 12px;
+    font-weight: normal;
+    padding:2px;
+    margin-top:-5px;
+    margin-bottom:5px;
+  
+    /* ... */
+  }
+  .tooltip-inner {
+    padding: 5px;
+    padding-bottom:10px;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 4px;
+  }
+  
+  
+  
+  #target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+  #target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+  #logoMargin{ margin-top:0px;}
+  @media only screen and (max-width: 767px)
+  {
+      #logoMargin{ margin-top:0px}
+      #navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+      #navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+  }
+  @font-face 
+  {
+      font-family: 'QanelasSoftDEMO-ExtraBold';
+      src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+  }
+  #logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+  #logoText2{color:#c48f65}
+  @media only screen and (max-width: 767px) {#logoText1{ font-size:32px; margin-left:-4px; padding-bottom:1px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+  
+  
+  
+  #createAccountNow a:hover{ background-color:#FFFFFF; color:#A00000}	
+  @media only screen and (max-width: 767px) {#fadeshow1 {display: none;}}
+  #searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+  #searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+  #navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+  #navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+  
+  
+  
+  #whitePage
+  {
+      background-color:#eae6da; border-radius:4px; padding-bottom:15px; border:10px solid #eae6da; box-shadow:0px 0px 8px gray;
+  }
+  #createYourAccount{text-align:center; background-color:#ece9df; padding:15px; border-radius:5px; padding-top:18px;}
+  #createYourRishtawebAccount{font-size:25px; font-weight:700; color:#00539c; font-family:"Segoe UI"}
+  #backPadding{ margin-top:-15px;}
+  #nextPadding{padding-right:0px}
+  #day{width:100%; height:30px; border-radius:3px; color:#666666}
+  #month{width:100%; height:30px; border-radius:3px; color:#666666}
+  #year{width:100%; height:30px; border-radius:3px; color:#666666}
+  #signUpButton{ padding:0px;}
+  #signUpButtonBack{ padding:0px;}
+  #partnerPreferenceFontSize{color:#9c6cac; text-align:center; font-family:Rubik; font-size:22px; font-weight:600}
+  #arrowPadding{padding-top:60px; padding-left:30px; text-align:center; padding-bottom:60px}
+  .block8Padding{display:none; color:#be9ec9; background-color:#F5F5F5; border-radius:5px; padding-top:20px; 
+                                  padding-bottom:20px; margin-bottom:40px; margin-top:20px;}
+  #modalFontSize{margin-top:10px; margin-bottom:20px; font-family:'Segoe UI'; font-size:16px}	
+  #urduLineHeight{line-height:35px}	
+  #iconMargin{margin-left:10px; float:right; margin-top:13px}	
+  #modalHeaderPadding{background-color:#F7F7F7; color:#004b8d; border-radius:3px;}	
+  @media only screen and (max-width: 767px) 
+  {
+      #whitePage {border-radius:8px; border:0px solid #eae6da; box-shadow:0px 0px 16px gray;}
+      #createYourRishtawebAccount{font-size:21px; font-weight:700}
+      #backPadding{ padding:0px}
+      .form-control{ height:40px}
+      #nextPadding{padding-right:15px}
+      #day{height:40px;}
+      #month{height:40px;}
+      #year{height:40px;}
+      #signUpButton{ padding:10px}
+      #signUpButtonBack{ padding:0px; margin-top:-10px; margin-left:10px}
+      #setFonts{ font-family:"Segoe UI"; font-size:12px; font-weight:normal}
+      #partnerPreferenceFontSize{font-size:16px;}
+      #arrowRight{ display:none}
+      #arrowPadding{padding-top:20px; padding-left:30px; text-align:center; padding-bottom:20px}
+      .block8Padding{ padding:16px; margin-bottom:0px; background-color:#E2E2E2}
+      #modalFontSize{ font-size:13px; margin-top:0px}
+      #urduLineHeight{line-height:25px}	
+      #iconMargin{margin-top:7px}
+      #modalHeaderPadding{ padding:8px}	
+  }
+  @media only screen and (min-width: 767px)
+  {
+      #arrowDown{ display:none}
+  }
+  @media only screen and (max-width: 1200px) 
+  {
+      #signUpButton{ padding:10px}
+      #signUpButtonBack{ padding:0px; margin-top:-10px; margin-left:10px}
+  }
+  
+  .mainBody 
+  {
+      background-color:#FFFFFF;
+  }
+  
+  .form-control:focus 
+  {
+    box-shadow: 0 0 0 0;
+    border:2px solid #00539c;
+  }
+   .form-control
+  {
+      border:2px solid #EBEBEB;
+      box-shadow: 0 0 0 0 ;
+  }
+  .pp
+  {
+      border:2px solid #8080FF;
+      box-shadow: 0 0 0 0 ;
+  }
+  
+  
+  .form-control-static
+  {
+      border:2px solid #EBEBEB;
+      box-shadow: 0 0 0 0 ;
+  }
+  .form-control-static:focus 
+  {
+    box-shadow: 0 0 0 0;
+    border:2px solid #00539c;
+  }
+  
+  option{ cursor:pointer}
+  
+  #day, #month, #year {border:2px solid #EBEBEB;} 
+  #day:focus {border:2px solid #00539c;}
+  #month:focus {border:2px solid #00539c;}
+  #year:focus {border:2px solid #00539c;}
+  
+  @font-face 
+  {
+      font-family: 'QanelasSoftDEMO-ExtraBold';
+      src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+  }
+  #target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:10px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+#whitePage
+{
+	padding:0px; padding-bottom:150px; border:1px solid #BCBCBC; border-radius:5px; box-shadow:0px 0px 15px #E1E1E1; background-color:#FFFFFF; padding-top:0px
+}
+#whitePageChild1{font-family:Verdana; font-size:30px; color:#006e6d; text-align:center; margin-bottom:10px; font-weight:600}
+#whitePageChild2{font-family:Verdana; font-size:12px; color:#006e6d; text-align:center; margin-bottom:30px;}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:8px; border:1px solid #999999; padding-left:10px; padding-right:10px;box-shadow:0px 0px 8px gray;}
+	#whitePageChild1{font-size:25px; font-family:"Segoe UI"; font-weight:600}
+	#whitePageChild2{font-size:11px;}
+}
+
+.mainBody 
+{
+	background-color:#FFFFFF;
+}
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #009996;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+.myclass {
+    position:relative;
+  }
+  
+  .owl-carousel .owl-nav button.owl-prev, .owl-carousel  .owl-nav button.owl-next {
+      height:25px;
+      color:#999999;
+      font-size:12px;
+      padding:2px;
+      padding-top:4px;
+      width:60px;
+      left:0;
+      top: 0px;
+      border:1px solid #CCCCCC;
+  }
+  
+  button.owl-next:hover{ background-color:#FF0000}
+  
+   
+   
+  #target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:12px} li{margin:7px; margin-left:5px;}
+  #target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+  
+  @media only screen and (max-width: 767px)
+  {
+      #logoMargin{ padding-top:4px;}
+      #navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+      #navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+  }
+  @font-face 
+  {
+      font-family: 'QanelasSoftDEMO-ExtraBold';
+      src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+  }
+  @font-face 
+  {
+      font-family: 'Dosis-Bold';
+      src: url('../fons/Dosis-Bold.ttf');
+  }
+  #logoText1{font-size:42px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+  #logoText2{color:#c48f65}
+  @media only screen and (max-width: 767px) {#logoText1{ font-size:32px;}}
+  
+  
+  
+  #createAccountNow a:hover{ background-color:#FFFFFF; color:#A00000; border-radius:1px;}	
+  @media only screen and (max-width: 767px) {#fadeshow1 {display: none;}}
+  #searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+  #searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+  #navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+  #navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+  
+  
+  
+  
+  #imageText{font-size:30px; color:#7e621b; font-family:"Dosis-Bold"; font-weight:600;}
+  @media only screen and (max-width: 767px) {#imageText { font-size:13px;}}
+  #imageText2{font-size:15px; color:#7e621b; font-style:italic; font-family:"Comic Sans MS";}
+  @media only screen and (max-width: 767px) {#imageText2 { font-size:8px;}}
+  #gatewayText{position:absolute; top:15%; left:0; width:100%; text-align:center; font-size:36px; color:#707573; font-weight:800; font-family:'Segoe UI';}	
+  @media only screen and (max-width: 767px) {#gatewayText { font-size:18px; top:40%;}}
+  #gatewayText2{font-size:16px; color:#898e8c; font-weight:500; font-family:'Segoe UI';}	
+  @media only screen and (max-width: 767px) {#gatewayText2 { font-size:10px;}}
+  #connect:hover{ border:1px solid #CCCCCC}
+  
+  #bodyCenter{padding:0px; margin-top:55px}
+  #centerLinks{position:absolute; top:35%; padding:0px; text-align:center; left:26%; right:26%; display:none}
+  #imageCenterText2{position:absolute; top:30%; padding:0px; text-align:center; left:25%; right:25%; }
+  .location_icon{padding-left:10px; padding-top:30px; word-wrap:break-word; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+  @media only screen and (min-width: 768px) and (max-width: 992px)  {
+        .location_icon{padding:10px;}
+      }
+  @media only screen and (max-width: 1050px)
+  {
+      #imageCenterText2{left:20%;right:20%; }
+      
+  }
+  #modalFontSize{margin-top:10px; margin-bottom:20px; font-family:'Segoe UI'; font-size:18px}	
+  #modalHeaderPadding{background-color:#a00000; color:#FFFFFF; border-radius:1px;}
+  #urduLineHeight{line-height:35px}	
+  .modal-title-text{text-align:center; font-weight:700; font-family:'Segoe UI'; font-size:30px}	
+  @media only screen and (max-width: 767px)
+  {
+      #bodyCenter{ margin-top:53px}#centerLinks{ display:block;}#imageCenterText2{ display:none}
+      #hideImage1{ display:none}
+      #modalFontSize{ font-size:13px; margin-top:0px}
+      #modalFontSize{ font-size:13px; margin-top:0px}
+      #urduLineHeight{line-height:25px}	
+      .modal-title-text{text-align:center; font-weight:700; font-family:'Segoe UI'; font-size:25px}	
+      
+  }
+  @media only screen and (min-width: 767px)
+  {
+      #hideImage2{ display:none}
+  }
+  #createAccountNowText{display:inherit; border:1px solid #c09672; background-color: rgba(207,176,149,0.6); padding-top:8px; padding-bottom:8px; border-radius:4px; 
+  font-family:'Segoe UI'; font-weight:700; font-size:15px; color:#006E6D; margin-bottom:5px}
+  #createAccountNowText:hover{ background-color: rgba(207,176,149,0.9); color:#F3F3F3}
+  #logoText3{color:#695830; font-weight:600; font-size:15px;}
+  #logoText3:hover{ color:#F8F8F8}
+  
+  .form-control:focus 
+  {
+    box-shadow: 0 0 0 0;
+    border:2px solid #00539c;
+  }
+
+  #target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#hideBorder{border-radius:2px; border:1px solid #F9F9F9; padding-left:20px}
+#leftBorder{border-left:1px solid #F9F9F9; padding:0px}
+@media only screen and (max-width: 1200px) {#hideSpace { display:none;}#leftBorder{ border:1px solid #f0ede5; } #hideBorder{border:1px solid #f0ede5;}}
+
+#whitePage
+{
+	background-color:#f0ede5; border:1px solid #B4B4B4; padding:10px; margin-top:45px; margin-bottom:100px; padding:20px; box-shadow:0px 0px 2px gray; border-radius:3px;
+}
+#writeFewLines{font-size:16px; color:#dd4132; font-family:'Segoe UI'; padding:10px; background-color:#EEEEEE; }
+#pageTop{background-color:#f0ede5; }
+@media only screen and (max-width: 1197px) {#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}
+	#writeFewLines{font-size:13px; }
+	#pageTop{margin-top:30px; margin-bottom:20px; border:1px solid #CCCCCC; box-shadow:0px 0px 8px; border-radius:12px}
+}
+
+
+#firstIcon{height:40px; width:40px; border-radius:50%; background-color:#5a7247; padding:13px; margin-left:-8px}
+#firstIconChild{color:#FFFFFF; font-size:14px}
+#secondIcon{height:40px; width:40px; border-radius:50%; background-color:#755139; padding:13px; text-align:center; margin-left:-8px}
+#secondIconChild{color:#FFFFFF; font-size:14px}
+#thirdIcon{height:40px; width:40px; border-radius:50%; background-color:#2E4A62; padding:10px; text-align:center; margin-left:-8px}
+#thirdIconChild{color:#FFFFFF; font-size:18px}
+#fourthIcon{height:40px; width:40px; border-radius:50%; background-color:#408080; padding:10px; text-align:center; margin-left:-8px}
+#fourthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#fifthIcon{height:40px; width:40px; border-radius:50%; background-color:#c48f65; text-align:center; padding-top:11px; padding-left:6px; margin-left:-8px}
+#fifthIconChild{font-size:16px; color:#FFFFFF}
+#sixthIcon{height:40px; width:40px; border-radius:50%; background-color:#6b5b95; padding:10px; padding-left:11px; text-align:center; margin-left:-8px}
+#sixthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#showHideProfile{font-size:26px; font-weight:600; color:#4f84c4; padding-top:10px; padding-bottom:10px; border-radius:2px;}
+#settingBorder{margin-left:auto; margin-right:auto; padding:3px; width:155px; color:#a9754f;
+														border:1px solid #CCCCCC; border-radius:6px; text-align:center; margin-top:12px}
+#buttonColor{padding:5px; border:1px solid #E1E1E1; border-radius:2px; font-size:12px; font-family:Tahoma; margin-top:5px}														
+@media only screen and (max-width: 767px) 
+{
+	#firstIcon{height:32px; width:32px; padding:10px;}
+	#firstIconChild{font-size:12px}
+	#secondIcon{height:32px; width:32px; padding:10px;}
+	#secondIconChild{font-size:13px}
+	#thirdIcon{height:32px; width:32px; padding:9px;}
+	#thirdIconChild{font-size:14px}
+	#fourthIcon{height:32px; width:32px; padding:8px;}
+	#fourthIconChild{font-size:14px}
+	#fifthIcon{height:32px; width:32px; padding:10px;}
+	#fifthIconChild{font-size:13px}
+	#sixthIcon{height:32px; width:32px; padding:8px;}
+	#sixthIconChild{font-size:14px}
+	#showHideProfile{font-size:18px;}
+	#settingBorder{border:none; color:#666666; padding:0px; margin-top:15px}
+}
+
+
+#buttonColor:hover{ background-color:#E9E9E9}
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #00539c;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+
+
+
+.modal-dialog {
+  position:absolute;
+  top:50% !important;
+  transform: translate(0, -50%) !important;
+  -ms-transform: translate(0, -50%) !important;
+  -webkit-transform: translate(0, -50%) !important;
+  margin:auto 0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.modal-content {
+  min-height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0; 
+}
+.modal-body {
+  position:absolute;
+  top:45px; /** height of header **/
+  bottom:45px;  /** height of footer **/
+  left:0;
+  right:0;
+  overflow-y:auto;
+}
+.modal-footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:14px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#loggedInText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#loggedInText1{color:#c48f65}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) 
+{
+	#loggedInText1{ font-size:32px; margin-left:-4px; padding-bottom:1px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}
+	#logoText1{ font-size:26px; margin-top:9px}
+}
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+ul 
+{
+  list-style-type: square;
+}
+#index{color:#999999; border:1px solid #CCCCCC; padding:5px; padding-left:10px; padding-right:10px; border-radius:2px; text-decoration:none; font-size:12px}
+
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+#loginDivMargin{margin-top:90px; margin-bottom:100px}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#loginDivMargin{margin-top:80px; margin-bottom:40px}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:32px; margin-left:-4px; padding-bottom:1px }#logoTextMargin{margin-left:4px; padding-top:4px; padding-bottom:4px;}}
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #9bbce4;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+#loginDiv{padding:0px; background-color:#FFFFFF; border-radius:5px; box-shadow:0px 0px 10px gray;}
+#innerDiv{ padding:45px; height:inherit}
+@media only screen and (max-width: 767px) {#innerDiv { padding:15px; padding-top:45px; padding-bottom:45px}#loginDiv{box-shadow:0px 0px 10px;}.form-control{ height:40px}}
+
+
+#target a{color:#333333; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#333333; color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px){
+	.icon-bar{ border:1px solid #A00000}
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{ background-color:#FFFFFF; color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; 
+	border-radius:2px; border-radius:4px; border:1px solid #333333}
+	#navbarToggleButtonTop:hover{background-color:#FFFFFF; border-radius:3px; border:1px solid #333333; color:#333333}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+
+
+#searchIcon{ color:#D69C2F; font-size:16px; border:none; cursor:pointer; margin-top:8px; border-radius:1px;}
+#searchIcon:hover{ background-color:#FFFFFF; }
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+
+
+
+
+
+
+
+	
+@media only screen and (max-width: 800px) {#fadeshow1 {display: none;}}
+
+
+.form-control:focus 
+{
+	box-shadow:0px 0px 0px #9191FF;
+	border:2px solid #00539c;
+	border-radius:2px;
+}
+.form-control
+{
+	border:1px solid #C8C8C8;
+	box-shadow: 0 0 0 0 ;
+}
+
+.tooltip{ font-family:"Segoe UI"; padding:0px;}
+
+/*Collapse styling*/
+.coll:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:9px;}
+.coll.collapsed:after {content: "\e250";}
+
+.collAd:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:13px; margin-top:1px}
+.collAd.collapsed:after {content: "\e250"; font-size:13px; margin-top:1px}
+
+#textcolor:hover{color:#0066CC;}
+
+/*cehck box styling*/
+.checkBoxLabel {display: block; position: relative; padding-left: 35px; margin-bottom: 12px;cursor: pointer;font-size:12px; font-family:sans-serif; font-weight:500;
+-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.checkBoxLabel input { position: absolute; opacity: 0;cursor: pointer;height: 0; width: 0;}
+.checkmark { position: absolute;top: 0;left: 0;height: 20px; width: 20px; background-color: #eee;}
+.checkBoxLabel:hover input ~ .checkmark { background-color: #ccc;}
+.checkBoxLabel input:checked ~ .checkmark { background-color: white;border:1px solid lightgray;}
+.checkmark:after {content: ""; position: absolute; display: none;}
+.checkBoxLabel input:checked ~ .checkmark:after {display: block;}
+.checkBoxLabel .checkmark:after {left: 7px; top: 2px; width: 6px; height: 11px;border:1px solid #00cc00;border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg); transform: rotate(45deg);}
+  
+/*center*/
+#add{background-color:#FFFFFF; border:15px solid #FFFFFF; border-right:0px; border-radius:5px; padding:0px;}
+@media only screen and (max-width: 775px) {#add {border-right:15px solid #FFFFFF;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}  
+@media only screen and (max-width: 775px) 
+{#addBorder {border-right:10px solid #FFFFFF;} #nameBox { height:30px; background-color:#FFFFFF; line-height:30px} #detailBox{ border-top:0px;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}
+#changeCenter{border:1px solid #CCCCCC; background-color:#FFFFFF; padding:0px; border-radius:5px; padding-left:0px; padding-right:0px; margin-bottom:20px; }
+
+#hidePrefrences
+{
+	padding:0px; color:#666666; font-family:'Segoe UI'; margin-top:5px;
+	text-align:right;  text-align:left; padding-left:12px; padding-top:2px;
+}
+
+#hidePrefrencesParent:hover #hidePrefrences{  visibility: visible; opacity: 1;  }
+#aboutText{margin-right:15px; font-weight:700; font-family:'Segoe UI'; color:#00539c; margin-top:4px;}
+#namePadding{padding:5px; text-align:left; margin-top:10px; border:1px solid #EEEEEE; border-radius:5px; 
+										margin-left:auto; margin-right:auto;  padding-top:3px; width:200px; background-color:#FFFFFF }	
+#about{padding:5px; padding-left:25px; padding-right:5px;}													
+#profileId{color:#999999; font-family:'Calibri Light'; margin-top:1px; font-size:11px}
+#visitProfile{padding:6px; border:1px solid #CCCCCC; background-color:#FFFFFF; border-radius:2px; text-align:center; color:#FFFFFF; margin-bottom:10px;
+								font-weight:600; margin-top:5px; width:200px; margin-left:auto; margin-right:auto; font-family:'Segoe UI'; font-size:14px;}
+#body{background-color:#F9F9F9}		
+#advancedSearchText{color:#578CA9; text-align:center; background-color:#F3F3F3; padding-top:12px; padding-bottom:12px;
+									font-family:'Segoe UI'; font-size:16px; border-top-left-radius:5px; border-top-right-radius:5px; font-weight:700}		
+#advancedSearchBox{padding:0px; border-radius:5px; border:1px solid #CCCCCC; background-color:#FFFFFF}	
+#searchButtonHeight{border-radius:2px; font-weight:600; text-align:center;}		
+#sticky{position: -webkit-sticky; position: sticky; bottom: 0px; padding:7px; border-top:1px solid #CCCCCC; background-color:#FFFFFF; box-shadow:0px -2px 2px lightgray}
+#searchByIdBox{padding:15px; border-radius:5px; border:1px solid #CCCCCC; margin-top:0px; background-color:#FFFFFF; }
+#selectOptionText{font-size:12px; font-weight:400; color:#999999}	
+.hide-search{ display:none}	
+									
+@media only screen and (max-width: 768px) 
+{
+	#hidePrefrences{  border-left:2px solid #F4F4FF; }
+	#about{ font-size:12px; padding-left:10px;} #myselfChild{ margin-left:-40px}#aboutText{ margin-right:55px}
+	#changeCenter{ border-radius:3px; border:1px solid #C8C8C8; box-shadow:0px 0px 3px gray}
+	#leftSideBar{ display:none}
+	#namePadding{ padding:4px; height:auto; margin-top:2px; border-radius:2px; margin-bottom:2px;}
+	#hidePrefrences{  visibility: visible; opacity: 1;  }
+	#profileId{ text-align:right}
+	#visitProfile{ margin-bottom:5px;}
+	#body{background-color:#EBEBEB}		
+	#advancedSearchText{color:#FFFFFF; background-color:#89aec2; border-top-left-radius:4px; border-top-right-radius:4px; 
+		border:1px solid #89aec2; margin-bottom:20px; font-size:18px;}	
+	#advancedSearchBox{padding:0px; border-radius:5px; border:1px solid #578ca9; box-shadow:0px 0px 10px gray}		
+	#searchButtonHeight{height:45px}
+	#searchByIdBox{border:1px solid #666666; margin-bottom:25px; box-shadow:0px 0px 10px lightgray }
+	#selectOptionText{font-size:12px; font-weight:400; color:#FFFFFF; }		
+	.hide-search{ display:block}			
+}
+
+#name-tags { display:none}
+@media screen and (min-width: 900px) {
+  #name-tags {
+  	display:block;
+	font-weight:300;
+  	font-family:"Segoe UI";
+	color:#CCCCCC;
+  }
+}
+
+
+
+
+
+
+
+#changeCenter:hover { border:1px solid #B9B9B9; box-shadow:0px 0px 2px lightgray;}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+
+
+#searchIcon{ color:#D69C2F; font-size:16px; border:none; cursor:pointer; margin-top:8px; border-radius:1px;}
+#searchIcon:hover{ background-color:#FFFFFF; }
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+
+
+
+
+
+
+
+
+	
+@media only screen and (max-width: 800px) {#fadeshow1 {display: none;}}
+
+
+.form-control:focus 
+{
+	box-shadow:0px 0px 0px #9191FF;
+	border:2px solid #00539c;
+	border-radius:2px;
+}
+.form-control
+{
+	border:1px solid #C8C8C8;
+	box-shadow: 0 0 0 0 ;
+}
+
+.tooltip{ font-family:"Segoe UI"; padding:0px;}
+
+/*Collapse styling*/
+.coll:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:9px;}
+.coll.collapsed:after {content: "\e250";}
+
+.collAd:after {font-family: "Glyphicons Halflings"; content: "\e252";float: right; font-size:13px; margin-top:1px}
+.collAd.collapsed:after {content: "\e250"; font-size:13px; margin-top:1px}
+
+#textcolor:hover{color:#0066CC;}
+
+/*cehck box styling*/
+.checkBoxLabel {display: block; position: relative; padding-left: 35px; margin-bottom: 12px;cursor: pointer;font-size:12px; font-family:sans-serif; font-weight:500;
+-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.checkBoxLabel input { position: absolute; opacity: 0;cursor: pointer;height: 0; width: 0;}
+.checkmark { position: absolute;top: 0;left: 0;height: 20px; width: 20px; background-color: #eee;}
+.checkBoxLabel:hover input ~ .checkmark { background-color: #ccc;}
+.checkBoxLabel input:checked ~ .checkmark { background-color: white;border:1px solid lightgray;}
+.checkmark:after {content: ""; position: absolute; display: none;}
+.checkBoxLabel input:checked ~ .checkmark:after {display: block;}
+.checkBoxLabel .checkmark:after {left: 7px; top: 2px; width: 6px; height: 11px;border:1px solid #00cc00;border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg); transform: rotate(45deg);}
+  
+/*center*/
+#add{background-color:#FFFFFF; border:15px solid #FFFFFF; border-right:0px; border-radius:5px; padding:0px;}
+@media only screen and (max-width: 775px) {#add {border-right:15px solid #FFFFFF;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}  
+@media only screen and (max-width: 775px) 
+{#addBorder {border-right:10px solid #FFFFFF;} #nameBox { height:30px; background-color:#FFFFFF; line-height:30px} #detailBox{ border-top:0px;}}
+#text{overflow-wrap:break-word;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#connectbtn :hover{ background-color:#eda978;}
+#changeCenter{border:1px solid #CCCCCC; background-color:#FFFFFF; padding:0px; border-radius:8px; padding-left:0px; padding-right:0px; margin-bottom:20px; }
+
+#hidePrefrences
+{
+	padding:0px; color:#666666; font-family:'Segoe UI'; border-left:2px solid #E6E6FF; margin-top:5px;
+	text-align:right;  text-align:left; padding-left:12px; padding-top:2px;
+}
+
+#hidePrefrencesParent:hover #hidePrefrences{  visibility: visible; opacity: 1;  }
+#aboutText{margin-right:15px; font-weight:600; font-family:'Segoe UI'; color:#00539c; margin-top:4px;}
+#namePadding{padding:0px; text-align:center; margin-top:10px; border:1px solid #EEEEEE; border-radius:5px; font-size:16px;
+										margin-left:auto; margin-right:auto; padding:3px; padding-top:11px; padding-bottom:11px; width:155px; margin-bottom:15px }	
+#about{padding:5px; padding-left:25px; padding-right:5px;}													
+#profileId{color:#999999; font-family:'Calibri Light'; margin-top:1px; font-size:11px}
+#visitProfile{padding:6px; border:1px solid #7da046; background-color:#92b558; border-radius:2px; text-align:center; color:#FFFFFF; margin-bottom:10px;
+								font-weight:600; margin-top:5px; width:155px; margin-left:auto; margin-right:auto; font-family:'Segoe UI'; font-size:14px;}
+#body{background-color:#F0F0F0}		
+#advancedSearchText{color:#578CA9; text-align:center; background-color:#F3F3F3; padding-top:12px; padding-bottom:12px;
+									font-family:'Segoe UI'; font-size:16px; border-top-left-radius:8px; border-top-right-radius:8px; font-weight:700}		
+#advancedSearchBox{padding:0px; border-radius:8px; border:1px solid #CCCCCC; background-color:#FFFFFF}	
+#searchButtonHeight{border-radius:2px; font-weight:600; text-align:center;}		
+#sticky{position: -webkit-sticky; position: sticky; bottom: 0px; padding:7px; border-top:1px solid #CCCCCC; background-color:#FFFFFF; box-shadow:0px -2px 2px lightgray}
+#searchByIdBox{padding:15px; border-radius:8px; border:1px solid #CCCCCC; margin-top:0px; background-color:#FFFFFF; }
+#selectOptionText{font-size:12px; font-weight:400; color:#999999}
+#RightSideBar{padding:10px; padding-top:5px; display:block}												
+@media only screen and (max-width: 775px) 
+{
+	#hidePrefrences{  border-left:2px solid #F4F4FF; }
+	#about{ font-size:12px; padding-left:10px;} #myselfChild{ margin-left:-40px}#aboutText{ margin-right:55px}
+	#changeCenter{ border-radius:8px; border:1px solid #C8C8C8; box-shadow:0px 0px 3px gray}
+	#leftSideBar{ display:none}
+	#namePadding{ padding:4px; height:auto; margin-top:5px; border-radius:2px; margin-bottom:5px;}
+	#hidePrefrences{  visibility: visible; opacity: 1;  }
+	#profileId{ text-align:right}
+	#visitProfile{ margin-bottom:5px;}
+	#body{background-color:#EBEBEB}		
+	#advancedSearchText{color:#FFFFFF; background-color:#89aec2; border-top-left-radius:8px; border-top-right-radius:8px; 
+		border:1px solid #89aec2; margin-bottom:20px; font-size:18px;}	
+	#advancedSearchBox{padding:0px; border-radius:8px; border:1px solid #578ca9; box-shadow:0px 0px 10px gray}		
+	#searchButtonHeight{height:45px}
+	#searchByIdBox{border:1px solid #999999; margin-bottom:25px; box-shadow:0px 0px 10px lightgray }
+	#selectOptionText{font-size:12px; font-weight:400; color:#FFFFFF; }	
+	#RightSideBar{display:none}		
+}
+
+
+
+
+
+
+
+
+
+#changeCenter:hover { border:1px solid lightgray; box-shadow:0px 0px 8px lightgray;}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+
+#createAccountNow a:hover{ background-color:#FFFFFF; color:#A00000}	
+@media only screen and (max-width: 767px) {#fadeshow1 {display: none;}}
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#hideBorder{border-radius:2px; border:1px solid #F9F9F9; padding-left:20px}
+#leftBorder{border-left:1px solid #F9F9F9; padding:0px}
+@media only screen and (max-width: 1200px) {#hideSpace { display:none;}#leftBorder{ border:1px solid #f0ede5; } #hideBorder{border:1px solid #f0ede5;}}
+
+#whitePage
+{
+	background-color:#f0ede5; border:1px solid #CCCCCC; padding:10px; margin-top:45px; margin-bottom:100px; padding:20px; box-shadow:0px 0px 5px lightgray;
+}
+#writeFewLines{font-size:16px; color:#dd4132; font-family:'Segoe UI'; padding:10px; background-color:#EEEEEE;border-radius:3px;}
+#pageTop{background-color:#f0ede5;}
+#lessPadding{padding:40px; border-radius:5px;  box-shadow:0px 0px 5px 1px gray; background-color:#FFFFFF; padding-bottom:60px; padding-top:30px}
+#lessPaddingText{font-family:'Segoe UI'; font-size:22px; font-weight:700; color:#00539c}
+@media only screen and (max-width: 1197px) {#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}
+	#writeFewLines{font-size:13px; }
+	#pageTop{margin-top:30px; margin-bottom:20px; border:1px solid #CCCCCC; box-shadow:0px 0px 10px; border-radius:10px}
+	#lessPadding{ padding:20px}
+	#lessPaddingText{ font-size:18px; font-weight:600}
+}
+
+
+#firstIcon{height:40px; width:40px; border-radius:50%; background-color:#5a7247; padding:13px; margin-left:-8px}
+#firstIconChild{color:#FFFFFF; font-size:14px}
+#secondIcon{height:40px; width:40px; border-radius:50%; background-color:#755139; padding:13px; text-align:center; margin-left:-8px}
+#secondIconChild{color:#FFFFFF; font-size:14px}
+#thirdIcon{height:40px; width:40px; border-radius:50%; background-color:#ad5290; padding:10px; text-align:center; margin-left:-8px}
+#thirdIconChild{color:#FFFFFF; font-size:18px}
+#fourthIcon{height:40px; width:40px; border-radius:50%; background-color:#408080; padding:10px; text-align:center; margin-left:-8px}
+#fourthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#fifthIcon{height:40px; width:40px; border-radius:50%; background-color:#c48f65; text-align:center; padding-top:11px; padding-left:6px; margin-left:-8px}
+#fifthIconChild{font-size:16px; color:#FFFFFF}
+#sixthIcon{height:40px; width:40px; border-radius:50%; background-color:#6b5b95; padding:10px; padding-left:11px; text-align:center; margin-left:-8px}
+#sixthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+@media only screen and (max-width: 767px) 
+{
+	#firstIcon{height:32px; width:32px; padding:10px;}
+	#firstIconChild{font-size:12px}
+	#secondIcon{height:32px; width:32px; padding:10px;}
+	#secondIconChild{font-size:13px}
+	#thirdIcon{height:32px; width:32px; padding:9px;}
+	#thirdIconChild{font-size:14px}
+	#fourthIcon{height:32px; width:32px; padding:8px;}
+	#fourthIconChild{font-size:14px}
+	#fifthIcon{height:32px; width:32px; padding:10px;}
+	#fifthIconChild{font-size:13px}
+	#sixthIcon{height:32px; width:32px; padding:8px;}
+	#sixthIconChild{font-size:14px}
+}
+
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #00539c;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+
+
+
+.modal-dialog {
+  position:absolute;
+  top:50% !important;
+  transform: translate(0, -50%) !important;
+  -ms-transform: translate(0, -50%) !important;
+  -webkit-transform: translate(0, -50%) !important;
+  margin:auto 0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.modal-content {
+  min-height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0; 
+}
+.modal-body {
+  position:absolute;
+  top:45px; /** height of header **/
+  bottom:45px;  /** height of footer **/
+  left:0;
+  right:0;
+  overflow-y:auto;
+}
+.modal-footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+#createAccountNow a:hover{ background-color:#FFFFFF; color:#A00000}	
+@media only screen and (max-width: 767px) {#fadeshow1 {display: none;}}
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#hideBorder{border-radius:2px; border:1px solid #F9F9F9; padding-left:20px}
+#leftBorder{border-left:1px solid #F9F9F9; padding:0px}
+@media only screen and (max-width: 1200px) {#hideSpace { display:none;}#leftBorder{ border:1px solid #f0ede5; } #hideBorder{border:1px solid #f0ede5;}}
+
+#whitePage
+{
+	background-color:#f0ede5; border:1px solid #CCCCCC; padding:10px; margin-top:45px; margin-bottom:100px; padding:20px; box-shadow:0px 0px 5px lightgray;
+}
+#writeFewLines{font-size:16px; color:#dd4132; font-family:'Segoe UI'; padding:10px; background-color:#EEEEEE;border-radius:3px;}
+#pageTop{background-color:#f0ede5;}
+@media only screen and (max-width: 1197px) {#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}
+	#writeFewLines{font-size:13px; }
+	#pageTop{margin-top:30px; margin-bottom:20px; border:1px solid #CCCCCC; box-shadow:0px 0px 10px; border-radius:10px}
+}
+
+
+#firstIcon{height:40px; width:40px; border-radius:50%; background-color:#5a7247; padding:13px; margin-left:-8px}
+#firstIconChild{color:#FFFFFF; font-size:14px}
+#secondIcon{height:40px; width:40px; border-radius:50%; background-color:#755139; padding:13px; text-align:center; margin-left:-8px}
+#secondIconChild{color:#FFFFFF; font-size:14px}
+#thirdIcon{height:40px; width:40px; border-radius:50%; background-color:#ad5290; padding:10px; text-align:center; margin-left:-8px}
+#thirdIconChild{color:#FFFFFF; font-size:18px}
+#fourthIcon{height:40px; width:40px; border-radius:50%; background-color:#408080; padding:10px; text-align:center; margin-left:-8px}
+#fourthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#fifthIcon{height:40px; width:40px; border-radius:50%; background-color:#c48f65; text-align:center; padding-top:11px; padding-left:6px; margin-left:-8px}
+#fifthIconChild{font-size:16px; color:#FFFFFF}
+#sixthIcon{height:40px; width:40px; border-radius:50%; background-color:#6b5b95; padding:10px; padding-left:11px; text-align:center; margin-left:-8px}
+#sixthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#sticky{position: -webkit-sticky;position: sticky;top:55px;z-index:2;}
+#setNavbar{padding:0px; position:fixed; z-index:2; box-shadow:0px 0px 5px}
+@media only screen and (max-width: 767px) 
+{
+	#firstIcon{height:32px; width:32px; padding:10px;}
+	#firstIconChild{font-size:12px}
+	#secondIcon{height:32px; width:32px; padding:10px;}
+	#secondIconChild{font-size:13px}
+	#thirdIcon{height:32px; width:32px; padding:9px;}
+	#thirdIconChild{font-size:14px}
+	#fourthIcon{height:32px; width:32px; padding:8px;}
+	#fourthIconChild{font-size:14px}
+	#fifthIcon{height:32px; width:32px; padding:10px;}
+	#fifthIconChild{font-size:13px}
+	#sixthIcon{height:32px; width:32px; padding:8px;}
+	#sixthIconChild{font-size:14px}
+	#sticky{position: -webkit-sticky;position: sticky;top:0px;z-index:2;}
+	#setNavbar{padding:0px; position:absolute; z-index:2; box-shadow:0px 0px 5px}
+}
+
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 4px #F5F5F5;
+  border:2px solid #F5F5F5;
+}
+ .form-control
+{
+	
+	border:2px solid #F5F5F5;
+	box-shadow: 0 0 0 0 ;
+}
+
+
+
+
+
+.modal-dialog {
+  position:absolute;
+  top:50% !important;
+  transform: translate(0, -50%) !important;
+  -ms-transform: translate(0, -50%) !important;
+  -webkit-transform: translate(0, -50%) !important;
+  margin:auto 0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.modal-content {
+  min-height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0; 
+}
+.modal-body {
+  position:absolute;
+  top:45px; /** height of header **/
+  bottom:45px;  /** height of footer **/
+  left:0;
+  right:0;
+  overflow-y:auto;
+}
+.modal-footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+#target a{color:#FFFFFF; font-weight:bolder; font-size:15px; padding:10px} li{margin:7px; margin-left:5px;}
+#target a:hover{background-color:#800000;color:#FFFFFF; border-radius:3px;}	
+#logoMargin{ margin-top:0px;}
+#modalMargin{box-shadow:0px 0px 50px ; border-radius:6px; border:10px solid #f0ede5; margin-top:0px; padding:0px; 
+									padding-bottom:45px; padding-top:0px;}
+#modalPaddingInner{margin:15px; border-radius:5px; padding:10px;}									
+@media only screen and (max-width: 767px)
+{
+	#logoMargin{ margin-top:0px}
+	#navbarToggleButtonTop{color:#FFFFFF; font-size:24px; border:none; padding:10px; margin-top:5px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTop:hover{background-color:#A00000; color:#FFFFFF; border-radius:3px;}	
+	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
+	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
+	#modalMargin{ margin-top:0px; padding-top:0px}
+	#modalMarginTop{ margin:0px; padding:0px; }
+	#modalPaddingInner{margin:5px; border-radius:2px; padding:0px; padding-left:5px; padding-right:5px}		
+}
+@font-face 
+{
+    font-family: 'QanelasSoftDEMO-ExtraBold';
+    src: url('../fonts/QanelasSoftDEMO-ExtraBold.otf');
+}
+#logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
+#logoText2{color:#c48f65}
+@media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
+
+
+
+#createAccountNow a:hover{ background-color:#FFFFFF; color:#A00000}	
+@media only screen and (max-width: 767px) {#fadeshow1 {display: none;}}
+#searchIcon{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px;}
+#searchIcon:hover{ background-color:#FFFFFF; color:#A00000}
+#navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
+#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+
+
+#hideBorder{border-radius:2px; border:1px solid #F9F9F9; padding-left:20px}
+#leftBorder{border-left:1px solid #F9F9F9; padding:0px}
+@media only screen and (max-width: 1200px) {#hideSpace { display:none;}#leftBorder{ border:1px solid #f0ede5; } #hideBorder{border:1px solid #f0ede5;}}
+
+#whitePage
+{
+	background-color:#FFFFFF; border:1px solid #BFBFBF;  margin-top:15px; padding:20px; box-shadow:0px 0px 5px lightgray; border-radius:5px;
+}
+#writeFewLines{font-size:16px; color:#dd4132; font-family:'Segoe UI'; padding:10px; background-color:#EEEEEE; border-radius:3px;}
+#pageTop{background-color:#f0ede5;}
+#connectWith{font-size:22px; font-weight:600; margin-top:12px; color:#5fad38}
+#iconPadding{ padding:0px;}
+#iconPaddingRight{font-size:19px; font-family:'Segoe UI'; padding-bottom:30px;
+											font-weight:600; margin-bottom:5px; color:#666666; padding:0px; padding-top:1px;}
+#startConversation{background-color:#F0F0FF; text-align:center; padding-top:40px; padding-bottom:40px; margin-top:0px; 
+															border-bottom:10px solid #E1E1FF; border-radius:3px; margin-bottom:20px; }	
+#imagePaddingBottom{padding:0px; padding-top:30px; padding-bottom:30px}	
+#sendMessageTo{	font-family:'Segoe UI'; font-size:22px; font-weight:600; margin-bottom:5px; color:#5fad38;}	
+#basicDetailsPadding{ padding:0px; padding-top:30px; padding-right:20px }
+#imageDimensions{margin-left:auto; margin-right:auto; height:180px; width:180px; border:5px solid #FFFFFF ; border-radius:8px; padding:0px; box-shadow:0px 0px 5px gray}																							
+@media only screen and (max-width: 1197px) {#whitePage {border-radius:10px; margin-top:12px; box-shadow:0px 0px 0px lightgray; border:none;  margin-bottom:0px}}
+@media only screen and (max-width: 767px) 
+{
+	#whitePage {border-radius:14px; margin-top:0px; box-shadow:0px 0px 5px; border:1px solid #CCCCCC;   margin-bottom:0px; background-color:#FDFDFF; padding:0px}
+	#writeFewLines{font-size:13px; }
+	#pageTop{margin-top:30px; margin-bottom:20px; border:1px solid #CCCCCC; box-shadow:0px 0px 10px; border-radius:10px}
+	#connectWith{ font-size:18px}
+	#iconPaddingRight{padding-left:12px;}
+
+	#startConversation{padding-top:10px; padding-bottom:20px; }
+	#imagePaddingBottom{padding:0px; padding-top:20px; padding-bottom:0px}	
+	#sendMessageTo{ font-size:16px; font-weight:700}	
+	#basicDetailsPadding{padding:5px; padding-top:20px; }	
+	#imageDimensions{margin-left:auto; margin-right:auto; height:auto; width:96%; margin-top:-9px; border:5px solid #FFFFFF; border-radius:6px; padding:0px; 
+	box-shadow:0px 0px 5px gray}			
+}
+
+
+#firstIcon{height:40px; width:40px; border-radius:50%; background-color:#5a7247; padding:13px; margin-left:-8px}
+#firstIconChild{color:#FFFFFF; font-size:14px}
+#secondIcon{height:40px; width:40px; border-radius:50%; background-color:#755139; padding:13px; text-align:center; margin-left:-8px}
+#secondIconChild{color:#FFFFFF; font-size:14px}
+#thirdIcon{height:40px; width:40px; border-radius:50%; background-color:#ad5290; padding:10px; text-align:center; margin-left:-8px}
+#thirdIconChild{color:#FFFFFF; font-size:18px}
+#fourthIcon{height:40px; width:40px; border-radius:50%; background-color:#408080; padding:10px; text-align:center; margin-left:-8px}
+#fourthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#fifthIcon{height:40px; width:40px; border-radius:50%; background-color:#c48f65; text-align:center; padding-top:11px; padding-left:6px; margin-left:-8px}
+#fifthIconChild{font-size:16px; color:#FFFFFF}
+#sixthIcon{height:40px; width:40px; border-radius:50%; background-color:#6b5b95; padding:10px; padding-left:11px; text-align:center; margin-left:-8px}
+#sixthIconChild{color:#FFFFFF; font-size:16px; margin-top:2px}
+#parterPreferences{font-size:19px; font-weight:600; color:#666666; background-color:#F0F0FF; padding:10px; border-radius:2px;}
+#whitePageMargin{margin-top:30px; margin-bottom:60px;}
+#smallImageMargin{height:70px; width:70px; border-radius:50%;  background-color:#FFFFFF;  padding:0px; margin-left:25px; 
+							margin-top:10px; margin-bottom:10px; border:2px solid #DFDFDF}
+#imageName{font-family:'Segoe UI'; font-size:22px; color:#578CA9; font-weight:600 }							
+@media only screen and (max-width: 767px) 
+{
+	#firstIcon{height:32px; width:32px; padding:10px;}
+	#firstIconChild{font-size:12px}
+	#secondIcon{height:32px; width:32px; padding:10px;}
+	#secondIconChild{font-size:13px}
+	#thirdIcon{height:32px; width:32px; padding:9px;}
+	#thirdIconChild{font-size:14px}
+	#fourthIcon{height:32px; width:32px; padding:8px;}
+	#fourthIconChild{font-size:14px}
+	#fifthIcon{height:32px; width:32px; padding:10px;}
+	#fifthIconChild{font-size:13px}
+	#sixthIcon{height:32px; width:32px; padding:8px;}
+	#sixthIconChild{font-size:14px}
+	#parterPreferences{font-size:16px;}
+	#whitePageMargin{margin-top:35px; margin-bottom:0px;}
+	#smallImageMargin{margin-left:10px;}
+	#imageName{font-size:16px; margin-top:5px;}		
+}
+
+
+
+.form-control:focus 
+{
+  box-shadow: 0 0 0 0;
+  border:2px solid #5fad38;
+}
+ .form-control
+{
+	border:2px solid #EBEBEB;
+	box-shadow: 0 0 0 0 ;
+}
+
+
+
+
+
+.modal-dialog-i {
+  position:absolute;
+  top:50% !important;
+  transform: translate(0, -50%) !important;
+  -ms-transform: translate(0, -50%) !important;
+  -webkit-transform: translate(0, -50%) !important;
+  margin:auto 0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.modal-content-i {
+  min-height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0; 
+}
+.modal-body-i {
+  position:absolute;
+  top:45px; /** height of header **/
+  bottom:30px;  /** height of footer **/
+  left:0;
+  right:0;
+  overflow-y:auto;
+}
+.modal-footer-i {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+
+
+
+  
+
+
+
+
+
