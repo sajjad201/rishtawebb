@@ -68,6 +68,7 @@ for($row=1; $row<=$pages; $row++){
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
+                            <h1><?php echo $_GET['name']; ?></h1>
                             <?php for($i=0; $i<3; $i++){ ?>
                             <a href="#" class="all-div-link">
                                 <div class="all-main-prof">

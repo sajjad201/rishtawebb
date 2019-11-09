@@ -2,15 +2,16 @@
 session_start();
 require 'inc/connection/connect.php';
 
-if (!isset($_SESSION["firstPersonId"]))
-{
-  header("Location: index.php");
-}
 
-$firstPerson=$_SESSION["firstPersonId"];
+if (!isset($_SESSION["firstPersonId"])){
+    $firstPerson=1;
+}
+else{
+    $firstPerson=$_SESSION["firstPersonId"];
+}
 ?>
 
-
+<?php include('inc/pages/links-one.php');?>
 
 
 
@@ -245,22 +246,25 @@ if(isset($_SESSION['FirstVisit']) == true && !isset($_POST["submitForm"]) && !is
 }
 
 $select=$_SESSION["select"];
-
 $findGenderQuery=mysqli_query($con, "select gender from signup where id=$firstPerson");
-while($findGenderArray=mysqli_fetch_array($findGenderQuery))
-{
-	if($findGenderArray["gender"] == "male")
-	{
-		$select .=" AND gender != 'male' "; 
-		$_SESSION["select"]=$select;
-		$_SESSION["countRows"]=@mysqli_num_rows( mysqli_query($con, $select) );
-	}
-	else
-	{
-		$select .=" AND gender != 'female' "; 
-		$_SESSION["select"]=$select;
-		$_SESSION["countRows"]=@mysqli_num_rows( mysqli_query($con, $select) );
-	}
+
+if (isset($_SESSION["firstPersonId"])){
+    
+    while($findGenderArray=mysqli_fetch_array($findGenderQuery))
+    {
+        if($findGenderArray["gender"] == "male")
+        {
+            $select .=" AND gender != 'male' "; 
+            $_SESSION["select"]=$select;
+            $_SESSION["countRows"]=@mysqli_num_rows( mysqli_query($con, $select) );
+        }
+        else
+        {
+            $select .=" AND gender != 'female' "; 
+            $_SESSION["select"]=$select;
+            $_SESSION["countRows"]=@mysqli_num_rows( mysqli_query($con, $select) );
+        }
+    }
 }
 
 
@@ -273,10 +277,12 @@ else{	$page=$_GET['page'];	}
 $start = ($page - 1) * $per_page;
 
 $select=$_SESSION["select"];
-$select .="AND id!=$firstPerson ";
+if (isset($_SESSION["firstPersonId"])){
+    $select .="AND id!=$firstPerson ";
+}
 $select .="AND makeMeHide='show' ";
 $count=@mysqli_num_rows( mysqli_query($con, $select) );
-echo $sql   = $select." ORDER BY `signup`.`id` DESC  LIMIT $start,$per_page ";	
+$sql   = $select." ORDER BY `signup`.`id` DESC  LIMIT $start,$per_page ";	
 $query2=mysqli_query($con, $sql);
 
 $blankQuery=false;
@@ -362,48 +368,8 @@ for($row=1; $row<=$pages; $row++)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1248017537402931",
-    enable_page_level_ads: true
-  });
-</script>
-
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-<meta name="description" content="Search rishta by your caste, religion, city and family type. Advanced search enables you to search according to your needs and choice." />
-<meta name="keywords" content="rishtaweb.com, rishtaweb, pakistani rishta free, online rishta pakistan, find rishta in pakistan, zaroorat rishta, rishta in lahore, rishta in islamabad, rishta in karachi, rishta online, rishta in pakistan, top pakistani matrimonial sites, pakistani matrimony, pakistani matrimonial, Marriage, rishtay, shaadi,
-shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home rishtaweb" />
-<meta name="Author" content="RISHTAWEB.com" />
-<meta name="copyright" content="RISHTAWEB.com" />
-<meta name="Distribution" content="general" />
 <title>Home - RISHTAWEB</title>
 
-<meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="T-DIrRklhc76weJnJKX_60P4kQSfskHDB33kWf7PG0o" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133484988-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-133484988-1');
-</script>
-<link rel="shortcut icon" href="rw8.png">
-
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="rishtaWebChat/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="MessageScript.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css">
 
 
 <style>
@@ -514,32 +480,37 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home 
 #advancedSearchText{color:#578CA9; text-align:center; background-color:#F3F3F3; padding-top:12px; padding-bottom:12px;
 									font-family:'Segoe UI'; font-size:16px; border-top-left-radius:8px; border-top-right-radius:8px; font-weight:700}		
 #advancedSearchBox{padding:0px; border-radius:8px; border:1px solid #CCCCCC; background-color:#FFFFFF}	
-#searchButtonHeight{border-radius:2px; font-weight:600; text-align:center;}		
+#searchButtonHeight{border-radius:2px; font-weight:600; text-align:center; padding:15px 0px;}		
 #sticky{position: -webkit-sticky; position: sticky; bottom: 0px; padding:7px; border-top:1px solid #CCCCCC; background-color:#FFFFFF; box-shadow:0px -2px 2px lightgray}
 #searchByIdBox{padding:15px; border-radius:8px; border:1px solid #CCCCCC; margin-top:0px; background-color:#FFFFFF; }
-#selectOptionText{font-size:12px; font-weight:400; color:#999999}
-#RightSideBar{padding:10px; padding-top:5px; display:block}												
+#selectOptionText{font-size:12px; font-weight:400; color:#666666}
+#RightSideBar{padding:10px; padding-top:5px; display:block}	
+.con-fl-pa{
+    padding:0px 40px;
+}		
+#leftSideBar{ padding: 0px 10px 0px 40px;}									
 @media only screen and (max-width: 775px) 
 {
 	#hidePrefrences{  border-left:2px solid #F4F4FF; }
 	#about{ font-size:12px; padding-left:10px;} #myselfChild{ margin-left:-40px}#aboutText{ margin-right:55px}
 	#changeCenter{ border-radius:8px; border:1px solid #C8C8C8; box-shadow:0px 0px 3px gray}
-	#leftSideBar{ display:none}
+	#leftSideBar{ display:none; padding: 10px;}
 	#namePadding{ padding:4px; height:auto; margin-top:5px; border-radius:2px; margin-bottom:5px;}
 	#hidePrefrences{  visibility: visible; opacity: 1;  }
 	#profileId{ text-align:right}
 	#visitProfile{ margin-bottom:5px;}
 	#body{background-color:#EBEBEB}		
-	#advancedSearchText{color:#FFFFFF; background-color:#89aec2; border-top-left-radius:8px; border-top-right-radius:8px; 
-		border:1px solid #89aec2; margin-bottom:20px; font-size:18px;}	
-	#advancedSearchBox{padding:0px; border-radius:8px; border:1px solid #578ca9; box-shadow:0px 0px 10px gray}		
+	#advancedSearchText{color:#333333; background-color:lightgray; border-top-left-radius:8px; border-top-right-radius:8px; 
+		border:1px solid #eef3f6; margin-bottom:20px; font-size:18px;}	
+	#advancedSearchBox{padding:0px; border-radius:8px; border:1px solid #999999;}		
 	#searchButtonHeight{height:45px}
 	#searchByIdBox{border:1px solid #999999; margin-bottom:25px; box-shadow:0px 0px 10px lightgray }
-	#selectOptionText{font-size:12px; font-weight:400; color:#FFFFFF; }	
-	#RightSideBar{display:none}		
+	#selectOptionText{font-size:12px; font-weight:400; color:#333333; }	
+    #RightSideBar{display:none}	
+    .con-fl-pa{
+        padding:10px;
+    }	
 }
-
-
 
 
 
@@ -561,89 +532,17 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home 
 
 <body id="body">
 
-<!---navbar--->
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-lg-12 col-xs-12" style="padding:0px; position:fixed; z-index:1; box-shadow:0px 0px 5px">
-<nav class="navbar-inverse" style=" background-color:#A00000;">
-	<div class="container-fluid">
-		<div class="row" style="font-family:Arial">
-		
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 " >
-				<a href="index.php" style="text-decoration:none">
-					<div id="logoText1">RISHTA<span id="logoText2">WEB</span></div>
-				</a>	
-			</div>
-			<div class="col-xs-2" style=" padding:0px; position:relative">
-				<a href="allConversation.php" id="notificationLink" onclick = "removeNotification()">
-					<span class="navbar-toggle" id="navbarToggleButtonTop">
-						<i class="fas fa-comments"></i>
-						<span id="notification_count" style="padding:2px; background-color:#e94b3c; color:#FFFFFF; display:none; padding-left:7px; padding-right:7px; 
-							padding-bottom:0px; border-radius:12px; font-size:14px; font-weight:600; font-family:'Times New Roman'; margin-top:-32px; 
-							position:absolute; margin-left:18px">
-						</span>
-					</span>	
-				</a>
-			</div>
-			<div class="col-xs-2" style="padding:0px">
-				<span class="navbar-toggle" id="searchIcon" style="font-size:20px;">
-					<i class="fas fa-search" style="font-weight:700"></i>
-				</span>
-				<script>
-			
-				  $("#searchIcon").click(function(){
-					$("#leftSideBar").toggle();
-					$("#centerBar").toggle();
-					$("#focus").focus();
-					$("#showEmptyLeftSideBar").toggle();
-				  });
-			
-				</script>
-			</div>
-			<div class="col-xs-2" style="padding:0px; ">
-				<span class="navbar-toggle" data-toggle="collapse" data-target="#target" id="navbarToggleButtonTop" 
-					style="padding:15px; margin-top:5px; margin-bottom:5px; ">
-					<span class="icon-bar"></span> <span id="iconBar" class="icon-bar"></span> <span id="iconBar" class="icon-bar"></span>
-				</span>	
-			</div>
-			
-			
-			
-			<div class="col-lg-9  col-md-9 col-sm-8 col-xs-12" style="padding:0px; background-color:#A00000">
-				<div class="collapse navbar-collapse" id="target" style="border-top:0px solid #800000">
-					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
-						<li><a rel="canonical" href="searchguest.php">Home</a></li>
-					</ul>
-					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
-						<li><a href="myprofile.php">My Profile</a></li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li>
-							<a rel="canonical" href="allConversation.php" id="notificationLink" onclick = "removeNotification()">
-								Messages <span id="notification_count2" style="padding:2px; background-color:#FFFFFF; color:#800000; display:none;
-							 	 padding-left:6px; padding-right:6px; border-radius:12px"></span>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li><a href="contact.php">Contact</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right" >
-						<li style="  border-radius:4px;">
-							<a href="logout.php"><i class="fas fa-power-off" style="margin-right:12px"></i>Logout</a>
-						</li>
-					</ul>
-				</div>	
-			</div>
-			
-		</div>
-	</div>
-</nav>
+<!-- navbar -->
+<?php 
+    if(isset($_SESSION["firstPersonId"])) {
+        include('inc/pages/navbar-login.php');          // login navbar
+    }
+    else{
+        include('inc/pages/navbar-index.php');         // guest navbar
+        ?><br><br><?php
+    }
+?>
 
-		</div>
-	</div>
-</div><br><br>
-<!---//navbar--->
 
 
 
@@ -664,8 +563,21 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home 
 		
 	</div>
 	
-		<div class="col-lg-12" style="padding:0px; ">
-			<div class="col-lg-12" style="margin-top:50px; padding:0px; margin-bottom:30px">
+		<div class="col-lg-12" style="padding: unset;">
+            <div class="col-lg-12" style="margin-top:50px; padding:0px; margin-bottom:30px">
+            <div class="container-fluid">
+                <span id="search-icon-guest" class="navbar-toggle search-icon-guest"  style="font-size:25px;">
+					 <i class="fas fa-search" style="font-weight:700"></i>
+				</span>
+				<script>
+				  $("#search-icon-guest").click(function(){
+					$("#leftSideBar").toggle();
+					$("#centerBar").toggle();
+					$("#focus").focus();
+					$("#showEmptyLeftSideBar").toggle();
+				  });
+				</script>
+            </div>
 				<div class="col-lg-3 col-md-3 col-sm-4" id="leftSideBar">
 				
 					<!---leftSideBar--->
@@ -676,9 +588,8 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home 
 						<div class="col-lg-12 " id="searchByIdBox">
 							<form name="searchById" method="post" action="searchguest.php">
 								<input type="text" class="form-control" placeholder="Id example: 5768" style="border-radius:2px" name="id"/>
-								<button type="submit" id="submitSearchById" name="submitSearchById" class="btn btn-block" 
-									style="border-radius:2px; margin-top:3px; font-family:'Segoe UI'; font-weight:600">
-									<span class="glyphicon glyphicon-search" style="float:left"></span>Search by ID
+								<button type="submit" id="submitSearchById" name="submitSearchById" class="btn btn-block submitSearchById" >
+									<span class="glyphicon glyphicon-search" style="float:left"></span>SEARCH BY ID
 								</button>
 							</form>
 							 <script type="text/javascript">				  	
@@ -2463,7 +2374,7 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, home 
 										<div class="col-lg-12 col-xs-12"  id="sticky"  >
 											<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#FFFFFF;">
 												<button type="submit" class="btn btn-primary btn-block" name="submitForm" id="searchButtonHeight">
-													<span class="glyphicon glyphicon-search" style=" margin-right:15px; margin-left:-30px"></span>SEARCH
+													<span class="glyphicon glyphicon-search" style=" margin-right:15px; margin-left:-30px"></span>ADVANCED SEARCH
 												</button>
 											</div>
 										</div>
@@ -2668,10 +2579,7 @@ function District()
 		</div>
 				
 			
-				<div class="col-lg-6 col-md-7 col-sm-8" style=" padding:5px;" id="centerBar">
-				
-				
-				<!---centerRepeat--->
+				<div class="col-lg-6 col-md-7 col-sm-8" style=" padding:5px;" id="centerBar">                
 				<?php
 				if($blankQuery==false && $id != $firstPerson && $selectSomeID == false){ // checkBlankQueryForAllCenterRepeaet ?>
 					<div class="col-lg-12" style="padding:0px; margin-top:-20px">
@@ -2682,21 +2590,33 @@ function District()
 						</span>
 					</div>
 				<?php
-				while($array2=mysqli_fetch_array($query2))
-				{
-				?>
+				while($array2=mysqli_fetch_array($query2)){
+                    if (!isset($_SESSION["firstPersonId"])){?>
+                        <a rel="canonical" target="_blank" href="viewprofile.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                    <?php 
+                    }
+                    else{?>
+                        <a rel="canonical" target="_blank" href="viewguest.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                    <?php }?>
 				
-				<a rel="canonical" target="_blank" href="viewprofile.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" >
+				<a rel="canonical" target="_blank" href="viewguest.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" > 
 					<div class="col-lg-12 col-md-12 col-xs-12" id="changeCenter">
 						<div class="col-lg-3 col-md-3 col-xs-12" >
 							<div id="profileId">
 								<?php echo "id: ".$array2['id'];?>
 							</div>
-							<div style="height:160px; width:155px; margin-left:auto; margin-right:auto; border-radius:5px; border:2px solid #E1E1E1">
-	<?php if($array2["publicProfile"]!="Private"){?>
-	<img src="<?php echo $array2['uploadProfilePicture']; ?>"	height="100%" width="100%" style="border-radius:2px;" alt="User Image"> 
-	<?php }else if($array2["gender"]=="male"){?><img src="allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-	else{?><img src="allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                            <div style="height:160px; width:155px; margin-left:auto; margin-right:auto; border-radius:5px; border:2px solid #E1E1E1">
+                            <?php
+                            if (!isset($_SESSION["firstPersonId"])){?>
+                                <?php if($array2["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
+                                else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                            <?php }
+                            else{?>
+                                <?php if($array2["publicProfile"]!="Private"){?>
+                                <img src="<?php echo $array2['uploadProfilePicture']; ?>"	height="100%" width="100%" style="border-radius:2px;" alt="User Image"> 
+                                <?php }else if($array2["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
+                                else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                            <?php } ?>
 							</div>
 							<div id="namePadding">
 								<span style="font-family:'Segoe UI'; font-weight:bold; color:#006e6d;">
@@ -3001,54 +2921,111 @@ function District()
 										
 										
 							<?php	}	else{ ?>
-							<div class="container-fluid" style="background-color:#FFFFFF;  font-family:'Segoe UI'; border-radius:3px;
+							<div class="" style="background-color:#FFFFFF;  font-family:'Segoe UI'; border-radius:3px;
 								font-size:20px; margin-top:17px; padding:20px; height:auto;  margin-bottom:10px">No Record Found! 
-								<p style=" font-size:14px;">search again with different/multiple parameters.</p>
+                                <p style=" font-size:14px;">search again with different/multiple parameters.</p>
+                            </div>    
 							<?php }?>
-							</div>
+							
 						<!---Endedpagination--->
 						
 <?php }else if($id == $firstPerson){?>
 
-<div class="container-fluid" style="background-color:#d2c29d;  font-family:'Segoe UI'; border-radius:3px; border:2px solid #bfa873; color:#333333;
+<div class="" style="background-color:#d2c29d;  font-family:'Segoe UI'; border-radius:3px; border:2px solid #bfa873; color:#333333;
 	font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px">Your profile will not Visible to You! 
 	<p style=" font-size:14px;">to view your profile, visit 'My Profile' page.</p>
 </div>
 
 <?php }else if($selectSomeID == true){?>
 
-<div class="container-fluid" style="background-color:#f0ead6;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #bfa873; color:#333333;
+<div class="" style="background-color:#f0ead6;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #bfa873; color:#333333;
 	font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px">No ID is selected! 
 	<p style=" font-size:14px;">please select some id.</p>
 </div>
 
 <?php } else { ?>	
 
-<div class="container-fluid" style="background-color:#FFFFFF;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #F5F5F5;
+<div class="" style="background-color:#FFFFFF;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #F5F5F5;
 font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; font-weight:600; color:#d5ae41">No Result Found! 
 <p style=" font-size:14px; font-weight:400;">try again and search with different user ID.</p>
 </div>
 							
 <?php } ?><!--endedCheckBlankQueryForAllCenterRepeaet-->									
 						
-					</div>
+					</div></div>
 					<!---EndedCenter(Col-lg-6)--->
 					
 					<!---RightSideBar--->
 					<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
-						<div class="col-lg-12" style="border:1px solid #CCCCCC; border-radius:8px; background-color:#FBFBFB; padding:20px;">
-							<div style="font-family:'Segoe UI'; text-align:right; font-size:16px; color:#BE9EC9">
-								<span style="font-family:'Noto Nastaliq Urdu Draft', serif; font-weight:600 ">
-								​فوری رشتے کیلئے ابھی رابطہ کریں۔
-								</span>
-								<div style="margin-top:15px; color:#c8add1">
-									<span style="font-family:'Segoe UI'">
-										<div>051-4107478<i class="fas fa-phone" style="margin-left:15px"></i><br /></div>
-										<div style="margin-top:3px">+92-347-6538679<i class="fas fa-mobile-alt" style=" margin-left:15px"></i></div>
-									</span>
-								</div>
-							</div>
-						</div>
+                        <div class="right-div">
+                            <div class="rishta-div-head">
+                                Rishty in Lahore
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Lahore</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Lahore</a>
+                            </div>
+                        </div>
+                        <div class="right-div">
+                            <div class="rishta-div-head">
+                                Rishty in Arain
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Arain Rishta</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Arain Rishta</a>
+                            </div>
+                        </div>
+                        <div class="right-div">
+                            <div class="rishta-div-head">
+                                Rishty in Middle Class Family
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Middle Class Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Middle Class Family</a>
+                            </div>
+                        </div>
+                        <div class="right-div">
+                            <div class="rishta-div-head">
+                                Rishty in Moderate/Traditional/Liberal Family
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Moderate Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Moderate Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Traditional Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Traditional Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Traditional Liberal</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Traditional Liberal</a>
+                            </div>
+                        </div>
+                        <div class="right-div">
+                            <div class="rishta-div-head">
+                                Rishty in Punjabi Family
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">Female Rishta in Punjabi Family</a>
+                            </div>
+                            <div class="rishta-div-body">
+                                <a href="#" class="rishta-div-body-link">male Rishta in Punjabi Family</a>
+                            </div>
+                        </div>
+                        
+                        
 					</div>
 					<!---EndedRightSideBar--->
 					
@@ -3062,42 +3039,8 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 	</div>
 </div>
 
-
-
-
-
-<!---Footer--->
-<div class="container-fluid" style="margin-top:20px">
-	<div class="row">
-		<div class="col-lg-12" style="padding:0px">
-			<div class="col-lg-12" style=" background-color:#3d3b44; padding:0px; ">
-				<div class="col-lg-1"></div>
-				<div class="col-lg-10">
-					<div class="col-lg-12" style="padding-top:30px; padding-bottom:15px; color:#CCCCCC; font-family:'Segoe UI'; text-align:center"> 
-						While using this site, you agree to have read and accepted our Terms of Use & Privacy Policy.
-						<div class="col-lg-12" style="margin-top:15px; margin-bottom:30px">
-							<div class="col-lg-3"></div><div class="col-lg-6" style="border-bottom:1px solid #666666"></div><div class="col-lg-3"></div>
-						</div>
-						<div style="text-align:center">
-							<a rel="canonical" href="contact.php" style="text-decoration:none; color:#CCCCCC">Contact Us</a> | 
-							<a href="about.php" style="text-decoration:none; color:#CCCCCC">About Us</a> | 
-							<a href="privacyPolicy.php" style="text-decoration:none; color:#CCCCCC">Privary Policy</a> | 
-							<a href="terms.php" style="text-decoration:none; color:#CCCCCC">
-							Terms & Conditions</a> 
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2"></div>
-			</div>
-			<div class="col-lg-12" style="padding:0px; background-color:#312f37; text-align:center; color:#CCCCCC; padding:10px; font-family:'Segoe UI'; font-size:12px">
-			RISHTAWEB.COM &copy; 2019. All Rights Reserved<br>
-			</div>
-		</div>
-	</div>
-</div>
-<!---//Footer--->
-
-
+<!-- footer -->
+<?php include('inc/pages/footer.php');?>
 
 </body>
 </html>
