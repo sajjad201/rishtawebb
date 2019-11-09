@@ -169,6 +169,236 @@
     border: 1px solid #301aac;
     border-radius: 3px;
 }
+.all-sec{
+    margin: 40px 0px;
+}
+.all-main-div{
+    padding: 30px 0px;
+    margin: 20px 0px 0px;
+    background-color: #fbfbfb;
+}
+.p-0{
+    padding: 0px;
+}
+.all-main-prof{
+    border-radius: 2px;
+    background-color: #dad6d6;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.all-main-div-img{
+    border-radius: 10px;
+    border: 2px solid rgb(194, 192, 192);
+    padding: 0px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.all-main-div-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.all-div-link{
+    text-decoration: none;
+}
+.all-main-profile-detail{
+    color: #161a1d;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.all-main-profile-detail > div{
+    padding: 10px;
+    margin: 0px;
+}
+.all-main-prof-bold,
+.all-main-prof-normal{
+    margin: 5px 0px;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+.all-main-prof-bold{
+    font-weight: bold;
+}
+.all-main-prof-normal{
+    font-weight: normal
+}
+.all-main-div-btn{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin: 10px 0px;
+}
+.auto-center{
+    margin: 0 auto;
+}
+.all-main-div-btn-pa{
+    padding: 10px 29px
+}
+
+/* view guest */
+.vg{
+    margin: 60px 0px 0px;
+    background-color: rgb(230, 230, 230);
+    padding: 30px 0px
+}
+
+.vg-pro{
+    background-color: #ffffff;
+    padding: 10px;
+}
+.vg-head{
+    color: #301aac;
+    font-size: 24px;
+    padding: 0px 45px;
+}
+.vg-bottom{
+    margin: 15px 0px 0px;
+    padding: 20px 20px 0px;
+}
+.vg-bottom-img{
+    height: 150px;
+    width: 150px;
+    border: 2px solid gray;
+    border-radius: 3px;
+    margin: 0px 0px 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.vg-bottom-con{
+    width: 150px;
+    margin: 0 auto;
+}
+.vg-bottom-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.vg-bottom-3{
+    margin: 0px 0px 20px;
+}
+.vg-bottom-5{
+    display: flex;
+}
+.vg-bottom-5 > div{
+    padding: 0px 20px;
+    margin: 0px 0px 7px;
+    font-size: 16px;
+    color: #23292f;
+}
+.vg-bottom-5-icon{
+    width: 20%;
+}
+.vg-bottom-5-text{
+    width: 80%;
+}
+.vg-bottom-5-icon-style{
+    color: #3e81f4;
+}
+.vg-bottom-contact{
+    padding: 10px 20px 30px;
+    display: flex;
+    justify-content: center;
+}
+.vg-bottom-contact > div{
+    margin: 3px 1px;
+    margin: 0 auto;
+}
+.vg-bottom-details{
+    margin: 10px 0px 20px;
+    padding: 20px 30px 45px;
+    border-bottom: 1px solid rgb(218, 215, 215);
+    background-color: white;
+    display: flex;
+}
+.vg-bottom-details-icon{
+    width: 5%;
+}
+.vg-bottom-details-text{
+    width: 95%;
+}
+.vg-bottom-details-icon-style{
+    height:30px; 
+    width:30px; 
+    border-radius:50%; 
+    background-color:#b76ba3; 
+    padding-top:10px; 
+    padding-left:6px; 
+    text-align:center; 
+    margin-left:-8px;
+}
+.vg-bottom-details-text-head{
+    font-size:30px;
+    margin-bottom: 20px;
+}
+.vg-bottom-details-text-bot{
+    margin: 10px 0px 0px;
+    font-size: 15px;
+    display: flex;
+}
+.vg-bottom-details-text-bot-one{
+    font-weight: 700;
+    width: 20%;
+}
+.vg-bottom-details-text-bot-two{
+    font-weight: 500;
+}
+.vg-bottom-details-icon-style-two{
+    height:30px; 
+    width:30px; 
+    border-radius:50%; 
+    background-color:#00a591; 
+    padding-top:8px; 
+    padding-left:5px; 
+    text-align:center; 
+    margin-left:-8px
+}
+.vg-bottom-details-icon-style-three{
+    height:30px; 
+    width:30px; 
+    border-radius:50%; 
+    background-color:#5b5ea6; 
+    padding-top:8px; 
+    padding-left:5px; 
+    text-align:center; 
+    margin-left:-8px
+}
+.vg-bottom-img-id{
+    font-size: 18px;
+    color: #2e5383;
+    margin: 15px 0px 0px;
+    padding-left: 20px;
+}
+.vg-bottom-img-id-font1{
+    font-size: 11px; 
+}
+.vg-bottom-img-id-font2{
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase
+}
+.vg-bottom-img-id-btn{
+    margin: 10px 0px 0px;
+    padding: 7px 50px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* footer */
 .foot-main{
@@ -319,5 +549,8 @@
     }
     .skip-form2{
         text-align: end;
+    }
+    .pagination-btn{
+        margin: 4px;
     }
 }
