@@ -48,7 +48,7 @@ echo $sql   = $sql." LIMIT $start,$per_page ";
 $query2=mysqli_query($conn, $sql);
 $rowIndex=1; $colIndex=1; $chunk=4;						
 $arrayOfIndexes = array();
-for($index=1; $index<=$pages; $index++){
+for($index=1; $index<=$pages; $index++){ 
 	$arrayOfIndexes[$rowIndex][$colIndex]=$index;
 	$colIndex++;
 	if($index == $chunk){
