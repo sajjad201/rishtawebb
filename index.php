@@ -470,7 +470,7 @@ function Form1Script(){
 							while( $maleArray=mysqli_fetch_array($male) ){
 							while( $femaleArray=mysqli_fetch_array($female) ){
 							
-							?><a href="login.php" style="text-decoration:none">
+							?><a href="viewprofile.php?viewProfileId=<?php echo $maleArray['id']; ?>" style="text-decoration:none">
 								<div class="item col-lg-4" style="border:1px solid #CCCCCC; border-radius:5px; width:99%; padding:0px; margin-right:10px">
 									<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#F5F5F5; border-top-left-radius:5px; border-top-right-radius:5px">
 										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-4" style="padding:0px; padding:8px;">
@@ -545,7 +545,7 @@ function Form1Script(){
 									</div>
 								</div>
 								</a>
-								<a href="login.php" style="text-decoration:none">
+								<a href="viewprofile.php?viewProfileId=<?php echo $maleArray['id']; ?>">
 								<div class="item col-lg-4" style="border:1px solid #CCCCCC; border-radius:5px; width:99%; padding:0px; margin-right:10px">
 									<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#F5F5F5; border-top-left-radius:5px; border-top-right-radius:5px">
 										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-4" style="padding:0px; padding:8px;">

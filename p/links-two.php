@@ -32,19 +32,17 @@
 <!-- fonts -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet">
-<!-- font-family: 'Raleway', sans-serif; -->
 
 <!-- select2 -->
-<script src="http://localhost/rishtawebb/assets/select2/select2popper.js"></script> 
-<script src="http://localhost/rishtawebb/assets/select2/select2min.js"></script> 
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/select2/select2.css"> 
+<script src="../../assets/select2/select2popper.js"></script> 
+<script src="../../assets/select2/select2min.js"></script> 
+<link rel="stylesheet" href="../../assets/select2/select2.css"> 
 
 <!-- local -->
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/owl/docs/assets/owlcarousel/assets/owl.theme.default.css">
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/owl/docs/assets/owlcarousel/assets/owl.carousel.min.css">
-<link href="http://localhost/rishtawebb/assets/css/old.css" rel="stylesheet" />
-<link href="http://localhost/rishtawebb/assets/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/owl/docs/assets/owlcarousel/assets/owl.theme.default.css">
+<link rel="stylesheet" href="../../assets/owl/docs/assets/owlcarousel/assets/owl.carousel.min.css">
+<link href="../../assets/css/old.css" rel="stylesheet" />
+<link href="../../assets/css/style.css" rel="stylesheet" />
 
 
 

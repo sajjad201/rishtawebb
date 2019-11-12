@@ -49,24 +49,25 @@
 			<div class="col-lg-9  col-md-9 col-sm-8 col-xs-12" style="padding:0px; background-color:#A00000">
 				<div class="collapse navbar-collapse" id="target" style="border-top:0px solid #800000">
 					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
-						<li><a rel="canonical" href="searchProfiles.php">Home</a></li>
+						<li><a rel="canonical" href="searchProfiles.php"><i class="fas fa-home nav-icons" style="margin-right:15px"></i>Home</a></li>
 					</ul>
 					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
-						<li><a href="myprofile.php">My Profile</a></li>
+						<li><a href="myprofile.php"><i class="fas fa-user-alt nav-icons" style="margin-right:15px"></i>My Profile</a></li>
+					</ul>
+					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
+						<li><a href="all-categories.php"><i class="fas fa-list-ul nav-icons" style="margin-right:15px"></i>All Categories</a></li>
+					</ul>
+					<ul class=" nav navbar-nav" data-toggle="modal" data-target="#myModal">
+						<li><a href="searchguest.php"><i class="fas fa-search nav-icons" style="margin-right:15px"></i>Search Rishta</a></li>
 					</ul>
 					<ul class="nav navbar-nav">
 						<li>
 							<a rel="canonical" href="allConversation.php" id="notificationLink" onclick = "removeNotification()">
-								Messages <span id="notification_count2" style="padding:2px; background-color:#FFFFFF; color:#800000; display:none;
+								<i class="fas fa-envelope nav-icons" style="margin-right:15px"></i>Messages 
+								<span id="notification_count2" style="padding:2px; background-color:#FFFFFF; color:#800000; display:none;
 							 	 padding-left:6px; padding-right:6px; border-radius:12px"></span>
 							</a>
 						</li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li><a href="contact.php">Contact</a></li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li><a href="#" onclick="Click()"></a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right" >
 						<li style="  border-radius:4px;">

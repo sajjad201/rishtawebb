@@ -2,14 +2,12 @@
 session_start();
 require 'inc/connection/connect.php';
 
-
-$firstPerson=$_SESSION["firstPersonId"];
-
-
-if (!isset($_SESSION["firstPersonId"]))
-{
-  header("location: /");
+if(isset($_SESSION["firstPersonId"])) {
+	$firstPerson=$_SESSION["firstPersonId"];
 }
+
+
+
 
 if(isset($_GET["viewProfileId"]))
 {
@@ -74,34 +72,113 @@ function test_input($data)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php include('inc/pages/links-one.php');?>
-</head>
-<body style="background-color:#E2E2E2">
+<style>
+#modalPaddingInner {
+margin: 0px 15px;
+border-radius: 5px;
+padding: 10px;
+}
+.vp-modal-flex{
+    display: flex;
+    justify-content: center;
+}
+.vp-modal-flex > div{
+    padding: 5px;
+    margin: 0px 5px;
+}
+.vp-login-btn{
+    padding: 12px 40px;
+    font-size: 14px;
+}
+.vp-modal-flex{
+    font-size: 30px;
+    color: #4c8bf5;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+    height: 95px;
+    top: 0px;
+    bottom: 0px;
+}
 
-<!-- login-navbar -->
-<?php include('inc/pages/navbar-login.php');?>
+.modal-content {
+    min-height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 
-<h1 style="display:none">View Profile</h1>
+
+</style>
+
 <?php
 $result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' limit 1");
 if(@mysqli_num_rows( $result) > 0 ){
 while($queryArray=mysqli_fetch_array($result)){?>
+	<meta name="description" content="Looking for <?php echo $queryArray["caste"];?>  rishta in <?php echo $queryArray["city"]," ?";?> <?php echo $queryArray["firstName"]." ".$queryArray['lastName']?> is a <?php echo $queryArray["caste"]." ".$queryArray['education']." ".$queryArray['gender'];?> from <?php echo $queryArray["city"]." looking for rishta in ".$queryArray['city'].", ".$queryArray['country'];?> ">
+<?php
+}}
+?>
+
+</head>
+<body>
+
+<!-- navbar -->
+<?php 
+    if(isset($_SESSION["firstPersonId"])) {
+        include('inc/pages/navbar-login.php');          // login navbar
+    }
+    else{
+        include('inc/pages/navbar-index.php');         // guest navbar
+    }
+?>
+
+<h1 style="display:none">View Profile</h1>
+<?php
+$city = $caste = $familyaffluence ="";
+$country ="";
+$result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' limit 1");
+if(@mysqli_num_rows( $result) > 0 ){
+while($queryArray=mysqli_fetch_array($result)){
+	$city = $queryArray["city"];
+	$caste =$queryArray["caste"];
+	$familyAffluence =$queryArray["familyAffluence"];
+	$country=$queryArray["country"];
+?>
 <!---center--->
 <div class="container-fluid" id="whitePageMargin">
 	<div class="row">
-		<div class="col-lg-12" style="padding:0px">
-			<div class="col-lg-2"></div>
+		<div class="col-lg-12" style="padding:0px; margin-top:100px;">
+			<div class="col-lg-1"></div>
 			<div class="col-lg-8 col-xs-12" style="padding:0px; border-radius:15px;">
 				<div class="col-lg-12 col-xs-12" id="whitePage">
+					<div class="row">
+						<h1 class="vp-white-head">
+							<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old
+							<?php echo $queryArray["caste"]." ".$queryArray['gender']." ".$queryArray['education'];?> 
+							rishta in <?php echo $queryArray["city"].", ".$queryArray['country']." - ID:".$queryArray['id'];?> 
+						</h1>
+					</div>
 			
 					<div class="col-lg-3" id="imagePaddingBottom">
 						<div id="imageDimensions">
 						<a rel="nofollow" href="#" data-toggle="modal" data-target="#showImage">
+						
+							<?php
+							if (!isset($_SESSION["firstPersonId"])){?>
+								<?php if($queryArray["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
+								else{?><img src="assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+							<?php }
+							else{?>
 							<?php if($queryArray["publicProfile"]!="Private"){?>
 							<img src="<?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="View User Image">
 							<?php }
 							else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-							else{?><img src="allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } ?>
+							else{?><img src="allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } }?>
 						</a>
 						</div>
 					</div>
@@ -115,11 +192,18 @@ while($queryArray=mysqli_fetch_array($result)){?>
 									<i class="fas fa-times close" data-dismiss="modal" style="font-size:35px; margin-right:10px; margin-top:0px; color:#FFFFFF; opacity: 1;"></i>
 								</div>
 								<div class="modal-body-i" style="margin-top:10px; ">
+								<?php
+								if (!isset($_SESSION["firstPersonId"])){?>
+									<?php if($queryArray["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="40%" width="30%" alt="User Image"/><?php }
+									else{?><img src="assets/allpics/flogin.png" height="40%" width="30%" alt="User Image"/><?php } ?>
+								<?php }
+								else{?>
 									<?php if($queryArray["publicProfile"]!="Private"){?> 
 									<img src="<?php echo $queryArray['uploadProfilePicture']; ?>" style="border-radius:2px; max-height:100%; max-width:100%" alt="View Full Size">
-								 <?php }
-								 else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="300px" width="300px" alt="Image in Full Size"/><?php } 
-								 else{?><img src="allpics/female4.png" height="300px" width="300px" alt="Show Image"/><?php } ?>
+									<?php }
+									else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="300px" width="300px" alt="Image in Full Size"/><?php } 
+									else{?><img src="allpics/female4.png" height="300px" width="300px" alt="Show Image"/><?php } 
+								}?>
 								</div>
 								<div class="modal-footer-i"></div>
 							</div>
@@ -375,7 +459,7 @@ while($queryArray=mysqli_fetch_array($result)){?>
 									</div>	
 								</div>	
 								
-					
+					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 					<div class="col-lg-12" style="padding-left:20px; padding-right:20px; margin-bottom:20px">
 						<div class="col-lg-12 col-xs-12" id="startConversation">
 							<div class="col-lg-12 col-xs-12" style="padding-left:10px; padding-top:2px;  font-family:'Segoe UI'; padding-right:0px;">
@@ -384,21 +468,52 @@ while($queryArray=mysqli_fetch_array($result)){?>
 										<i class="far fa-comments" style=" margin-right:15px; margin-left:-20px; font-size:24px"></i>Connect with 
 										<?php echo $queryArray["firstName"]." ".$queryArray["lastName"];?>
 									</p>
-									<button class="btn btn-success" style="margin-top:15px; border-radius:2px;  color:#FFFFFF; font-weight:600; 
-									padding:10px; padding-left:40px; padding-right:40px" data-toggle="modal" data-target="#sendMessageModal" 
-									 onclick="Focus()">
-										Send Message
-									</button>
-									<script type="text/javascript">
-										function Focus()
-										{
-											document.getElementById("shortMessage").focus();
-										}
-									</script>
+									<?php
+										if(isset($_SESSION["firstPersonId"])) {?>
+											<button class="btn btn-success" style="margin-top:15px; border-radius:2px;  color:#FFFFFF; font-weight:600; 
+											padding:10px; padding-left:40px; padding-right:40px" data-toggle="modal" data-target="#sendMessageModal" 
+											onclick="Focus()">
+												Send Message
+											</button>
+										<?php } else{?>
+											<button class="btn btn-success" style="margin-top:15px; border-radius:2px;  color:#FFFFFF; font-weight:600; 
+												padding:10px; padding-left:40px; padding-right:40px" data-toggle="modal" data-target="#loginmodel">
+											Send Message
+										</button>
+										<?php }
+									?>
+									<script>function Focus(){document.getElementById("shortMessage").focus();}</script>
 								</div>
 							</div>	
 						</div>
 					</div>
+					<!-- login modal -->
+					<div class="modal fade" id="loginmodel" role="dialog">
+						<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title vp-modal-flex-title">Login or Register to send Message!</h4>
+							</div>
+							<div class="modal-body">
+								<div class="vp-modal-flex">
+									<div>
+										<a href="login.php" class="vp-modal-flex-btn">
+											Login
+										</a>
+									</div>
+									<div>
+										<a href="completesignup.php" class="vp-modal-flex-btn">
+											Register Now
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+
+					<!-- message modal -->
 					<div class="modal fade" id="sendMessageModal" role="dialog" >
 					<div class="modal-dialog" id="modalMarginTop">
 					  <div class="modal-content" id="modalMargin">
@@ -406,29 +521,9 @@ while($queryArray=mysqli_fetch_array($result)){?>
 							<div class="row">
 								
 							<div class="col-lg-11 col-xs-11" style="padding:0px">
-								<div class="col-lg-6 col-xs-6" id="smallImageMargin">
-									<?php
-									$result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' limit 1");
-									while($imageArray=mysqli_fetch_array($result))
-									{
-										if($imageArray["publicProfile"]!="Private")
-										{
-											echo '<img src="data:image;base64,'.base64_encode($imageArray['uploadProfilePicture']).'"  
-											style="border-radius:2px; height:100%; width:100%; border-radius:50%;" alt="View User Image">';
-										}
-										else if($imageArray["gender"]=="male")
-										{
-											?><img src="allpics/male4.png" style="height:100%; width:100%; border-radius:50%;" alt="User Image"/><?php 
-										}
-										else
-										{
-											?><img src="allpics/female4.png" style="height:100%; width:100%; border-radius:50%;" alt="User's Profile Picture"/><?php 
-										}
-									}			
-									?>
-								</div>	
-								<div class="col-lg-6 col-xs-6" style="margin-top:30px">
-									<div id="imageName">
+								
+								<div class="col-lg-6 col-xs-6">
+									<div id="imageName" style="text-align: initial;">
 										<?php echo $queryArray["firstName"]." ".$queryArray["lastName"];?>
 									</div>
 								</div>
@@ -516,10 +611,113 @@ while($queryArray=mysqli_fetch_array($result)){?>
 
 			</div>
 		</div>
-	</div>
+		<div class="col-lg-3 col-xs-12" >
+
+									<!-- city -->
+			<?php 
+			$result=mysqli_query($conn, "select * from signup where city='$city'  limit 7");
+			if(@mysqli_num_rows( $result) > 0 ){?>
+				<div class="vp-div3">
+					<div class="vp-div3-head">Other Rishty from <?php echo $city; ?></div>
+					<div class="vp-div3-body">
+						<?php
+						while($queryArray=mysqli_fetch_array($result)){?>
+							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+								<div class="vp-div3-body-row">
+									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row-des">
+										<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+										<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+										<?php echo $queryArray['profession'];?>
+									</div>
+								</div>
+							</a>
+						<?php }?>
+					</div>
+				</div>
+			<?php }?>
+			
+			<!-- caste -->
+			<?php 
+			$result=mysqli_query($conn, "select * from signup where caste='$caste'  limit 7");
+			if(@mysqli_num_rows( $result) > 0 ){?>
+				<div class="vp-div3">
+					<div class="vp-div3-head">Other Rishty from <?php echo $caste; ?></div>
+					<div class="vp-div3-body">
+						<?php
+						while($queryArray=mysqli_fetch_array($result)){?>
+							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+								<div class="vp-div3-body-row">
+									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row-des">
+										<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+										<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+										<?php echo $queryArray['profession'];?>
+									</div>
+								</div>
+							</a>
+						<?php }?>
+					</div>
+				</div>
+			<?php }?>
+
+			<!-- famyaffluence -->
+			<?php 
+			$result=mysqli_query($conn, "select * from signup where familyAffluence='$familyAffluence'  limit 7");
+			if(@mysqli_num_rows( $result) > 0 ){?>
+				<div class="vp-div3">
+					<div class="vp-div3-head">Other Rishty from <?php echo $familyaffluence; ?></div>
+					<div class="vp-div3-body">
+						<?php
+						while($queryArray=mysqli_fetch_array($result)){?>
+							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+								<div class="vp-div3-body-row">
+									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row-des">
+										<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+										<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+										<?php echo $queryArray['profession'];?>
+									</div>
+								</div>
+							</a>
+						<?php }?>
+					</div>
+				</div>
+			<?php } else{echo 'no family';}?>	
+
+			<!-- country -->
+			<?php
+			if($country != 'pakistan'){
+				$result=mysqli_query($conn, "select * from signup where country='$country'  limit 7");
+				if(@mysqli_num_rows( $result) > 0 ){?>
+					<div class="vp-div3">
+						<div class="vp-div3-head">Other Rishty from <?php echo $country; ?></div>
+						<div class="vp-div3-body">
+							<?php
+							while($queryArray=mysqli_fetch_array($result)){?>
+								<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+									<div class="vp-div3-body-row">
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+										<div class="vp-div3-body-row-des">
+											<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+											<?php echo $queryArray['profession'];?>
+										</div>
+									</div>
+								</a>
+							<?php }?>
+						</div>
+					</div>
+				<?php }else{echo 'no country';}
+				}
+			?>	
+
+			
+			
+		</div>
 </div>
 			
-			<div class="col-lg-3" ></div>
+			
 		</div>
 	</div>
 </div>

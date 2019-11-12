@@ -26,24 +26,25 @@ require 'inc/connection/connect.php';
     <div class="container">
         <h1><?php echo $_GET['name'];?></h1>
         <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by caste in pakistan
+            <div class="all-cat-div-title single-cat-div-title ">
+                find rishta by <?php echo $_GET['name']?> in pakistan
             </div>
             <div class="container-fluid">
                 <div class="row">
-
                     <?php $name=$_GET['name'];
-                    $result=mysqli_query($conn, "select name from $name");
+                    
+                    $sql="select * from $name ";
+                    $result=mysqli_query($conn, $sql);
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="#">                                    <!--- html --->
-                                <div class="col-md-4 all-md-2 col-xs-4">
+                             <a href="../check-category/<?php echo $name?>/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 single-md-2 col-xs-4">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
                                 </div> 
                             </a> 
-                    <?php }}?>
+                    <?php }}else{echo 'nothing found';}?>
 
                 </div>
             </div>

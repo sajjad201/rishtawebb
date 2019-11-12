@@ -22,8 +22,12 @@
 						<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12" style="padding:0px; background-color:#A00000">
 							<div class="collapse navbar-collapse" id="target" style="border-top:0px solid #800000">
 								<ul class=" nav navbar-nav navbar-right" >
-									<li><a href="login.php">Login</a></li>
-									<li style="background-color:#f96714; border-radius:2px" id="createAccountNow" ><a href="CompleteSignUp.php">Create Account Now</a></li>
+									<li><a href="searchguest.php"><i class="fas fa-search nav-icons" style="margin-right:15px"></i>Search Rishta</a></li>
+									<li><a href="all-categories.php"><i class="fas fa-list-ul nav-icons" style="margin-right:15px"></i>All Categories</a></li>
+									<li><a href="login.php"><i class="fas fa-sign-in-alt nav-icons" style="margin-right:15px"></i>Login</a></li>
+									<li style="background-color:#f96714; border-radius:2px" id="createAccountNow" >
+										<a href="CompleteSignUp.php"><i class="fas fa-user-plus nav-icons" style="margin-right:15px"></i>Create Account Now</a>
+									</li>
 								</ul>
 							</div>	
 						</div>
