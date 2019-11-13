@@ -44,6 +44,17 @@ function test_input($data)
 <!-- login-navbar -->
 <?php include('inc/pages/navbar-login.php');?>
 
+<style>
+.single-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.navbar-login-fixed{
+	position: relative !important;
+}
+</style>
 <?php
 	
 $newMembers=array();
@@ -92,8 +103,8 @@ while($secondPersonNameResult=@mysqli_fetch_array($secondPersonNameQuery))
 	<div class="row" style="margin-top:50px; margin-bottom:50px">
 		<div class="col-lg-3"></div>
 		<div class="col-lg-6 col-xs-12" style=" height:auto; padding:10px;  border:1px solid #CCCCCC; background-color:#FFFFFF">
-			<div class="col-lg-12 col-xs-12" style="background-color:#f0ede5; color:#00539c;
-			font-size:20px; font-family:Helvetica; font-weight:600; padding:10px; z-index:1" id="sticky">
+			<div class="col-lg-12 col-xs-12 single-sticky" style="background-color:#f0ede5; color:#00539c;
+			font-size:20px; font-family:Helvetica; font-weight:600; padding:10px; z-index:1" >
 				<div class="col-lg-1 col-xs-2" style="height:40px; width:40px; border-radius:50%;  background-color:#FFFFFF;  padding:0px">
 				
 					<?php
@@ -134,7 +145,7 @@ while($secondPersonNameResult=@mysqli_fetch_array($secondPersonNameQuery))
 									placeholder="Type Message..." rows="1" id="messageText"></textarea>
 								<span id="messageErrors" style="color:#FF0000; display:none"></span>
 								<input type="button" class="btn btn-primary" value="Send"  onclick="sendMessageNow()" id="sendMessage"
-								style="border-radius:2px; padding:3px; margin-top:3px; padding-left:25px; padding-right:25px; float:right"/>
+								style="border-radius:2px; padding:10px; margin-top:3px; padding-left:25px; padding-right:25px; float:right"/>
 						</form>
 					</div>
 								

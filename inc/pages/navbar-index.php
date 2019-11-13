@@ -1,3 +1,4 @@
+<?php $base_url="http://localhost/rishtawebb/"; ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px; position:fixed; z-index:5; ">
@@ -6,7 +7,7 @@
 					<div class="row" style="font-family:Arial">
 					
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8" id="logoMargin">
-							<a href="/" style="text-decoration:none">
+							<a href="<?php echo $base_url?>" style="text-decoration:none">
 								<span id="logoText1">RISHTA<span id="logoText2">WEB</span></span>
 							</a>
 						</div>
@@ -22,11 +23,11 @@
 						<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12" style="padding:0px; background-color:#A00000">
 							<div class="collapse navbar-collapse" id="target" style="border-top:0px solid #800000">
 								<ul class=" nav navbar-nav navbar-right" >
-									<li><a href="searchguest.php"><i class="fas fa-search nav-icons" style="margin-right:15px"></i>Search Rishta</a></li>
-									<li><a href="all-categories.php"><i class="fas fa-list-ul nav-icons" style="margin-right:15px"></i>All Categories</a></li>
-									<li><a href="login.php"><i class="fas fa-sign-in-alt nav-icons" style="margin-right:15px"></i>Login</a></li>
+									<li><a href="<?php echo $base_url?>searchguest.php"><i class="fas fa-search nav-icons" style="margin-right:15px"></i>Search</a></li>
+									<li><a href="<?php echo $base_url?>all-categories.php"><i class="fas fa-list-ul nav-icons" style="margin-right:15px"></i>Category</a></li>
+									<li><a href="<?php echo $base_url?>login.php"><i class="fas fa-sign-in-alt nav-icons" style="margin-right:15px"></i>Login</a></li>
 									<li style="background-color:#f96714; border-radius:2px" id="createAccountNow" >
-										<a href="CompleteSignUp.php"><i class="fas fa-user-plus nav-icons" style="margin-right:15px"></i>Create Account Now</a>
+										<a href="<?php echo $base_url?>CompleteSignUp.php"><i class="fas fa-user-plus nav-icons" style="margin-right:15px"></i>Create Account Now</a>
 									</li>
 								</ul>
 							</div>	

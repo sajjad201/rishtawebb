@@ -1,10 +1,19 @@
 
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks -MultiViews
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^singlecategory/([a-zA-Z0-9-/]+)/?$ single-category.php?name=$1 [L,NC,QSA]
-RewriteRule ^check-category/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2 [L]
+RewriteRule ^prof/([a-zA-Z0-9-/]+)/?$ viewprofile.php?viewProfileId=$1 [L,NC,QSA]
+RewriteRule ^prof-select/([a-zA-Z0-9-/]+)/?$ viewprofile.php?viewProfileId=$1 [L,NC,QSA]
+
+RewriteRule ^check-category/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2 [L,NC,QSA]
+RewriteRule ^([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2&page=$3 [L,NC,QSA]
+
+</IfModule>
+
 
 
 <IfModule mod_deflate.c>

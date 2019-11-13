@@ -14,10 +14,7 @@ if(isset($_GET["viewProfileId"]))
 	$_SESSION["viewProfileId"]=$_GET["viewProfileId"];
 }
 
-if(!isset($_GET["viewProfileId"]))
-{
-	header("location: searchProfiles.php");
-}
+
 
 $viewProfileId=$_SESSION["viewProfileId"];
 
@@ -97,9 +94,13 @@ padding: 10px;
 .modal-body {
     position: relative;
     padding: 15px;
-    height: 95px;
+    height: 145px;
     top: 0px;
-    bottom: 0px;
+	bottom: 0px;
+	margin-top: -18px;
+}
+#modalPaddingInner{
+	padding: 10px 0px;
 }
 
 .modal-content {
@@ -110,8 +111,22 @@ padding: 10px;
     left: 0;
     right: 0;
 }
+.form-control:focus{
+	box-shadow: 0px 0px 0px !important;
+}
+#modalMargin{
+	padding-bottom:0px;
+}
 
-
+.md-msg-sent-p{
+	font-size: 20px;
+    padding: 20px 0px;
+    color: #88B04B;
+}
+.md-msg-sent-title{
+	font-size: 28px;
+    color: #6e8f3d;
+}
 
 </style>
 
@@ -170,15 +185,15 @@ while($queryArray=mysqli_fetch_array($result)){
 						
 							<?php
 							if (!isset($_SESSION["firstPersonId"])){?>
-								<?php if($queryArray["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
-								else{?><img src="assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+								<?php if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
+								else{?><img src="<?php echo $base_url?>assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
 							<?php }
 							else{?>
 							<?php if($queryArray["publicProfile"]!="Private"){?>
-							<img src="<?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="View User Image">
+							<img src="<?php echo $base_url?><?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="View User Image">
 							<?php }
-							else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-							else{?><img src="allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } }?>
+							else if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
+							else{?><img src="<?php echo $base_url?>allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } }?>
 						</a>
 						</div>
 					</div>
@@ -194,15 +209,15 @@ while($queryArray=mysqli_fetch_array($result)){
 								<div class="modal-body-i" style="margin-top:10px; ">
 								<?php
 								if (!isset($_SESSION["firstPersonId"])){?>
-									<?php if($queryArray["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="40%" width="30%" alt="User Image"/><?php }
-									else{?><img src="assets/allpics/flogin.png" height="40%" width="30%" alt="User Image"/><?php } ?>
+									<?php if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/mlogin.png" height="40%" width="30%" alt="User Image"/><?php }
+									else{?><img src="<?php echo $base_url?>assets/allpics/flogin.png" height="40%" width="30%" alt="User Image"/><?php } ?>
 								<?php }
 								else{?>
 									<?php if($queryArray["publicProfile"]!="Private"){?> 
-									<img src="<?php echo $queryArray['uploadProfilePicture']; ?>" style="border-radius:2px; max-height:100%; max-width:100%" alt="View Full Size">
+									<img src="<?php echo $base_url?><?php echo $queryArray['uploadProfilePicture']; ?>" style="border-radius:2px; max-height:100%; max-width:100%" alt="View Full Size">
 									<?php }
-									else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="300px" width="300px" alt="Image in Full Size"/><?php } 
-									else{?><img src="allpics/female4.png" height="300px" width="300px" alt="Show Image"/><?php } 
+									else if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>allpics/male4.png" height="300px" width="300px" alt="Image in Full Size"/><?php } 
+									else{?><img src="<?php echo $base_url?>allpics/female4.png" height="300px" width="300px" alt="Show Image"/><?php } 
 								}?>
 								</div>
 								<div class="modal-footer-i"></div>
@@ -489,21 +504,21 @@ while($queryArray=mysqli_fetch_array($result)){
 					</div>
 					<!-- login modal -->
 					<div class="modal fade" id="loginmodel" role="dialog">
-						<div class="modal-dialog">
+						<div class="modal-dialog ">
 						<div class="modal-content">
 							<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title vp-modal-flex-title">Login or Register to send Message!</h4>
 							</div>
-							<div class="modal-body">
+							<div class="modal-body" style="margin-top: 14px; height: 95px">
 								<div class="vp-modal-flex">
 									<div>
-										<a href="login.php" class="vp-modal-flex-btn">
+										<a href="<?php echo $base_url;?>login.php" class="vp-modal-flex-btn">
 											Login
 										</a>
 									</div>
 									<div>
-										<a href="completesignup.php" class="vp-modal-flex-btn">
+										<a href="<?php echo $base_url;?>completesignup.php" class="vp-modal-flex-btn">
 											Register Now
 										</a>
 									</div>
@@ -514,7 +529,7 @@ while($queryArray=mysqli_fetch_array($result)){
 					</div>
 
 					<!-- message modal -->
-					<div class="modal fade" id="sendMessageModal" role="dialog" >
+					<div class="modal fade" id="sendMessageModal" role="dialog" style="padding-right:0px !important">
 					<div class="modal-dialog" id="modalMarginTop">
 					  <div class="modal-content" id="modalMargin">
 					  	<div class="modal-header" style="padding-bottom:0px; border:none; margin-bottom:0px">
@@ -544,11 +559,11 @@ while($queryArray=mysqli_fetch_array($result)){
 						
 						 
 						 <div id="modalPaddingInner">
-							<div class="modal-body" style="padding:0px; margin-top:-30px;">
+							<div class="modal-body" style="padding:0px; margin-top:-30px; height:240px">
 							
 							
-							  <form>
-								<textarea name="shortMessage" id="shortMessage" style="resize:none; border-radius:4px; margin-top:10px; color:#999999" class="form-control" 
+							  <form style="padding-top:20px">
+								<textarea name="shortMessage" id="shortMessage" style="resize:none; border-radius:4px; margin-top:23px; color:#999999" class="form-control" 
 											placeholder="type your message" rows="3" onClick="ShortMessage()" autofocus></textarea>
 								<input type="button" class="btn btn-success btn-default" value="Send Message" style=" border-radius:3px; padding:8px; padding-left:40px; 
 										padding-right:40px; margin-top:7px; color:#FFFFFF;" 
@@ -589,9 +604,9 @@ while($queryArray=mysqli_fetch_array($result)){
 											xmlhttp.send();
 											
 											document.getElementById("shortMessage").innerHTML="";
-											document.getElementById("successMessage").style.display="block";
-											document.getElementById("successMessage").innerHTML="Your Message has been Sent Successfully! To view Chat, visit Message page.";
 											document.getElementById("errorShortMessage").style.display="none";
+											$('#sendMessageModal').modal('toggle');
+											$('#messagesent').modal('toggle');
 										}
 									}
 							 	 </script>
@@ -611,6 +626,21 @@ while($queryArray=mysqli_fetch_array($result)){
 
 			</div>
 		</div>
+		<!-- message sent modal -->
+		<div class="modal fade" id="messagesent" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title md-msg-sent-title">Message Sent</h4>
+					</div>
+					<div class="modal-body" style="height:158px">
+						<p class="md-msg-sent-p">Your Message has been sent successfully!</p>
+						<span><a href="<?php echo $base_url;?>allConversation.php">click here</a> to view all messages.</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="col-lg-3 col-xs-12" >
 
 									<!-- city -->
@@ -622,7 +652,7 @@ while($queryArray=mysqli_fetch_array($result)){
 					<div class="vp-div3-body">
 						<?php
 						while($queryArray=mysqli_fetch_array($result)){?>
-							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+							<a href="../prof-select/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 								<div class="vp-div3-body-row">
 									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
 									<div class="vp-div3-body-row-des">
@@ -646,7 +676,7 @@ while($queryArray=mysqli_fetch_array($result)){
 					<div class="vp-div3-body">
 						<?php
 						while($queryArray=mysqli_fetch_array($result)){?>
-							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+							<a href="../prof-select/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 								<div class="vp-div3-body-row">
 									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
 									<div class="vp-div3-body-row-des">
@@ -670,7 +700,7 @@ while($queryArray=mysqli_fetch_array($result)){
 					<div class="vp-div3-body">
 						<?php
 						while($queryArray=mysqli_fetch_array($result)){?>
-							<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+							<a href="../prof-select/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 								<div class="vp-div3-body-row">
 									<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
 									<div class="vp-div3-body-row-des">
@@ -695,7 +725,7 @@ while($queryArray=mysqli_fetch_array($result)){
 						<div class="vp-div3-body">
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
-								<a href="viewprofile.php?viewProfileId=<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+								<a href="../prof-select/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 									<div class="vp-div3-body-row">
 										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
 										<div class="vp-div3-body-row-des">

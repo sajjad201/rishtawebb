@@ -22,29 +22,36 @@ function ageCalculator($dob){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <?php include('inc/pages/links-one.php');?>
 
+<?php include('inc/pages/links-one.php');
 
-
-<!---Pagination--->
-<?php		
 $category_name=$_GET['name'];
+$category_name=str_replace('/', '', $category_name);
 $url=$_GET['url'];	
+if(isset($_GET['page'])){
+    $page=$_GET['page'];		
+}
+
+
+
 $sql="select * from $category_name where url='$url' ";
 $result=mysqli_query($conn, $sql);
 while($r=mysqli_fetch_array($result)){
     $category=$r['name'];
 }
 
+if(!isset($_GET['page'])){
+    $_GET['page']=1;
+}
 $sql="SELECT * FROM signup where $category_name='$category' ";	//Change your table name and colunm
 $query_count=mysqli_query($conn, $sql);				
 $per_page =10;					//Change number of items on one page
 $count = mysqli_num_rows($query_count);
 $pages = ceil($count/$per_page);
-if(@$_GET['page']==""){		$page="1";	}
+if(@$_GET['page']==""){		$page="10";}
 else{	$page=$_GET['page'];	}
 $start = ($page - 1) * $per_page;
-echo $sql   = $sql." LIMIT $start,$per_page ";
+$sql   = $sql." LIMIT $start,$per_page ";
 $query2=mysqli_query($conn, $sql);
 $rowIndex=1; $colIndex=1; $chunk=4;						
 $arrayOfIndexes = array();
@@ -76,10 +83,10 @@ for($row=1; $row<=$pages; $row++){
 <!-- font-family: 'Roboto', sans-serif;
 font-family: 'Lato', sans-serif; -->
 
-<title><?php echo $title;?></title>
+<title><?php echo $url;?></title>
 
 </head>
-<body>
+<body class="cat-body">
     
 <!-- navbar -->
 <?php 
@@ -98,20 +105,30 @@ font-family: 'Lato', sans-serif; -->
             <div class="col-md-12 p-0">
                 <div class="all-main-div">
                     <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-9">
 
                             <div class="cat-text-div">
                                 <h1>Arain Rishta in pakistan</h1>
-                                <h2><?php echo "category: ".$_GET['name']."<br> url: ".$_GET['url']?></h2>
+                                <h2><?php echo "Name: ".$_GET['name']."<br> Url: ".$_GET['url'];
+                                if(isset($_GET['id'])){
+                                    echo "<br> ID:".$_GET['id'];
+                                }
+                                ?>
+                                </h2>
                             </div>
-
+                            <div class="cat-tot">
+                                <?php 
+                                if(@mysqli_num_rows($query2) > 0){
+                                    echo 'showing 10 of total: '.$count;
+                                }
+                                ?>
+                            </div>
                             <?php
                             
                             if(@mysqli_num_rows($query2) > 0){
                                 while($array2=mysqli_fetch_array($query2)){?>
                                     
-                                    <a href="viewprofile.php?id=<?php echo $array2['id'];?>" class="all-div-link">
+                                    <a href="../../prof/<?php echo $array2['id']?>" class="all-div-link">
                                         <div class="all-main-prof">
                                             <div class="container-fluid p-0">
                                                 <div class="col-md-2 col-xs-12">
@@ -120,14 +137,14 @@ font-family: 'Lato', sans-serif; -->
                                                         
                                                             <?php
                                                             if (!isset($_SESSION["firstPersonId"])){?>
-                                                                <?php if($array2["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
-                                                                else{?><img src="assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                                                                <?php if($array2["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
+                                                                else{?><img src="<?php echo $base_url?>assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
                                                             <?php }
                                                             else{?>
                                                                 <?php if($array2["publicProfile"]!="Private"){?>
-                                                                <img src="<?php echo $array2['uploadProfilePicture']; ?>"	height="100%" width="100%" style="border-radius:2px;" alt="User Image"> 
-                                                                <?php }else if($array2["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-                                                                else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                                                                <img src="<?php echo $base_url?><?php echo $array2['uploadProfilePicture']; ?>"	height="100%" width="100%" style="border-radius:2px;" alt="User Image"> 
+                                                                <?php }else if($array2["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
+                                                                else{?><img src="<?php echo $base_url?>assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
                                                             <?php } ?>
                                                         
                                                         </div>
@@ -231,7 +248,7 @@ font-family: 'Lato', sans-serif; -->
                                 <div class="col-lg-12 col-xs-12">
                                     <div class="col-lg-12 col-xs-12" style=" height:auto; padding:0px">
                                         <?php	if( $page>1 ){	$previous=$page-1; ?>
-                                                <a href="category.php?page=<?php echo $previous; ?> ">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $previous; ?> ">
                                                     <div class="col-lg-3 col-xs-12" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-right:15px; font-size:16px" class="glyphicon glyphicon-chevron-left"></span>
@@ -240,7 +257,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php if($firstOne != 1){?>
-                                                <a href="category.php?page=<?php echo $firstOne-1;?>">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $firstOne-1;?>">
                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                         <span style="font-size:12px; margin-left:-10px;" class="glyphicon glyphicon-menu-left"></span>
@@ -255,7 +272,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1; $col<=$lengthOfRow; $col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
-                                                                <a href="category.php?page=<?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -289,7 +306,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1; $col<=$lengthOfRow; $col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
-                                                                <a href="category.php?page=<?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                                         <?php if($page == $arrayOfIndexes[$row][$thisRow]){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -309,7 +326,7 @@ font-family: 'Lato', sans-serif; -->
                                                 }
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
-                                                <a href="category.php?page=<?php echo $lastOne;?>">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?>
@@ -318,7 +335,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php }?>
-                                                <a href="category.php?page=<?php echo $page+1; ?>  ">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
                                                     <div class="col-lg-3 col-xs-12" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
@@ -331,7 +348,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1;$col<=$lengthOfRow;$col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1;$thisRow<=$lengthOfRow;$thisRow++){?>
-                                                                <a href="category.php?page=<?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -351,7 +368,7 @@ font-family: 'Lato', sans-serif; -->
                                                 }
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
-                                                <a href="category.php?page=<?php echo $lastOne;?>">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
                                                     <div class="col-lg-1 col-xs-2" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?></span>
@@ -360,7 +377,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php }?>
-                                                <a href="category.php?page=<?php echo $page+1; ?>  ">
+                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
                                                     <div class="col-lg-3 col-xs-12" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
@@ -374,35 +391,117 @@ font-family: 'Lato', sans-serif; -->
                                 <div class="container-fluid" style="background-color:#CCCCCC; font-size:40px; padding:20px; height:450px; text-align:center">
                                     <?php echo "Error:This Page is Not Available!"; }?>
                                 </div>
-                            </div>
+                                
+                                <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishta by Gender
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link">Female Rishta</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" >Male Rishta</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishty by Clan
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/punjabi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in Punjabi Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/sindhi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in sindhi Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/baloch-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in baloch Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/pashtun-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in pashtun Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/saraiki-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in saraiki Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/brouhi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in brouhi Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/irani-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in irani Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/arab-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in arab Family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/clan/turk-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in turk Family</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishty by Family Affluence
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyaffluence/rishta-in-upper-middle-class-family" class="rishta-div-body-link">upper middle class</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyaffluence/rishta-in-middle-class-family" class="rishta-div-body-link">middle class</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyaffluence/rishta-in-lower-class-family" class="rishta-div-body-link">lower class</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyaffluence/rishta-in-affluent-family" class="rishta-div-body-link">Affluent</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishty by Family Type
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familytype/rishta-in-joint-family" class="rishta-div-body-link">joint family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familytype/rishta-in-nuclear-family" class="rishta-div-body-link">nuclear family</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishty by Family Values
+                                        </div>
+                                    <div class="rishta-div-body">
+                                            <a href="../../check-category/familyvalues/rishta-in-traditional-family" class="rishta-div-body-link">traditional family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyvalues/rishta-in-moderate--family" class="rishta-div-body-link">moderan family</a>
+                                        </div>
+                                        <div class="rishta-div-body">
+                                            <a href="../../check-category/familyvalues/rishta-in-liberal-family" class="rishta-div-body-link">liberal family</a>
+                                        </div>	
+                                    </div>
+                        
+					            </div>
+                                <div class="col-md-9">
+                                    <div class="cat-above-foot-sec">
+                                        <div class="cat-text-div">
+                                            <h1>Arain Rishta in pakistan</h1>
+                                            <h6>
+                                            This is content for arain 
+                                            </h6>
+                                        </div>
+                                        <div class="cat-text-div">
+                                            <h1>Arain Rishta in pakistan</h1>
+                                            <h5>This is content for arain</h5>
+                                        </div>
+                                        <div class="cat-text-div">
+                                            <h1>Arain Rishta in pakistan</h1>
+                                            <h4>This is content for arain</h4>
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="cat-above-foot-sec">
-            <div class="cat-text-div">
-                <h1>Arain Rishta in pakistan</h1>
-                <h6>
-                This is content for arain 
-                </h6>
-            </div>
-            <div class="cat-text-div">
-                <h1>Arain Rishta in pakistan</h1>
-                <h5>This is content for arain</h5>
-            </div>
-            <div class="cat-text-div">
-                <h1>Arain Rishta in pakistan</h1>
-                <h4>This is content for arain</h4>
-            </div>
-            
-
             </div>
         </div>
     </div>

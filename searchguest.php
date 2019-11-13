@@ -145,7 +145,6 @@ function test_input($data)
 	$data=trim($data);
 	$data=stripslashes($data);
 	$data=htmlspecialchars($data);
-	$data=mysqli_real_escape_string(mysqli_connect("localhost","root","","rishtawebchat"), $data);
 	$data=str_replace("'", "", $data);
 	$data=str_replace("`", "", $data);
 	$data=str_replace("''", "", $data);
@@ -401,7 +400,7 @@ for($row=1; $row<=$pages; $row++)
 #searchIcon{ color:#D69C2F; font-size:16px; border:none; cursor:pointer; margin-top:8px; border-radius:1px;}
 #searchIcon:hover{ background-color:#FFFFFF; }
 #navbarToggleButton{ color:#FFFFFF; font-size:16px; border:none; cursor:pointer; margin-top:10px; border-radius:2px; padding-top:10px; padding-bottom:10px; border-radius:4px;}
-#navbarToggleButton:hover{background-color:#800000; color:#FFFFFF;}
+#navbarToggleButton:hover{background-color:#A00000; color:#FFFFFF;}
 
 
 
@@ -470,7 +469,7 @@ for($row=1; $row<=$pages; $row++)
 
 #hidePrefrencesParent:hover #hidePrefrences{  visibility: visible; opacity: 1;  }
 #aboutText{margin-right:15px; font-weight:600; font-family:'Segoe UI'; color:#00539c; margin-top:4px;}
-#namePadding{padding:0px; text-align:center; margin-top:10px; border:1px solid #EEEEEE; border-radius:5px; font-size:16px;
+#namePadding{padding:0px; text-align:center; margin-top:10px; border:1px solid #EEEEEE; border-radius:5px; font-size:16px; background-color:#fbfbfb;
 										margin-left:auto; margin-right:auto; padding:3px; padding-top:11px; padding-bottom:11px; width:155px; margin-bottom:15px }	
 #about{padding:5px; padding-left:25px; padding-right:5px;}													
 #profileId{color:#999999; font-family:'Calibri Light'; margin-top:1px; font-size:11px}
@@ -607,7 +606,7 @@ for($row=1; $row<=$pages; $row++)
 							<div class="col-lg-12 " id="advancedSearchBox">
 								<div class="col-lg-12 " style="margin-bottom:20px; padding:0px; margin-top:0px; ">
 									<p id="advancedSearchText">
-										 ADVANCED SEARCH<br />
+										 SELECT OPTIONS BELOW<br />
 										<span id="selectOptionText">
 											Select Options Below for Advanced Search
 										</span>
@@ -2592,14 +2591,14 @@ function District()
 				<?php
 				while($array2=mysqli_fetch_array($query2)){
                     if (!isset($_SESSION["firstPersonId"])){?>
-                        <a rel="canonical" target="_blank" href="viewprofile.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                        <a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
                     <?php 
                     }
                     else{?>
-                        <a rel="canonical" target="_blank" href="viewguest.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                        <a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
                     <?php }?>
 				
-				<a rel="canonical" target="_blank" href="viewguest.php?viewProfileId=<?php echo $array2['id'];?>" style="text-decoration:none" id="hidePrefrencesParent" > 
+				<a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" > 
 					<div class="col-lg-12 col-md-12 col-xs-12" id="changeCenter">
 						<div class="col-lg-3 col-md-3 col-xs-12" >
 							<div id="profileId">
@@ -2619,41 +2618,36 @@ function District()
                             <?php } ?>
 							</div>
 							<div id="namePadding">
-								<span style="font-family:'Segoe UI'; font-weight:bold; color:#006e6d;">
+								<span style="font-family:'Segoe UI'; font-weight:bold; color:#2A4B7C;">
 									<?php echo $array2['firstName']." ".$lastName=$array2['lastName'];?>
 								</span>
 							</div>
 						</div>
 						<div class="col-lg-9 col-md-9 col-xs-12" id="about">
-							<div class="col-lg-12 col-sm-12 col-xs-12" style=" padding:0px; color:#333333; font-family:'Segoe UI'; padding-right:0px; 
-											line-height:15px; overflow-wrap:break-word; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+							<div class="col-lg-12 col-sm-12 col-xs-12 sg-sen-div">
 											
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding:0px; margin-top:5px" >
+								<div class="col-lg-4 col-md-3 col-sm-3 col-xs-3" style="padding:0px; margin-top:5px" >
 									<p id="aboutText" style="margin-bottom:12px;">Basic Info</p>
 									<?php if($array2['city'] != "") {?><p style="color:#CCCCCC">
-									<i class="fas fa-map-marker-alt" style="margin-right:9px; font-size:10px"></i>Location</p>
+									<i class="fas fa-map-marker-alt" style="margin-right:12px; font-size:14px"></i>Location</p>
 									<?php } else{?><p style="color:#CCCCCC">Country</p><?php }?>
-									<p style="color:#CCCCCC"><i class="fas fa-user-clock" style="margin-right:6px; font-size:9px;"></i>Age</p>
-									<p style="color:#CCCCCC"><i class="fas fa-male" style="margin-right:10px; font-size:12px; margin-left:2px"></i>Height</p>
-									<p style="color:#CCCCCC"><i class="fab fa-delicious" style="margin-right:8px; font-size:10px"></i>Clan</p>
-									<p style="color:#CCCCCC"><i class="fas fa-user-graduate" style="margin-right:8px; font-size:10px"></i>Education</p>
-									<p style="color:#CCCCCC"><i class="far fa-user" style="margin-right:8px; font-size:10px"></i>Language</p>
-									<p style="color:#CCCCCC" data-toggle="tooltip" data-placement="top" title="Marital Status">
-										<i class="fas fa-user-circle" style="margin-right:8px; font-size:10px"></i>M-Status
-									</p>
-									<p style="color:#CCCCCC"><i class="fas fa-mosque" style="margin-right:5px; font-size:10px"></i>Religion</p>
+									<p style="color:#CCCCCC"><i class="fas fa-user-clock" style="margin-right:8px; font-size:13px;"></i>Caste</p>
+									<p style="color:#CCCCCC"><i class="fas fa-user-graduate" style="margin-right:12px; font-size:13px"></i>Education</p>
+									<p style="color:#CCCCCC"><i class="fas fa-chalkboard-teacher" style="margin-right:8px; font-size:13px"></i>Profession</p>
+									<p style="color:#CCCCCC"><i class="far fa-user" style="margin-right:10px; font-size:14px"></i>Religion</p>
+									<p style="color:#CCCCCC"><i class="fas fa-user-clock" style="margin-right:7px; font-size:13px;"></i>Age</p>
+									<p style="color:#CCCCCC"><i class="fas fa-male" style="margin-right:17px; font-size:13px;"></i>Height</p>
 								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding:0px; padding-left:5px; margin-top:13px">
+								<div class="col-lg-5 col-md-4 col-sm-4 col-xs-4" style="padding:0px; padding-left:5px; margin-top:13px">
 									<p style="margin-bottom:23px"></p>
 									<span style="color:#666666">
 										<p><?php if($array2['city'] != "") {echo $array2['city']; } else{echo $array2['country']; }?></p>
-										<p><?php $row11 = array('dob'=>$array2['dob']);	echo ageCalculator($row11['dob']);	?></p>
-										<p><?php echo $array2['height']." ft"; ?></p>
-										<p><?php echo $array2['clan']; ?></p>
+										<p><?php echo $array2['caste']." ft"; ?></p>
 										<p><?php echo $array2['education']; ?></p>
-										<p><?php echo $array2['language']; ?></p>
-										<p><?php echo $array2['maritalStatus']; ?></p>
+										<p><?php echo $array2['profession']; ?></p>
 										<p><?php echo $array2['religion']; ?></p>
+										<p><?php $row11 = array('dob'=>$array2['dob']);	echo ageCalculator($row11['dob'])." old";	?></p>
+										<p><?php echo $array2['height']." ft"; ?></p>
 									</span>
 									<!---tooltip--->
 									<script>
@@ -2663,18 +2657,10 @@ function District()
 									</script>
 									<!---tooltip--->
 								</div>
-								<div class="col-lg-5 col-md-2 col-sm-2 col-xs-5"  id="hidePrefrences">
-									<p style="font-family:'Segoe UI'; margin-bottom:-2px; font-weight:600; color:#00539c">
-										Partner Preferences
-									</p>
-									<p style="margin-top:16px"><?php echo $array2['pLocation']; ?></p>
-									<p><?php echo $array2['pAge']; ?></p>
-									<p><?php echo $array2['pHeight']; ?></p>
-									<p><?php echo $array2['pClan']; ?></p>
-									<p><?php echo $array2['pEducation']; ?></p>
-									<p><?php echo $array2['pLanguage']; ?></p>
-									<p><?php echo $array2['pMaritalStatus']; ?></p>
-									<p><?php echo $array2['pReligion']; ?></p>
+								<div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 hidePrefrences">
+									<div>
+										<i class="fas fa-comments"></i>
+									</div>
 								</div>
 								
 							</div>
@@ -2699,7 +2685,7 @@ function District()
 						<div class="col-lg-12" style="margin-top:-15px; padding:0px">
 							<?php if($page <= $pages && $page>0 ){?>	
 							
-										<div class="col-lg-12 col-xs-12" style="border:0px solid #CCCCCC; padding:0px; border-radius:5px;">
+										<div class="col-lg-12 col-xs-12" style="border:0px solid #CCCCCC; padding:0px; border-radius:5px; margin-bottom:20px">
 											<div class="col-lg-12 col-xs-12" style=" height:auto; padding:0px">
 												
 												<?php	if( $page>1 ){	$previous=$page-1; ?>
@@ -2934,21 +2920,20 @@ function District()
 <div class="" style="background-color:#d2c29d;  font-family:'Segoe UI'; border-radius:3px; border:2px solid #bfa873; color:#333333;
 	font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px">Your profile will not Visible to You! 
 	<p style=" font-size:14px;">to view your profile, visit 'My Profile' page.</p>
-</div>
 
 <?php }else if($selectSomeID == true){?>
 
 <div class="" style="background-color:#f0ead6;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #bfa873; color:#333333;
 	font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px">No ID is selected! 
 	<p style=" font-size:14px;">please select some id.</p>
-</div>
+
 
 <?php } else { ?>	
 
 <div class="" style="background-color:#FFFFFF;  font-family:'Segoe UI'; border-radius:3px; border:1px solid #F5F5F5;
 font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; font-weight:600; color:#d5ae41">No Result Found! 
 <p style=" font-size:14px; font-weight:400;">try again and search with different user ID.</p>
-</div>
+ 
 							
 <?php } ?><!--endedCheckBlankQueryForAllCenterRepeaet-->									
 						
@@ -2959,72 +2944,89 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 					<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
                         <div class="right-div">
                             <div class="rishta-div-head">
-                                Rishty in Lahore
+                                Rishta by Gender
                             </div>
                             <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Lahore</a>
+                                <a href="check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Female Rishta</a>
                             </div>
                             <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Lahore</a>
+                                <a href="check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Male Rishta</a>
                             </div>
                         </div>
                         <div class="right-div">
                             <div class="rishta-div-head">
-                                Rishty in Arain
+                                Rishty by Clan
                             </div>
                             <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Arain Rishta</a>
+                                <a href="check-category/clan/punjabi-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in Punjabi Family</a>
                             </div>
                             <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Arain Rishta</a>
-                            </div>
+                                <a href="check-category/clan/sindhi-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in sindhi Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/baloch-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in baloch Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/pashtun-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in pashtun Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/saraiki-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in saraiki Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/brouhi-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in brouhi Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/irani-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in irani Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/arab-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in arab Family</a>
+							</div>
+							<div class="rishta-div-body">
+                                <a href="check-category/clan/turk-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Rishta in turk Family</a>
+							</div>
                         </div>
                         <div class="right-div">
-                            <div class="rishta-div-head">
-                                Rishty in Middle Class Family
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Middle Class Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Middle Class Family</a>
-                            </div>
-                        </div>
-                        <div class="right-div">
-                            <div class="rishta-div-head">
-                                Rishty in Moderate/Traditional/Liberal Family
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Moderate Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Moderate Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Traditional Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Traditional Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Traditional Liberal</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Traditional Liberal</a>
-                            </div>
-                        </div>
-                        <div class="right-div">
-                            <div class="rishta-div-head">
-                                Rishty in Punjabi Family
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">Female Rishta in Punjabi Family</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="#" class="rishta-div-body-link">male Rishta in Punjabi Family</a>
-                            </div>
-                        </div>
-                        
+							<div class="rishta-div-head">
+								Rishty by Family Affluence
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyaffluence/rishta-in-upper-middle-class-family" class="rishta-div-body-link">upper middle class</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyaffluence/rishta-in-middle-class-family" class="rishta-div-body-link">middle class</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyaffluence/rishta-in-lower-class-family" class="rishta-div-body-link">lower class</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyaffluence/rishta-in-affluent-family" class="rishta-div-body-link">Affluent</a>
+							</div>
+						</div>
+						<div class="right-div">
+							<div class="rishta-div-head">
+								Rishty by Family Type
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familytype/rishta-in-joint-family" class="rishta-div-body-link">joint family</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familytype/rishta-in-nuclear-family" class="rishta-div-body-link">nuclear family</a>
+							</div>
+						</div>
+						<div class="right-div">
+							<div class="rishta-div-head">
+								Rishty by Family Values
+							</div>
+						<div class="rishta-div-body">
+								<a href="check-category/familyvalues/rishta-in-traditional-family" class="rishta-div-body-link">traditional family</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyvalues/rishta-in-moderate--family" class="rishta-div-body-link">moderan family</a>
+							</div>
+							<div class="rishta-div-body">
+								<a href="check-category/familyvalues/rishta-in-liberal-family" class="rishta-div-body-link">liberal family</a>
+							</div>	
+						</div>
                         
 					</div>
 					<!---EndedRightSideBar--->

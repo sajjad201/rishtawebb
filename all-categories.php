@@ -36,7 +36,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from caste limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/caste/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -61,7 +61,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from city limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/city/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -86,7 +86,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from district limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/district/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -111,7 +111,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from province limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/province/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -133,7 +133,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from country limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/country/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -158,7 +158,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from religion limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/religion/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -180,7 +180,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from profession limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/profession/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -205,7 +205,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from language limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/language/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -230,7 +230,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from clan limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/clan/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -252,7 +252,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from education limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/education/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -274,7 +274,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from hobby limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/hobby/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -299,7 +299,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from familytype limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/familytype/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -321,7 +321,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from familyvalues limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/familyvalues/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -343,7 +343,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from familyaffluence limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/familyaffluence/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
@@ -365,7 +365,7 @@ require 'inc/connection/connect.php';
                     <?php $result=mysqli_query($conn, "select * from gender limit 12");
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/<?php echo $queryArray['url'];?>"> <!--- html --->
+                             <a href="check-category/gender/<?php echo $queryArray['url'];?>">
                                 <div class="col-md-4 all-md-2 col-xs-6">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>

@@ -12,16 +12,7 @@ $firstPerson=@$_SESSION["firstPersonId"];
 <body style="background-color:#F2F2F2">
 
 <?php if (!isset($_SESSION["firstPersonId"])){?>
-<div class="container-fluid" style=" padding:0px; padding-bottom:10px; position:fixed; overflow:hidden; width:100%; z-index:1; top:0">
-	<div class="col-lg-12" style="box-shadow:0px 0px 10px gray; background-color:#A00000; color:#FFFFFF;">
-		<div id="logoTextMargin">
-			<a href="/" style="text-decoration:none;">
-				<span id="logoText1">RISHTA<span id="logoText2">WEB</span></span>
-			</a>
-		</div>
-	</div>
-</div>
-<br /><br />
+<?php include('inc/pages/navbar-index.php');?>
 <h1 style="display:none">Contact Us</h1>
 
 <?php } else{?>

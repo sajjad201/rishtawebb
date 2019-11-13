@@ -358,10 +358,11 @@
 .rishta-div-head{
     font-size:16px;
     font-weight: 600;
-    background-color: lightgray;
+    background: linear-gradient(to left, #2193b0 0%, #6dd5ed 100%);
     padding:15px;
-    color: #333333;
-    margin-bottom:5px
+    color: white;
+    margin-bottom:5px;
+    border-top-left-radius: 2px;
 }
 .rishta-div-body{
     padding: 7px 10px 0px;
@@ -374,11 +375,13 @@
 }
 .rishta-div-body-link:hover{
     color: #0095ff;
+    text-decoration: none;
 }
 
 .all-sec{
     margin: 40px 0px;
 }
+
 .all-main-div{
     padding: 30px 0px;
     margin: 20px 0px 0px;
@@ -513,19 +516,6 @@
     font-size: 16px;
     font-family: calibri;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* all category */
 .all-cat{
     padding: 120px 0px 40px;
     background-color: white;
@@ -781,6 +771,9 @@
 .foot-five-box-he-li div{
     margin-top: 4px;
 }
+.foot-five-box-he-li div a:nth-child(1) {
+    text-transform: capitalize;
+}
 .foot-caret-icon{
     display: none;
     float: right;
@@ -802,8 +795,7 @@
     margin-left: 1px;
 }
 .cat-above-foot-sec{
-    margin: 50px 0px;
-    padding: 0px 190px;
+    margin: 70px 0px 50px;
 }
 
 .ft-border-flex{
@@ -834,11 +826,93 @@
     margin: 10px 0px 10px !important;
     padding-left: 30px;
 }
+.icon-bar{
+    border: 1px solid white;
+}
+#navbarToggleButton:hover{
+    background-color: #A00000;
+}
+#navbarToggleButtonTop{
+    background-color: #A00000;
+}
+#navbarToggleButtonTop:hover{
+    border: 0px;
+}
+#searchIcon{
+    color: #D69C2F;
+    margin-top: 8px;
+}
+#searchIcon:hover{
+    color: #D69C2F;
+}
+#navbarToggleButton{
+    padding: 7px !important;
+}
 
-
-
-
-
+#sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
+    padding: 7px;
+    border-top: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+    box-shadow: 0px -2px 2px lightgrey;
+    top: 0;
+    z-index: 0;
+}
+#navbarToggleButton:hover{
+    background-color:#A00000; 
+    color:#FFFFFF;
+}
+.cat-tot{
+    color: gray;
+    
+}
+.hidePrefrences{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #007bd3;
+    font-size: 20px;
+    height: 243px;
+    border-radius: 4px;
+    transition: .4s all ease;
+    background-color: #fbfbfb;
+}
+#changeCenter:hover .hidePrefrences{
+    background-color: #f2f2f2;
+}
+.hidePrefrences > div {
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 10px 0px 0px 0px;
+    background-color: #e0e7eb;
+    color: white;
+    font-size: 32px;
+    top: 50%;
+}
+#changeCenter:hover .hidePrefrences > div{
+    background-color: #ffffff;
+    color:  #00539c;
+}
+.mainBody{
+    background-image: url('../../assets/allpics/signup-bg.jpg')
+}
+.sg-sen-div{
+    padding: 0px;
+    color: #333333;
+    font-family: 'Segoe UI';
+    padding-right: 0px;
+    line-height: 19px;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+}
 
 
 
@@ -967,5 +1041,8 @@
     }
     .foot-five-box-he-tog{
         display: none;
+    }
+    .ft-border-flex div{
+        width: 90%;
     }
 }

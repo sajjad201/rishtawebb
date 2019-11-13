@@ -73,6 +73,18 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php include('inc/pages/links-one.php');?>
+<style>
+#whitePage {
+	background-color: #f0ede5;
+	border: 1px solid #B4B4B4;
+	padding: 10px;
+	margin-top: 45px;
+	margin-bottom: 100px;
+	padding: 20px;
+	box-shadow: 0px 0px 2px grey;
+	border-radius: 3px;
+}
+</style>
 </head>
 
 <body style=" background-color:#F0F0F0"> 
@@ -116,10 +128,10 @@ while($queryArray=mysqli_fetch_array($result)){?>
 								
 								<a rel="nofollow" href="#" data-toggle="modal" data-target="#showMyImage">
 									<?php if($queryArray["publicProfile"]!="Private"){?>
-									<img src="<?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="My Profile Picture">
+									<img src="<?php echo $base_url;?><?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="My Profile Picture">
 									<?php }
-									else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="100%" width="100%" alt="My Profile Picture"/><?php }
-									else{?><img src="allpics/female4.png" height="100%" width="100%" alt="My Profile Picture"/><?php } ?>
+									else if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url;?>assets/allpics/male4.png" height="100%" width="100%" alt="My Profile Picture"/><?php }
+									else{?><img src="<?php echo $base_url;?>assets/allpics/female4.png" height="100%" width="100%" alt="My Profile Picture"/><?php } ?>
 								</a>
 							</div>
 							
@@ -133,11 +145,11 @@ while($queryArray=mysqli_fetch_array($result)){?>
 										</div>
 										<div class="modal-body">
 										<?php if($queryArray["publicProfile"]!="Private"){?>
-										<img src="<?php echo $queryArray['uploadProfilePicture']; ?>"
+										<img src="<?php echo $base_url;?><?php echo $queryArray['uploadProfilePicture']; ?>"
 										 style="border-radius:2px; max-height:100%; max-width:100%; " alt="My Profile Picture">
 										 <?php }
-										else if($queryArray["gender"]=="male"){?><img src="allpics/male4.png" height="300px" width="300px" alt="My Profile Picture" /><?php }
-										else{?><img src="allpics/female4.png" height="300px" width="300px" alt="My Profile Picture" /><?php } ?>
+										else if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url;?>assets/allpics/male4.png" height="300px" width="300px" alt="My Profile Picture" /><?php }
+										else{?><img src="<?php echo $base_url;?>assets/allpics/female4.png" height="300px" width="300px" alt="My Profile Picture" /><?php } ?>
 										</div>
 										<div class="modal-footer" style="text-align:center; border:none">
 											<a href="updateProfilePicture.php" style=" text-decoration:none; padding:10px; margin-top:15px; border:1px solid #00474d; color:#FFFFFF;

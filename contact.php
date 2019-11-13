@@ -79,15 +79,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 <body style="background-color:#EFEFEF">
 
 <?php if (!isset($_SESSION["firstPersonId"])){?>
-<div class="container-fluid" style=" padding:0px; padding-bottom:10px; position:fixed; overflow:hidden; width:100%; z-index:1; top:0">
-	<div class="col-lg-12" style="box-shadow:0px 0px 10px gray; background-color:#A00000; color:#FFFFFF;">
-		<div id="logoTextMargin">
-			<a href="index.php" style="text-decoration:none;">
-				<span id="logoText1">RISHTA<span id="logoText2">WEB</span></span>
-			</a>
-		</div>
-	</div>
-</div>
+<?php include('inc/pages/navbar-index.php');?>
 <h1 style="display:none">Contact Us</h1>
 <br><br>
 

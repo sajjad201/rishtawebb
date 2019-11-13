@@ -1,4 +1,20 @@
-<?php @session_start(); ?>
+<?php @session_start(); 
+
+header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24))); 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rishtawebchat";
+global $conn;
+$conn = new mysqli($servername, $username, $password, $dbname);
+global $con;
+$con = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
+
+$base_url="http://localhost/rishtawebb/"; 
+
+?>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133484988-1"></script>
 <script>
@@ -21,7 +37,7 @@
 <meta name="robots" content="index, follow">
 
 <!-- icon -->
-<link rel="shortcut icon" href="rw8.png">
+<link rel="shortcut icon" href="../assets/allpics/rw8.png">
 
 <!-- bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
