@@ -87,11 +87,11 @@ $secondPerson=test_input(@$_SESSION["secondPerson"]);
 								}
 								else if($imageArray["gender"]=="male")
 								{
-									?><img src="allpics/male4.png" style="height:40px; width:40px; border-radius:50%;" alt="User Image"/><?php 
+									?><img src="assets/allpics/male4.png" style="height:40px; width:40px; border-radius:50%;" alt="User Image"/><?php 
 								}
 								else
 								{
-									?><img src="allpics/female4.png" style="height:40px; width:40px; border-radius:50%;" alt="User's Profile Picture"/><?php 
+									?><img src="assets/allpics/female4.png" style="height:40px; width:40px; border-radius:50%;" alt="User's Profile Picture"/><?php 
 								}
 							}			
 							?>

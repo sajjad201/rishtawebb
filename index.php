@@ -4,7 +4,7 @@ require 'inc/connection/connect.php';
 
 
 if(isset($_SESSION["firstPersonId"])){
-  header("Location: searchProfiles.php");
+  header("Location: searchguest.php");
 }
 
 
@@ -71,8 +71,20 @@ function ageCalculator($dob){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<title>Rishta in Pakistan - Rishtaweb</title>
+	<meta name="description" content="Rishtaweb is free matchmaking/matrimonial/rishta portal in pakistan that facilitate peoples to find their suitable match while sitting at home within pakistan or accross the world">
+	<meta name="keywords" content="">
 	<?php include('inc/pages/links-one.php');?>
 	
+	<!-- select2 -->
+	<script src="assets/select2/select2popper.js"></script> 
+	<script src="assets/select2/select2min.js"></script> 
+	<link rel="stylesheet" href="assets/select2/select2.css"> 
+	<link href="assets/css/style.css" rel="stylesheet" />
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -122,7 +134,7 @@ function OpenMessenger(){
 							<div class="modal-content" style="border-radius:0px; box-shadow:0px 0px 0px; border-bottom:0px">
 								<div class="modal-body">
 									<div class="container-fluid">
-										<h1 style="font-family:'Segoe UI'; color:#92B558">Thanks for Connecting us!</h1>
+										<div style="font-family:'Segoe UI'; color:#92B558">Thanks for Connecting us!</div>
 										<p style="font-size:20px; font-family:'Segoe UI'; color:#92B558">
 											Request submitted successfully. Our team will connect you shortly.
 										</p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -365,7 +377,6 @@ function Form1Script(){
 <!---navbar--->
 <?php include('inc/pages/navbar-index.php');?>
 
-<h1 style="display:none">Index or Home Page</h1>
 <!---body--->
 <div class="container-fluid" id="bodyCenter" style="z-index:4; position:relative">
 
@@ -373,36 +384,86 @@ function Form1Script(){
 		<div class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="item active" style="position:relative; top:0;">
-					<img id="hideImage1" src="assets/allpics/w4.jpg" alt="index" style="width:100%;">
+					<img id="hideImage1" src="assets/allpics/w3.jpg" alt="index" style="width:100%;">
 					<img id="hideImage2" src="assets/allpics/ww4.jpg" alt="index" style="width:100%;">
 				</div>
 				<div class="col-lg-4" style="position:absolute; top:1%; padding:0px; text-align:center; right:0;">
 					<span style="background-color:#ff0000;display:block; background:rgba(230, 201, 127,0.4); padding:10px;border-top-left-radius:50px; 
 							border-bottom-left-radius:50px;">
-					<span id="imageText">Three Simple Steps<br> </span>
+					<span id="imageText">RISHTAWEB<br> </span>
 					<span id="imageText2">Create Profile, Search Rishta, Send Messages</span><br>
 					</span>
 				</div>
-				<div class="col-lg-5" id="imageCenterText2">
-					<span style="display:block; padding:10px; border-radius:5px;">
-					<span id="imageText" style=" color:#FFFFFF; font-size:100px; font-family:'Dosis-Bold'; text-shadow: 2px 2px #c48f65;">RISHTAWEB.COM</span><br />
-					<div id="imageText2" style="color:#FFFFFF; margin-top:-25px">An Amazing Place to Find Your Life Partner</div><br>
-					</span>
+
+				<div class="col-lg-12" id="imageCenterText2">
+					<div class="col-lg-12 imageCenterText2-title">
+						Search Rishta in Pakistan
+					</div>
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8 index-search">
+						<form class="form-inline" action="searchguest.php" method="post">
+							<div class="row">
+								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+									<label class="index-search-label" for="gender">Gender</label>
+									<select class="form-control select2 Gender" name="gender" id="gender">
+										<option value="male">male</option>
+										<option value="female">female</option>
+									</select>
+								</div>
+								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+									<label class="index-search-label" for="city">City</label>
+									<select class="form-control select2 City" name="city" id="City">
+										<option value="0">Select</option>
+										<option value="Islamabad">Islamabad</option>
+										<option value="Karachi">Karachi</option>
+										<option value="Lahore">Lahore</option>
+										<option value="Peshawar">Peshawar</option>
+										<option value="Quetta">Quetta</option>
+										<option value="Gilgit">Gilgit</option>
+										<?php
+										$result=mysqli_query($conn, "select * from city");
+										if(mysqli_num_rows($result) > 0){
+											while($r=mysqli_fetch_array($result)){
+												if( $r['name'] != 'Islamabad' &&
+													$r['name'] != 'Karachi' &&
+													$r['name'] != 'Lahore' &&
+													$r['name'] != 'Peshawar' &&
+													$r['name'] != 'Quetta' &&
+													$r['name'] != 'Gilgit'
+												){?>
+													<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+												<?php }
+													?>
+												
+											<?php }
+										}
+										?>
+									</select>
+								</div>
+								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+									<label class="index-search-label" for="profession">Profession</label>
+									<select class="form-control select2 Profession" name="profession" id="profession">
+										<option value="0">Select</option>
+										<?php
+										$result=mysqli_query($conn, "select * from profession");
+										if(mysqli_num_rows($result) > 0){
+											while($r=mysqli_fetch_array($result)){?>
+												<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+											<?php }
+										}
+										?>
+									</select>
+								</div>
+								<div class="col-md-3 col-xs-12 form-group ind-form-group-search">
+									<label class="index-search-label index-search-label-s" for="search">Search</label>
+									<button type="submit" class="btn btn-block btn-info ind-form-group-search-btn" name="indexsearch">SEARCH RISHTA</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-2"></div>
 				</div>
-				<div class="col-lg-8" id="centerLinks">
-					<a rel="canonical" href="CompleteSignUp.php" style="text-decoration:none; " id="createAccountNowText">
-						<span>
-							<span id="createAccountNowTextInner">Create Account Now</span><br />
-						</span>
-					</a>
-					<a rel="canonical" href="login.php" id="logoText3">Login</a>
-				</div>
-				<div class="col-lg-4" style="position:absolute; bottom:5%; padding:0px; text-align:center; left:0; ">
-					<span style="background-color:#ff0000;display:block;background:rgba(255,0,0,0.3); padding:10px;border-top-right-radius:50px; border-bottom-right-radius:50px;">
-					<span id="imageText" style="color:#640000">Let's Find Someone Special</span><br>
-					<span id="imageText2" style="color:#640000; ">Who Cares for You More than You</span><br>
-					</span>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -454,10 +515,10 @@ function Form1Script(){
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12 col-xs-12" style="padding:0px">
-			<div class="col-lg-12" style="padding:10px; padding-top:30px; padding-bottom:50px; background-color:#f0ede5;">
-				<div class="col-lg-12" style="font-size:26px; color:#C48F65; border-left:4px solid #a00000; padding:5px; margin-bottom:10px; padding-left:10px; padding-top:0px">
+			<div class="col-lg-12 ind-recent-pro">
+				<div class="col-lg-12" style="font-size:26px; color:#935529; border-left:3px solid #935529; padding:5px; margin-bottom:10px; padding-left:7px; padding-top:0px">
 					<div style="font-weight:600; font-family:'Segoe UI'; margin-top:-8px;">Recent Profiles</div>
-					<span style="font-size:12px; font-weight:500; ">Create your account or login to your profile to connect with people.</span>
+					<span style="font-size:12px; font-weight:500; ">Login to contact</span>
 				</div>
 				<div class="col-lg-1"></div>
 				<div class="col-lg-12" style="padding:0px">
@@ -465,26 +526,23 @@ function Form1Script(){
 						<!-- Set up your HTML -->
 						<div class="owl-carousel owl-theme myclass">
 							<?php
-							$male=mysqli_query($conn, "select * from signup where gender='male' && makeMeHide='Show' order by id desc limit 5");
-							$female=mysqli_query($conn, "select * from signup where gender='female' && makeMeHide='Show' order by id desc limit 5");
+							$male=mysqli_query($conn, "select * from signup where gender='male' && makeMeHide='Show' order by id desc limit 10");
+							$female=mysqli_query($conn, "select * from signup where gender='female' && makeMeHide='Show' order by id desc limit 10");
 							while( $maleArray=mysqli_fetch_array($male) ){
 							while( $femaleArray=mysqli_fetch_array($female) ){
 							
-							?><a href="viewprofile.php?viewProfileId=<?php echo $maleArray['id']; ?>" style="text-decoration:none">
+							?><a target="_blank" href="profile/<?php echo $maleArray['id']?>" style="text-decoration:none">
 								<div class="item col-lg-4" style="border:1px solid #CCCCCC; border-radius:5px; width:99%; padding:0px; margin-right:10px">
 									<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#F5F5F5; border-top-left-radius:5px; border-top-right-radius:5px">
 										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-4" style="padding:0px; padding:8px;">
 											<div style="height:75px; width:75px; border-radius:50%; border:3px solid #FFFFFF; box-shadow:0px 0px 2px #CCCCCC; padding:0px;">
-								<?php if($maleArray["publicProfile"]!="Private"){?>
-									<img src="<?php echo $maleArray['uploadProfilePicture']; ?>"  style="height:100%; width:100%; border-radius:50%;" >
-								<?php }
-								 else if($maleArray["gender"]=="male"){?><img src="assets/allpics/male4.png" style="height:100%; width:100%; border-radius:50%;" /><?php } 
-								 else{?><img src="assets/allpics/female4.png" style="height:100%; width:100%; border-radius:50%;" /><?php } ?>											
+											<?php if($maleArray["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" style="border-radius:50%" alt="User Image"/><?php }
+                                			else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image" style="border-radius:50%" /><?php } ?>										
 								 </div>
 										</div>
 										<div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 location_icon">
 											<i class="fas fa-map-marker-alt" style=" color:#385898; font-size:22px"></i>
-											<span style="font-family:'Segoe UI'; font-weight:bold; font-size:16px; margin-left:5px; color:#385898">
+											<span style="font-family:'Segoe UI'; font-weight:bold; font-size:12px; margin-left:5px; color:#385898">
 												<?php if($maleArray["city"]!=""){echo strtoupper($maleArray["city"]);}else{echo strtoupper($maleArray["country"]);}?>
 											</span>
 										</div>
@@ -503,13 +561,9 @@ function Form1Script(){
 														}
 														echo " ".$acronym[0].".";
 													?>
-													<span style="font-weight:500; font-size:11px; float:right; "> id: <?php echo $maleArray["id"];?></span>
+													<span style="font-weight:500; font-size:11px; float:right; "> profile id: <?php echo $maleArray["id"];?></span>
 												</div>
 												<span style="margin-top:5px; color:#999999; font-weight:400">
-													<div style="font-size:13px">
-														<i class="fas fa-male" style="margin-right:20px; margin-left:2px; color:#BC70A4; font-size:12px"></i> 
-														<?php echo $maleArray["gender"];?>
-													</div>
 													<span style="font-size:13px;">
 														<i class="fas fa-user-clock" style="margin-right:10px; color:#BC70A4; font-size:12px"></i> 
 														<?php $row11 = array('dob'=>$maleArray['dob']);	echo ageCalculator($row11['dob']);	?> Old
@@ -545,20 +599,18 @@ function Form1Script(){
 									</div>
 								</div>
 								</a>
-								<a href="viewprofile.php?viewProfileId=<?php echo $maleArray['id']; ?>">
+								<a target="_blank" href="profile/<?php echo $femaleArray['id']?>">
 								<div class="item col-lg-4" style="border:1px solid #CCCCCC; border-radius:5px; width:99%; padding:0px; margin-right:10px">
 									<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#F5F5F5; border-top-left-radius:5px; border-top-right-radius:5px">
 										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-4" style="padding:0px; padding:8px;">
 											<div style="height:75px; width:75px; border-radius:50%; border:3px solid #FFFFFF; box-shadow:0px 0px 2px #CCCCCC; padding:0px;">
-								<?php if($femaleArray["publicProfile"]!="Private"){?>
-								<img src="<?php echo $femaleArray['uploadProfilePicture']; ?>" style="height:100%; width:100%; border-radius:50%;" ><?php }
-								 else if($femaleArray["gender"]=="male"){?><img src="assets/allpics/male4.png" style="height:100%; width:100%; border-radius:50%;" /><?php } 
-								 else{?><img src="assets/allpics/female4.png" style="height:100%; width:100%; border-radius:50%;" /><?php } ?>											
+											<?php if($femaleArray["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" style="border-radius:50%" alt="User Image"/><?php }
+                                			else{?><img src="assets/allpics/female4.png" height="100%" width="100%" style="border-radius:50%" alt="User Image"/><?php } ?>									
 								 </div>
 										</div>
 										<div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 location_icon">
 											<i class="fas fa-map-marker-alt" style=" color:#385898; font-size:22px"></i>
-											<span style="font-family:'Segoe UI'; font-weight:bold; font-size:14px; margin-left:5px; color:#385898">
+											<span style="font-family:'Segoe UI'; font-weight:bold; font-size:12px; margin-left:5px; color:#385898">
 												<?php if($femaleArray["city"]!=""){echo strtoupper($femaleArray["city"]);}else{echo strtoupper($femaleArray["country"]);}?>
 											</span>
 										</div>
@@ -577,13 +629,9 @@ function Form1Script(){
 														}
 														echo " ".$acronym[0].".";
 													?>
-													<span style="font-weight:500; font-size:11px; float:right; "> id: <?php echo $femaleArray["id"];?></span>
+													<span style="font-weight:500; font-size:11px; float:right; "> profile id: <?php echo $femaleArray["id"];?></span>
 												</div>
 												<span style="color:#999999; font-weight:400">
-													<div style="font-size:13px">
-														<i class="fas fa-female" style="margin-right:20px; margin-left:2px; color:#BC70A4; font-size:12px"></i> 
-														<?php echo $femaleArray["gender"];?>
-													</div>
 													<span style="font-size:13px;">
 														<i class="fas fa-user-clock" style="margin-right:10px; color:#BC70A4; font-size:12px"></i> 
 														<?php $row11 = array('dob'=>$femaleArray['dob']);	echo ageCalculator($row11['dob']);	?> Old
@@ -679,9 +727,64 @@ function Form1Script(){
 	</div>
 </div>
 
+<div class="container-fluid ind-txt-con">
+	<div class="row">
+		<div class="container ind-txt-container">
+			<div class="ind-txt-img">
+				<div class="ind-txt-img-in">
+					<div class="m-0 ind-txt-title">Free Rishta/Matrimonial Portal in Pakistan</div><br>
+				</div>
+				<div class="ind-txt-img-center">
+					
+					<h1 class="g-font-one-bold">Rishta in Pakistan</h1>
+					Rishtaweb is an online free matrimonial, marriage or rishta portal/website that facilitate people to find out their sole mates within Pakistan and across the world. 
+					In this modern era, the technology has connected the whole world and gathered all the communities/societies on the internet that hosts 
+					websites, mobile apps and other platforms. 
+					So keeping in the mind, we thought to help out the people to find rishta online while sitting at home.
+					Our major focus is online rishta that should not involve any third party. <br>
+					Our mission is to make the life of people easier and easier and we aim to reduce the culture of rishta maasi, marriage bureaus, which cost a 
+					lot of money, take much time to research, then select or reject the rishta and people now days don’t have much time to wait for such type of things. 
+					There are a lot of marriage bureaus in Lahore, Karachi and Islamabad people usually visit them, provide their details and the details for the desired
+					partner. This process usually takes more than two weeks and after even that, they can’t guarantee the exact thing you need/want.<br>
+					
+					<h2>How to Use</h2>
+					If you are also looking for online rishta that should take you to a marriage, then rishtaweb is a right place. Here you can find a lot of profiles, 
+					from different countries, religions, clans and professions. 
+					Rishtweb is a place where you can register, find your soul mates free of cost with wasting no time. There are almost all categories, you can filter 
+					results according to your need, send message directly to them and discuss for further details. <br>
+					There are a bundles of other matrimonial/rishta website in Pakistan that provides their services to search in Pakistan or across the world. These are also good
+					but most of them offers paid services. So the thing is that, most of the people in Pakistan can’t afford that amount for just searching purposes of rishta. 
+					So initially, we are providing all the services free of cost. You don’t have to pay for anything like registration, searching and even send messages to 
+					desired person. <br>
+
+					<h2>How rishtaweb works</h2>
+					That’s pretty easy. If you are new on the site then there is no need to register yourself for searching bride/groom profiles. You can simply search by ID
+					or you can also do advanced search. Advanced search is an absolute solution to filter out results that you needs. For example, if you want to find rishta
+					in Lahore, Karachi or find rishta in Pakistan, then select your desired country, province, district and your city/hometown. All the rishta profiles belongs to 
+					Lahore, Karachi and from all over Pakistan will be filtered out for you. Rishtaweb advanced search include almost all options/categories that could help
+					out you to find the exact match according to your personality. <br>
+					
+					<h2>Privacy Policy</h2>
+					Your privacy is too important for us, we take care for privacy of each individual. So we don’t show the contact information to anyone. You can hide your 
+					profile on rishtaweb portal. If your profile is hidden, no one can visit your profile or send messages to you but you will be able to visit the site, view
+					profiles of other peoples and send message to them and your message will be conveyed when your profile will be active. 
+					Once you have registered on rishtaweb, to use our services for nikah, rishta or marriage/matrimonial purposes, we may contact you to verify your account 
+					and to get other detail information to make stronger your profile and we will match that information with that you provided on our rishta/matrimonial website. <br>
+					We may send you email, message or directly call to you for any verification purposes.<br>
+					Initially, there are no third party will be involved in the whole process like to contact with bride then groom and vice versa. Each candidate will need 
+					you search, and contact with other candidate. If something happen wrong with any party, then rishtaweb is not responsible for any damage or loss.
+					All is up to the candidate himself/herself.  
+				</div>
+				<div class="ind-txt-img-in-two"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!---//body--->
 
 <?php include('inc/pages/footer.php');?>
+<script src="assets/js/register.js"></script>
 
 </body>
 </html>

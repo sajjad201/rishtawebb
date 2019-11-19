@@ -6,11 +6,14 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^singlecategory/([a-zA-Z0-9-/]+)/?$ single-category.php?name=$1 [L,NC,QSA]
-RewriteRule ^prof/([a-zA-Z0-9-/]+)/?$ viewprofile.php?viewProfileId=$1 [L,NC,QSA]
+RewriteRule ^profile/([a-zA-Z0-9-/]+)/?$ viewprofile.php?viewProfileId=$1 [L,NC,QSA]
 RewriteRule ^prof-select/([a-zA-Z0-9-/]+)/?$ viewprofile.php?viewProfileId=$1 [L,NC,QSA]
 
 RewriteRule ^check-category/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2 [L,NC,QSA]
 RewriteRule ^([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2&page=$3 [L,NC,QSA]
+
+RewriteRule ^sitemap\.xml/?$ sitemap.php
+
 
 </IfModule>
 

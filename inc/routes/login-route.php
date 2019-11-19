@@ -8,7 +8,7 @@ require '../connection/connect.php';
 
 if(isset($_SESSION["firstPersonId"]))
 {
-  header("Location: ../../searchProfiles.php");
+  header("Location: ../../searchguest.php");
 }
 
 
@@ -87,7 +87,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 		 {
 		 	$_SESSION['firstPersonId'] =$id;
             $_SESSION['username'] = $user;
-			header('Location: ../../searchProfiles.php');
+			header('Location: ../../searchguest.php');
 		 }
 		 else
 		 {

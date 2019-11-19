@@ -18,21 +18,35 @@ function ageCalculator($dob){
         return 0;
     }
 }
+
+$category_name=$_GET['name'];
+$url=$_GET['url'];	
+$sql="select * from $category_name where url='$url' ";
+$result=mysqli_query($conn, $sql);
+while($r=mysqli_fetch_array($result)){
+    $category=$r['name'];
+}
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<?php include('inc/pages/links-one.php');
-
-$category_name=$_GET['name'];
-$category_name=str_replace('/', '', $category_name);
-$url=$_GET['url'];	
-if(isset($_GET['page'])){
-    $page=$_GET['page'];		
+<title><?php echo $tit=str_replace('-', ' ', $_GET['url']);?> - RISHTAWEB</title>
+<meta name="description" content="Find online rishta in <?php echo $category; 
+if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='familyvalues' || $_GET['name']=='familyaffluence'
+|| $_GET['name']=='caste' || $_GET['name']=='clan' || $_GET['name']=='religion' || $_GET['name']=='language'){
+    echo ' family ';
 }
+?>. Rishtaweb offers many rishty in <?php echo $category; 
+if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='familyvalues' || $_GET['name']=='familyaffluence'
+|| $_GET['name']=='caste' || $_GET['name']=='clan' || $_GET['name']=='religion' || $_GET['name']=='language'){
+    echo ' family ';
+}
+?>. You can also find rishta in your desired cast, religion. profession and within your city or country">
+<meta name="keywords" content="Find <?php echo $category; ?> girls rishta in pakistan. Find <?php echo $category; ?> boys rishta in pakistan. <?php echo $category; ?> female rishta in pakistan. <?php echo $category; ?> male rishta in pakistan.">
 
-
+<?php include('inc/pages/links-one.php');
 
 $sql="select * from $category_name where url='$url' ";
 $result=mysqli_query($conn, $sql);
@@ -43,7 +57,21 @@ while($r=mysqli_fetch_array($result)){
 if(!isset($_GET['page'])){
     $_GET['page']=1;
 }
-$sql="SELECT * FROM signup where $category_name='$category' ";	//Change your table name and colunm
+
+
+if(isset($_SESSION['firstPersonId'])){
+    $id=$_SESSION['firstPersonId'];
+    $sql="SELECT gender FROM signup where id=$id";	
+    $result=mysqli_query($conn, $sql);	
+    while($r=mysqli_fetch_array($result)){
+        $gender=$r['gender'];
+    }
+    $sql="SELECT * FROM signup where $category_name='$category' && gender!='$gender' ";	
+}
+else{
+    $sql="SELECT * FROM signup where $category_name='$category' ";	
+}
+
 $query_count=mysqli_query($conn, $sql);				
 $per_page =10;					//Change number of items on one page
 $count = mysqli_num_rows($query_count);
@@ -83,7 +111,6 @@ for($row=1; $row<=$pages; $row++){
 <!-- font-family: 'Roboto', sans-serif;
 font-family: 'Lato', sans-serif; -->
 
-<title><?php echo $url;?></title>
 
 </head>
 <body class="cat-body">
@@ -101,20 +128,24 @@ font-family: 'Lato', sans-serif; -->
 <!-- body -->
 <section class="all-sec">
     <div class="container">
-        <div class="row">
+        <div class="row"> 
             <div class="col-md-12 p-0">
                 <div class="all-main-div">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-9"> 
+                        
 
                             <div class="cat-text-div">
-                                <h1>Arain Rishta in pakistan</h1>
-                                <h2><?php echo "Name: ".$_GET['name']."<br> Url: ".$_GET['url'];
-                                if(isset($_GET['id'])){
-                                    echo "<br> ID:".$_GET['id'];
-                                }
-                                ?>
-                                </h2>
+                                <h1 class="h1-title">
+                                    <?php echo $tit=str_replace('-', ' ', $_GET['url']);?>
+                                </h1>
+                                    <?php
+                                    $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                    while($r=mysqli_fetch_array($result)){
+                                        echo $r['section'];
+                                    }
+                                    ?>
+                                
                             </div>
                             <div class="cat-tot">
                                 <?php 
@@ -128,7 +159,7 @@ font-family: 'Lato', sans-serif; -->
                             if(@mysqli_num_rows($query2) > 0){
                                 while($array2=mysqli_fetch_array($query2)){?>
                                     
-                                    <a href="../../prof/<?php echo $array2['id']?>" class="all-div-link">
+                                    <a href="../../profile/<?php echo $array2['id']?>" class="all-div-link">
                                         <div class="all-main-prof">
                                             <div class="container-fluid p-0">
                                                 <div class="col-md-2 col-xs-12">
@@ -193,7 +224,7 @@ font-family: 'Lato', sans-serif; -->
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-xs-6">
+                                                <div class="col-md-3 col-xs-6">
                                                     <div class="all-main-profile-detail">
                                                         <div class="all-main-profile-detail-div-2">
                                                             <div class="all-main-prof-bold">
@@ -231,6 +262,13 @@ font-family: 'Lato', sans-serif; -->
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="all-main-profile-right">
+                                                        <div class="all-main-profile-right-in">
+                                                            <span class="all-main-profile-right-btn">Send Message</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </a>
@@ -238,14 +276,12 @@ font-family: 'Lato', sans-serif; -->
                             <?php
                              } }
                             else{
-                                echo 'no record found';
+                                echo '0 record found';
                             }
                             ?>
-
-
                             <!-- pagination -->
                             <?php if($page <= $pages && $page>0 ){?>	
-                                <div class="col-lg-12 col-xs-12">
+                                <div class="col-lg-12 col-xs-12 cat-pagi-pad">
                                     <div class="col-lg-12 col-xs-12" style=" height:auto; padding:0px">
                                         <?php	if( $page>1 ){	$previous=$page-1; ?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $previous; ?> ">
@@ -386,24 +422,31 @@ font-family: 'Lato', sans-serif; -->
                                                 </a>
                                         <?php }	?>					
                                     </div>
-                                </div>			
-                                <?php }	else{ ?>
-                                <div class="container-fluid" style="background-color:#CCCCCC; font-size:40px; padding:20px; height:450px; text-align:center">
-                                    <?php echo "Error:This Page is Not Available!"; }?>
+                                </div>
+                                <?php }	
+                                else{ ?>
+                                    <div class="container-fluid" style="background-color:#CCCCCC; font-size:40px; padding:20px;  text-align:center">
+                                        No record Found
+                                    </div>
+                                <?php }?>
                                 </div>
                                 
+                                
                                 <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishta by Gender
+                                    <?php
+                                    if(!isset($_SESSION['firstPersonId'])){?>
+                                        <div class="right-div">
+                                            <div class="rishta-div-head">
+                                                Rishta by Gender
+                                            </div>
+                                            <div class="rishta-div-body">
+                                                <a href="../../check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link">Female Rishta</a>
+                                            </div>
+                                            <div class="rishta-div-body">
+                                                <a href="../../check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" >Male Rishta</a>
+                                            </div>
                                         </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link">Female Rishta</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" >Male Rishta</a>
-                                        </div>
-                                    </div>
+                                    <?php }?>
                                     <div class="right-div">
                                         <div class="rishta-div-head">
                                             Rishty by Clan
@@ -480,21 +523,25 @@ font-family: 'Lato', sans-serif; -->
                                     </div>
                         
 					            </div>
-                                <div class="col-md-9">
+                                <div class="col-md-9" style="margin:50px 0px">
                                     <div class="cat-above-foot-sec">
                                         <div class="cat-text-div">
                                             <h1>Arain Rishta in pakistan</h1>
-                                            <h6>
-                                            This is content for arain 
-                                            </h6>
+                                            <?php
+                                            $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                            while($r=mysqli_fetch_array($result)){
+                                                echo $r['section2'];
+                                            }
+                                            ?>
                                         </div>
                                         <div class="cat-text-div">
                                             <h1>Arain Rishta in pakistan</h1>
-                                            <h5>This is content for arain</h5>
-                                        </div>
-                                        <div class="cat-text-div">
-                                            <h1>Arain Rishta in pakistan</h1>
-                                            <h4>This is content for arain</h4>
+                                            <?php
+                                            $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                            while($r=mysqli_fetch_array($result)){
+                                                echo $r['section3'];
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

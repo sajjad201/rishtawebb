@@ -181,19 +181,19 @@ while($queryArray=mysqli_fetch_array($result)){
 			
 					<div class="col-lg-3" id="imagePaddingBottom">
 						<div id="imageDimensions">
-						<a rel="nofollow" href="#" data-toggle="modal" data-target="#showImage">
+						<a rel="nofollow" href="#">
 						
 							<?php
 							if (!isset($_SESSION["firstPersonId"])){?>
-								<?php if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
-								else{?><img src="<?php echo $base_url?>assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+								<?php if($queryArray["gender"]=="male"){?><img data-toggle="modal" data-target="#loginmodel" src="<?php echo $base_url?>assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
+								else{?><img data-toggle="modal" data-target="#loginmodel" src="<?php echo $base_url?>assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
 							<?php }
 							else{?>
 							<?php if($queryArray["publicProfile"]!="Private"){?>
-							<img src="<?php echo $base_url?><?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="View User Image">
+							<img data-toggle="modal" data-target="#showImage" src="<?php echo $base_url?><?php echo $queryArray['uploadProfilePicture']; ?>" height="100%" width="100%" style="border-radius:2px;" alt="View User Image">
 							<?php }
 							else if($queryArray["gender"]=="male"){?><img src="<?php echo $base_url?>allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-							else{?><img src="<?php echo $base_url?>allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } }?>
+							else{?><img data-toggle="modal" data-target="#showImage" src="<?php echo $base_url?>allpics/female4.png" height="100%" width="100%" alt="User's Profile Picture"/><?php } }?>
 						</a>
 						</div>
 					</div>
@@ -377,22 +377,6 @@ while($queryArray=mysqli_fetch_array($result)){
 							<div class="col-lg-11 col-xs-10" id="iconPaddingRight">
 											<span style="color:#5b5ea6">Family Values</span>
 								<div class="col-lg-12" style="padding:0px;  font-weight:normal; font-size:13px; margin-top:5px">
-									<div class="col-lg-12" style="padding:0px; margin-top:-4px;">
-										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
-											Father's <span style="word-spacing:0.2cm;">Status: </span><span style="font-weight:600"><?php echo $queryArray["fatherStatus"];?></span>
-										</div>
-										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
-											Mother's <span style="word-spacing:0.2cm;">Status: </span><span style="font-weight:600"><?php echo $queryArray["motherStatus"];?></span>
-										</div>
-									</div>
-									<div class="col-lg-12" style="padding:0px; ">
-										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
-											No of <span style="word-spacing:0.2cm;">Brothers: </span><span style="font-weight:600"><?php echo $queryArray["noOfBrothers"];?></span>
-										</div>
-										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
-											No of <span style="word-spacing:0.2cm;">Sisters: </span><span style="font-weight:600"><?php echo $queryArray["noOfSisters"];?></span>
-										</div>
-									</div>
 									<div class="col-lg-12" style="padding:0px; ">
 										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
 											Family <span style="word-spacing:0.2cm;">Type: </span><span style="font-weight:600"><?php echo $queryArray["familyType"];?></span>
@@ -406,6 +390,30 @@ while($queryArray=mysqli_fetch_array($result)){
 											Family <span style="word-spacing:0.2cm;">Affluences: </span><span style="font-weight:600">
 													<?php echo $queryArray["familyAffluence"];?>
 													</span>
+										</div>
+									</div>
+									<div class="col-lg-12" style="padding:0px;">
+										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
+											Father's<span style="word-spacing:0.2cm;">Status: </span><span style="font-weight:600">
+														<?php if($queryArray["fatherStatus"] != '0'){echo $queryArray["fatherStatus"];} else{ echo 'not avaialbe'; } ?>
+													</span>
+										</div>
+										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
+											Mother's<span style="word-spacing:0.2cm;">Status: </span><span style="font-weight:600">
+														<?php if($queryArray["motherStatus"] != '0'){echo $queryArray["motherStatus"];} else{ echo 'not avaialbe'; } ?>
+													</span>
+										</div>
+									</div>
+									<div class="col-lg-12" style="padding:0px; ">
+										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
+											No of<span style="word-spacing:0.2cm;">Brothers: </span><span style="font-weight:600">
+													<?php if($queryArray["noOfBrothers"] != '0'){echo $queryArray["noOfBrothers"];} else{ echo 'not avaialbe'; } ?>
+												</span>
+										</div>
+										<div class="col-lg-6" style="padding:0px; margin-top:8px;">
+											No of<span style="word-spacing:0.2cm;">Sisters: </span><span style="font-weight:600">
+													<?php if($queryArray["noOfSisters"] != '0'){echo $queryArray["noOfSisters"];} else{ echo 'not avaialbe'; } ?>
+												</span>
 										</div>
 										<div style="padding:0px; border-bottom:1px solid #EFEFEF; margin-top:40px"></div>
 									</div>
@@ -427,47 +435,58 @@ while($queryArray=mysqli_fetch_array($result)){
 										margin-bottom:5px; font-family:'Trebuchet MS'; ">
 											<div class="col-lg-12" style="padding:0px; margin-top:-10px">
 												<div class="col-lg-6" style="padding:0px">
-													 <span style="word-spacing:0.2cm;">Height: </span><?php echo $queryArray["pHeight"];?>
+													 <span style="word-spacing:0.2cm;">Height: </span>
+													 <?php if($queryArray["pHeight"] != '0'){echo $queryArray["pHeight"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 												<div class="col-lg-6" style="padding:0px; ">
-													<span style="word-spacing:0.2cm;">Age: </span><?php echo $queryArray["pAge"];?>
+													<span style="word-spacing:0.2cm;">Age: </span>
+													<?php if($queryArray["pAge"] != '0'){echo $queryArray["pAge"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 											<div class="col-lg-12" style="padding:0px;">
 												<div class="col-lg-6" style="padding:0px; ">
-													<span style="word-spacing:0.2cm;">Religion: </span><?php echo $queryArray["pReligion"];?>
+													<span style="word-spacing:0.2cm;">Religion: </span>
+													<?php if($queryArray["pReligion"] != '0'){echo $queryArray["pReligion"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 												<div class="col-lg-6" style="padding:0px; ">
-													Marital <span style="word-spacing:0.2cm;">Status: </span><?php echo $queryArray["pMaritalStatus"];?>
+													Marital <span style="word-spacing:0.2cm;">Status: </span>
+													<?php if($queryArray["pMaritalStatus"] != '0'){echo $queryArray["pMaritalStatus"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 											<div class="col-lg-12" style="padding:0px;  padding-bottom:0px;">
 												<div class="col-lg-6" style="padding:0px">
-													<span style="word-spacing:0.2cm;">Education: </span><?php echo $queryArray["pEducation"];?>
+													<span style="word-spacing:0.2cm;">Education: </span>
+													<?php if($queryArray["pEducation"] != '0'){echo $queryArray["pEducation"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 												<div class="col-lg-6" style="padding:0px; word-wrap:break-word">
-													<span style="word-spacing:0.2cm;">Location: </span><?php echo $queryArray["pLocation"];?>
+													<span style="word-spacing:0.2cm;">Location: </span>
+													<?php if($queryArray["pLocation"] != '0'){echo $queryArray["pLocation"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 											<div class="col-lg-12" style="padding:0px;  padding-bottom:0px;">
 												<div class="col-lg-6" style="padding:0px">
-													<span style="word-spacing:0.2cm;">Language: </span><?php echo $queryArray["pLanguage"];?>
+													<span style="word-spacing:0.2cm;">Language: </span>
+													<?php if($queryArray["pLanguage"] != '0'){echo $queryArray["pLanguage"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 												<div class="col-lg-6" style="padding:0px; ">
-													Skin <span style="word-spacing:0.2cm;">Tone: </span><?php echo $queryArray["pComplexion"];?>
+													Skin <span style="word-spacing:0.2cm;">Tone: </span>
+													<?php if($queryArray["pComplexion"] != '0'){echo $queryArray["pComplexion"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 											<div class="col-lg-12" style="padding:0px;  padding-bottom:0px;">
 												<div class="col-lg-6" style="padding:0px">
-													<span style="word-spacing:0.2cm;">Clan: </span><?php echo $queryArray["pClan"];?>
+													<span style="word-spacing:0.2cm;">Clan: </span>
+													<?php if($queryArray["pClan"] != '0'){echo $queryArray["pClan"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 												<div class="col-lg-6" style="padding:0px; ">
-													Family <span style="word-spacing:0.2cm;">Affluence: </span><?php echo $queryArray["pFamilyAffluence"];?>
+													Family <span style="word-spacing:0.2cm;">Affluence: </span>
+													<?php if($queryArray["pFamilyAffluence"] != '0'){echo $queryArray["pFamilyAffluence"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 											<div class="col-lg-12" style="padding:0px;  padding-bottom:0px; margin-top:5px; ">
 												<div class="col-lg-12" style="padding:0px; word-wrap:break-word;">
-													About <span style="word-spacing:0.2cm;">Partner: </span><?php echo $queryArray["pAbout"];?>
+													About <span style="word-spacing:0.2cm;">Partner: </span>
+													<?php if($queryArray["pAbout"] != '0'){echo $queryArray["pAbout"];} else{ echo 'not avaialbe'; } ?>
 												</div>
 											</div>
 										</div>
@@ -502,32 +521,7 @@ while($queryArray=mysqli_fetch_array($result)){
 							</div>	
 						</div>
 					</div>
-					<!-- login modal -->
-					<div class="modal fade" id="loginmodel" role="dialog">
-						<div class="modal-dialog ">
-						<div class="modal-content">
-							<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title vp-modal-flex-title">Login or Register to send Message!</h4>
-							</div>
-							<div class="modal-body" style="margin-top: 14px; height: 95px">
-								<div class="vp-modal-flex">
-									<div>
-										<a href="<?php echo $base_url;?>login.php" class="vp-modal-flex-btn">
-											Login
-										</a>
-									</div>
-									<div>
-										<a href="<?php echo $base_url;?>completesignup.php" class="vp-modal-flex-btn">
-											Register Now
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div>
-					</div>
-
+					
 					<!-- message modal -->
 					<div class="modal fade" id="sendMessageModal" role="dialog" style="padding-right:0px !important">
 					<div class="modal-dialog" id="modalMarginTop">
@@ -559,10 +553,10 @@ while($queryArray=mysqli_fetch_array($result)){
 						
 						 
 						 <div id="modalPaddingInner">
-							<div class="modal-body" style="padding:0px; margin-top:-30px; height:240px">
+							<div class="modal-body" style="padding:0px; margin-top:0px; height:160px">
 							
 							
-							  <form style="padding-top:20px">
+							  <form>
 								<textarea name="shortMessage" id="shortMessage" style="resize:none; border-radius:4px; margin-top:23px; color:#999999" class="form-control" 
 											placeholder="type your message" rows="3" onClick="ShortMessage()" autofocus></textarea>
 								<input type="button" class="btn btn-success btn-default" value="Send Message" style=" border-radius:3px; padding:8px; padding-left:40px; 
@@ -600,7 +594,7 @@ while($queryArray=mysqli_fetch_array($result)){
 										{
 											
 											var xmlhttp = new XMLHttpRequest();
-											xmlhttp.open('GET','inc/routes/viewprofilePHP.php?fromId='+fromId+'&shortMessage='+shortMessage+'&toId='+toId, true);
+											xmlhttp.open('GET','<?php echo $base_url;?>inc/routes/viewprofilePHP.php?fromId='+fromId+'&shortMessage='+shortMessage+'&toId='+toId, true);
 											xmlhttp.send();
 											
 											document.getElementById("shortMessage").innerHTML="";

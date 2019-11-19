@@ -4,7 +4,7 @@ require 'inc/connection/connect.php';
 
 if(isset($_SESSION["firstPersonId"]))
 {
-  header("Location: searchProfiles.php");
+  header("Location: searchguest.php");
 }
 
 
@@ -756,7 +756,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 			if($print) 
 			{	
 				$_SESSION['firstPersonId'] =$id;
-				header('Location: ../../searchProfiles.php');
+				header('Location: ../../searchguest.php');
 			}
 			else
 			{
@@ -888,10 +888,10 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, creat
 {
 	background-color:#eae6da; border-radius:4px; padding-bottom:15px; border:10px solid #eae6da; box-shadow: 0px 3px 7px lightgray !important;
 }
-#createYourAccount{text-align:center; background-color:#ece9df; padding:15px; border-radius:0px; padding-top:25px;border-bottom: 2px solid #485167;
+#createYourAccount{text-align:center; background-color:#ece9df; padding:20px; border-radius:0px;border-bottom: 2px solid #485167;
 	background-image: url('assets/allpics/back6.jpg')
 }
-#createYourRishtawebAccount{font-size:25px; font-weight:700; color:#00539c; font-family:"Segoe UI"}
+#createYourRishtawebAccount{font-size:25px; font-weight:700; color:white; font-family:"Segoe UI"}
 #backPadding{ margin-top:-15px;}
 #day{width:100%; height:30px; border-radius:3px; color:#666666}
 #month{width:100%; height:30px; border-radius:3px; color:#666666}
@@ -1424,7 +1424,7 @@ $('#updateModal').modal({
 								<div class="col-lg-12" style="padding:5px; margin-bottom:10px;">
 									<div style="color:#999999; text-align:center; font-family:Rubik; font-size:16px; font-weight:600 ">
 									<i class="fas fa-user-graduate" style="margin-right:10px;"></i>
-									Your Educational Info</div>
+									Your Education, Family and Profession</div>
 								</div>
 									<div class="form-group">
 										<label for="education" class="col-sm-4 control-label" id="setFonts">Education</label>

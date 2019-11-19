@@ -39,3 +39,32 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+<!-- login modal -->
+<div class="modal fade" id="loginmodel" role="dialog">
+	<div class="modal-dialog ">
+	<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title vp-modal-flex-title">Login or Register to send Message!</h4>
+		</div>
+		<div class="modal-body" style="margin-top: 14px; height: 95px">
+			<div class="vp-modal-flex">
+				<div>
+					<a href="<?php echo $base_url;?>login.php" class="vp-modal-flex-btn">
+						Login
+					</a>
+				</div>
+				<div>
+					<a href="<?php echo $base_url;?>completesignup.php" class="vp-modal-flex-btn">
+						Register Now
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

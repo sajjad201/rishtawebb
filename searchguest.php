@@ -229,6 +229,7 @@ if(isset($_POST["submitForm"]))
 	$_SESSION["select"]=$select;
 }
 
+
 if(isset($_SESSION['FirstVisit']) == false || isset($_POST["reset"]) )
 {
 	$select="SELECT * FROM signup WHERE 1=1  ";	
@@ -264,6 +265,29 @@ if (isset($_SESSION["firstPersonId"])){
             $_SESSION["countRows"]=@mysqli_num_rows( mysqli_query($con, $select) );
         }
     }
+}
+
+
+
+if(isset($_POST["indexsearch"])){
+	$select="SELECT * FROM signup WHERE 1=1  ";	
+	if(isset($_POST["gender"]) && $_POST["gender"] !="0"){
+		$gender=$_POST["gender"];
+		$select .="AND  gender='$gender' ";
+		$genderResult=" 'gender' ";
+	}
+	if(isset($_POST["city"]) && $_POST["city"] !="0"){
+		$city=$_POST["city"];
+		$select .="AND city='$city'";
+		$cityResult=" 'City' ";
+	}
+	if(isset($_POST["profession"]) && $_POST["profession"] !="0"){
+		$profession=$_POST["profession"];
+		$select .="AND  profession='$profession' ";
+		$professionResult=" 'profession' ";
+	}
+	$_SESSION["countRows"]=mysqli_num_rows( mysqli_query($con, $select) );
+	$_SESSION["select"]=$select;
 }
 
 
@@ -562,7 +586,7 @@ for($row=1; $row<=$pages; $row++)
 		
 	</div>
 	
-		<div class="col-lg-12" style="padding: unset;">
+		<div class="col-lg-12 searchguest-bg" style="padding: unset;">
             <div class="col-lg-12" style="margin-top:50px; padding:0px; margin-bottom:30px">
             <div class="container-fluid">
                 <span id="search-icon-guest" class="navbar-toggle search-icon-guest"  style="font-size:25px;">
@@ -583,7 +607,9 @@ for($row=1; $row<=$pages; $row++)
 					<div class="col-lg-1"></div>
 					<div class="col-lg-12 " style="padding:0px; margin-bottom:100px" >
 					
-					
+				  		<div class="col-lg-12 leftSideBar-all">
+				  			<a href="" class="leftSideBar-all-li">RESET ALL FILTERS</a>
+						</div>
 						<div class="col-lg-12 " id="searchByIdBox">
 							<form name="searchById" method="post" action="searchguest.php">
 								<input type="text" class="form-control" placeholder="Id example: 5768" style="border-radius:2px" name="id"/>
@@ -2591,24 +2617,24 @@ function District()
 				<?php
 				while($array2=mysqli_fetch_array($query2)){
                     if (!isset($_SESSION["firstPersonId"])){?>
-                        <a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                        <a rel="canonical" target="_blank" href="profile/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
                     <?php 
                     }
                     else{?>
-                        <a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
+                        <a rel="canonical" target="_blank" href="profile/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" >
                     <?php }?>
 				
-				<a rel="canonical" target="_blank" href="prof/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" > 
+				<a rel="canonical" target="_blank" href="profile/<?php echo $array2['id']?>" style="text-decoration:none" id="hidePrefrencesParent" > 
 					<div class="col-lg-12 col-md-12 col-xs-12" id="changeCenter">
-						<div class="col-lg-3 col-md-3 col-xs-12" >
-							<div id="profileId">
-								<?php echo "id: ".$array2['id'];?>
+						<div class="col-lg-3 col-md-3 col-xs-12">
+							<div id="profileId" style="height:13px;">
+								<?php if (!isset($_SESSION["firstPersonId"])){echo $array2['gender'];}?>
 							</div>
                             <div style="height:160px; width:155px; margin-left:auto; margin-right:auto; border-radius:5px; border:2px solid #E1E1E1">
                             <?php
                             if (!isset($_SESSION["firstPersonId"])){?>
-                                <?php if($array2["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" alt="User Image"/><?php }
-                                else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
+                                <?php if($array2["gender"]=="male"){?><img src="assets/allpics/mlogin.png" height="100%" width="100%" alt="User Image"/><?php }
+                                else{?><img src="assets/allpics/flogin.png" height="100%" width="100%" alt="User Image"/><?php } ?>
                             <?php }
                             else{?>
                                 <?php if($array2["publicProfile"]!="Private"){?>
@@ -2617,8 +2643,9 @@ function District()
                                 else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image"/><?php } ?>
                             <?php } ?>
 							</div>
-							<div id="namePadding">
+							<div id="namePadding" style="padding-top:5px">
 								<span style="font-family:'Segoe UI'; font-weight:bold; color:#2A4B7C;">
+									<span style="font-size:11px; color:gray; font-weight:100; text-align:left">id: <?php echo $array2['id'];?></span><br>
 									<?php echo $array2['firstName']." ".$lastName=$array2['lastName'];?>
 								</span>
 							</div>
@@ -2629,8 +2656,11 @@ function District()
 								<div class="col-lg-4 col-md-3 col-sm-3 col-xs-3" style="padding:0px; margin-top:5px" >
 									<p id="aboutText" style="margin-bottom:12px;">Basic Info</p>
 									<?php if($array2['city'] != "") {?><p style="color:#CCCCCC">
-									<i class="fas fa-map-marker-alt" style="margin-right:12px; font-size:14px"></i>Location</p>
-									<?php } else{?><p style="color:#CCCCCC">Country</p><?php }?>
+									<i class="fas fa-map-marker-alt" style="margin-right:12px; font-size:14px"></i>City</p>
+									<?php } else{?>
+										<p style="color:#CCCCCC"><i class="fas fa-map-marker-alt" style="margin-right:12px; font-size:14px"></i>
+										Country</p>
+									<?php }?>
 									<p style="color:#CCCCCC"><i class="fas fa-user-clock" style="margin-right:8px; font-size:13px;"></i>Caste</p>
 									<p style="color:#CCCCCC"><i class="fas fa-user-graduate" style="margin-right:12px; font-size:13px"></i>Education</p>
 									<p style="color:#CCCCCC"><i class="fas fa-chalkboard-teacher" style="margin-right:8px; font-size:13px"></i>Profession</p>
@@ -2942,17 +2972,20 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 					
 					<!---RightSideBar--->
 					<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
-                        <div class="right-div">
-                            <div class="rishta-div-head">
-                                Rishta by Gender
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Female Rishta</a>
-                            </div>
-                            <div class="rishta-div-body">
-                                <a href="check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Male Rishta</a>
-                            </div>
-                        </div>
+						<?php
+                        if(!isset($_SESSION['firstPersonId'])){?>
+							<div class="right-div">
+								<div class="rishta-div-head">
+									Rishta by Gender
+								</div>
+								<div class="rishta-div-body">
+									<a href="check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Female Rishta</a>
+								</div>
+								<div class="rishta-div-body">
+									<a href="check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" target="_blank">Male Rishta</a>
+								</div>
+							</div>
+						<?php }?>
                         <div class="right-div">
                             <div class="rishta-div-head">
                                 Rishty by Clan

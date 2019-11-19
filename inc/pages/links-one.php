@@ -29,8 +29,6 @@ $base_url="http://localhost/rishtawebb/";
 <!-- meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="If you already have an account, login here and if don't just create your RISHATWEB Account and then login." />
-<meta name="keywords" content="rishtaweb.com, rishtaweb, pakistani rishta free" />
 <meta name="Author" content="RISHTAWEB.com" />
 <meta name="copyright" content="RISHTAWEB.com" />
 <meta name="Distribution" content="general" />
