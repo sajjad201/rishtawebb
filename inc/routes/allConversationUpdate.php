@@ -7,16 +7,17 @@ if (!isset($_SESSION["firstPersonId"]))
   header("location: ../../");
 }
 
-function test_input($data)
-{
+
+function test_input($data){
+	global $conn;
 	$data=trim($data);
 	$data=stripslashes($data);
 	$data=htmlspecialchars($data);
+	$data=mysqli_real_escape_string($conn, $data);
 	$data=str_replace("'", "", $data);
 	$data=str_replace("`", "", $data);
 	$data=str_replace("''", "", $data);
 	$data=str_replace(";", "", $data);
-	$data=str_replace(" ", "", $data);
 	return $data;
 }
 

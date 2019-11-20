@@ -3,8 +3,7 @@ session_start();
 require '../connection/connect.php';
 
 
-function test_input($data)
-{
+function test_input($data){
 	global $conn;
 	$data=trim($data);
 	$data=stripslashes($data);

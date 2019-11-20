@@ -112,6 +112,12 @@ for($row=1; $row<=$pages; $row++){
 font-family: 'Lato', sans-serif; -->
 
 
+<!-- select2 -->
+<script src="<?php echo $base_url;?>assets/select2/select2popper.js"></script> 
+<script src="<?php echo $base_url;?>assets/select2/select2min.js"></script> 
+<link rel="stylesheet" href="<?php echo $base_url;?>assets/select2/select2.css"> 
+<link rel="stylesheet" href="<?php echo $base_url;?>assets/css/style.css"  />
+
 </head>
 <body class="cat-body">
     
@@ -127,25 +133,108 @@ font-family: 'Lato', sans-serif; -->
 
 <!-- body -->
 <section class="all-sec">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row"> 
-            <div class="col-md-12 p-0">
+            <div class="col-md-1"></div>
+            <div class="col-md-11 p-0">
                 <div class="all-main-div">
                     <div class="row">
                         <div class="col-md-9"> 
                         
 
                             <div class="cat-text-div">
-                                <h1 class="h1-title">
+                                <h1 class="cat-h1-title">
                                     <?php echo $tit=str_replace('-', ' ', $_GET['url']);?>
                                 </h1>
+                                <div class="cat-h1-body">
                                     <?php
-                                    $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                    while($r=mysqli_fetch_array($result)){
-                                        echo $r['section'];
-                                    }
+                                        $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                        while($r=mysqli_fetch_array($result)){
+                                            echo $r['section'];
+                                        }
                                     ?>
+                                </div>
                                 
+                            </div>
+                            <div class="row cat-search-div">
+                                <div class="col-lg-12 index-search cat-index-search">
+                                    <form class="form-inline cat-search-form-width" action="<?php echo $base_url;?>searchguest.php" method="post">
+                                        <div class="row">
+                                            <?php 
+                                            if(isset($_SESSION['firstPersonId'])){?>
+                                                <div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+                                                    <label class="index-search-label" for="caste">Caste</label>
+                                                    <select class="form-control select2 Caste" name="caste" id="caste">
+                                                        <option value="0">Select Caste</option>
+                                                        <?php
+                                                            $result=mysqli_query($conn, "select * from caste");
+                                                            while($r=mysqli_fetch_array($result)){?>
+                                                                <option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+                                                            <?php }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            <?php }else{?>
+                                                <div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+                                                    <label class="index-search-label" for="gender">Gender</label>
+                                                    <select class="form-control select2 Gender" name="gender" id="gender">
+                                                        <option value="male">male</option>
+                                                        <option value="female">female</option>
+                                                    </select>
+                                                </div>
+                                            <?php }
+                                            ?>
+                                            <div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+                                                <label class="index-search-label" for="city">City</label>
+                                                <select class="form-control select2 City" name="city" id="City">
+                                                    <option value="0">Select City</option>
+                                                    <option value="Islamabad">Islamabad</option>
+                                                    <option value="Karachi">Karachi</option>
+                                                    <option value="Lahore">Lahore</option>
+                                                    <option value="Peshawar">Peshawar</option>
+                                                    <option value="Quetta">Quetta</option>
+                                                    <option value="Gilgit">Gilgit</option>
+                                                    <?php
+                                                    $result=mysqli_query($conn, "select * from city");
+                                                    if(mysqli_num_rows($result) > 0){
+                                                        while($r=mysqli_fetch_array($result)){
+                                                            if( $r['name'] != 'Islamabad' &&
+                                                                $r['name'] != 'Karachi' &&
+                                                                $r['name'] != 'Lahore' &&
+                                                                $r['name'] != 'Peshawar' &&
+                                                                $r['name'] != 'Quetta' &&
+                                                                $r['name'] != 'Gilgit'
+                                                            ){?>
+                                                                <option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+                                                            <?php }
+                                                                ?>
+                                                            
+                                                        <?php }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+                                                <label class="index-search-label" for="profession">Profession</label>
+                                                <select class="form-control select2 Profession" name="profession" id="profession">
+                                                    <option value="0">Select Profession</option>
+                                                    <?php
+                                                    $result=mysqli_query($conn, "select * from profession");
+                                                    if(mysqli_num_rows($result) > 0){
+                                                        while($r=mysqli_fetch_array($result)){?>
+                                                            <option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+                                                        <?php }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-xs-12 form-group ind-form-group-search">
+                                                <label class="index-search-label index-search-label-s" for="search">Select one/multiple inputs</label>
+                                                <button type="submit" class="btn btn-block btn-info ind-form-group-search-btn cat-form-group-search-btn" name="indexsearch">SEARCH RISHTA</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                             <div class="cat-tot">
                                 <?php 
@@ -265,7 +354,9 @@ font-family: 'Lato', sans-serif; -->
                                                 <div class="col-md-3">
                                                     <div class="all-main-profile-right">
                                                         <div class="all-main-profile-right-in">
-                                                            <span class="all-main-profile-right-btn">Send Message</span>
+                                                            <span class="all-main-profile-right-btn">
+                                                                <i class="fas fa-envelope" style="margin-right:10px;"></i>Send Message
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -432,7 +523,7 @@ font-family: 'Lato', sans-serif; -->
                                 </div>
                                 
                                 
-                                <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
+                                <div id="RightSideBar" class="col-lg-3 col-md-2 col-sm-12 col-xs-12 cat-right-side-bar">
                                     <?php
                                     if(!isset($_SESSION['firstPersonId'])){?>
                                         <div class="right-div">
@@ -527,21 +618,25 @@ font-family: 'Lato', sans-serif; -->
                                     <div class="cat-above-foot-sec">
                                         <div class="cat-text-div">
                                             <h1>Arain Rishta in pakistan</h1>
+                                           <div class="cat-h1-body">
                                             <?php
-                                            $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                            while($r=mysqli_fetch_array($result)){
-                                                echo $r['section2'];
-                                            }
-                                            ?>
+                                                $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                                while($r=mysqli_fetch_array($result)){
+                                                    echo $r['section2'];
+                                                }
+                                                ?>
+                                           </div>
                                         </div>
                                         <div class="cat-text-div">
                                             <h1>Arain Rishta in pakistan</h1>
-                                            <?php
-                                            $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                            while($r=mysqli_fetch_array($result)){
-                                                echo $r['section3'];
-                                            }
-                                            ?>
+                                            <div class="cat-h1-body">
+                                                <?php
+                                                $result=mysqli_query($conn, "select * from articles where name='forall' ");
+                                                while($r=mysqli_fetch_array($result)){
+                                                    echo $r['section3'];
+                                                }
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -556,6 +651,7 @@ font-family: 'Lato', sans-serif; -->
 
 <!-- footer -->
 <?php include('inc/pages/footer.php');?>
+<script src="<?php echo $base_url;?>assets/js/register.js"></script>
 
 </body>
 </html>

@@ -140,18 +140,19 @@ function setAllCheckBox($select,$getChekboxes,$nameInDatabase)
 
 
 
-function test_input($data)
-{
-	$data=trim($data);
-	$data=stripslashes($data);
-	$data=htmlspecialchars($data);
-	$data=str_replace("'", "", $data);
-	$data=str_replace("`", "", $data);
-	$data=str_replace("''", "", $data);
-	$data=str_replace(";", "", $data);
-	$data=str_replace(" ", "", $data);
-	return $data;
-}
+
+	function test_input($data){
+		global $conn;
+		$data=trim($data);
+		$data=stripslashes($data);
+		$data=htmlspecialchars($data);
+		$data=mysqli_real_escape_string($conn, $data);
+		$data=str_replace("'", "", $data);
+		$data=str_replace("`", "", $data);
+		$data=str_replace("''", "", $data);
+		$data=str_replace(";", "", $data);
+		return $data;
+	}
 
 	
 $id="";
@@ -276,15 +277,75 @@ if(isset($_POST["indexsearch"])){
 		$select .="AND  gender='$gender' ";
 		$genderResult=" 'gender' ";
 	}
+	if(isset($_POST["caste"]) && $_POST["caste"] !="0"){
+		$caste=$_POST["caste"];
+		$select .="AND  caste='$caste' ";
+		$casteResult=" 'caste' ";
+	}
 	if(isset($_POST["city"]) && $_POST["city"] !="0"){
 		$city=$_POST["city"];
 		$select .="AND city='$city'";
 		$cityResult=" 'City' ";
 	}
+	if(isset($_POST["district"]) && $_POST["district"] !="0"){
+		$district=$_POST["district"];
+		$select .="AND  district='$district' ";
+		$districtResult=" 'district' ";
+	}
+	if(isset($_POST["province"]) && $_POST["province"] !="0"){
+		$province=$_POST["province"];
+		$select .="AND  province='$province' ";
+		$provinceResult=" 'province' ";
+	}
+	if(isset($_POST["country"]) && $_POST["country"] !="0"){
+		$country=$_POST["country"];
+		$select .="AND  country='$country' ";
+		$countryResult=" 'country' ";
+	}
+	if(isset($_POST["religion"]) && $_POST["religion"] !="0"){
+		$religion=$_POST["religion"];
+		$select .="AND religion='$religion'";
+		$religionResult=" 'religion' ";
+	}
 	if(isset($_POST["profession"]) && $_POST["profession"] !="0"){
 		$profession=$_POST["profession"];
 		$select .="AND  profession='$profession' ";
 		$professionResult=" 'profession' ";
+	}
+	if(isset($_POST["language"]) && $_POST["language"] !="0"){
+		$language=$_POST["language"];
+		$select .="AND  language='$language' ";
+		$languageResult=" 'language' ";
+	}
+	if(isset($_POST["clan"]) && $_POST["clan"] !="0"){
+		$clan=$_POST["clan"];
+		$select .="AND  clan='$clan' ";
+		$clanResult=" 'clan' ";
+	}
+	if(isset($_POST["education"]) && $_POST["education"] !="0"){
+		$education=$_POST["education"];
+		$select .="AND education='$education'";
+		$educationResult=" 'education' ";
+	}
+	if(isset($_POST["hobby"]) && $_POST["hobby"] !="0"){
+		$hobby=$_POST["hobby"];
+		$select .="AND  hobby='$hobby' ";
+		$hobbyResult=" 'hobby' ";
+	}
+	if(isset($_POST["familytype"]) && $_POST["familytype"] !="0"){
+		$familytype=$_POST["familytype"];
+		$select .="AND  familyType='$caste' ";
+		$familytypeResult=" 'familytype' ";
+	}
+	if(isset($_POST["familyvalues"]) && $_POST["familyvalues"] !="0"){
+		$familyvalues=$_POST["familyvalues"];
+		$select .="AND  familyValues='$familyvalues' ";
+		$familyvaluesResult=" 'familyvalues' ";
+	}
+	if(isset($_POST["familyaffluence"]) && $_POST["familyaffluence"] !="0"){
+		$familyaffluence=$_POST["familyaffluence"];
+		$select .="AND familyaffluence='$familyaffluence'";
+		$familyaffluenceResult=" 'familyaffluence' ";
 	}
 	$_SESSION["countRows"]=mysqli_num_rows( mysqli_query($con, $select) );
 	$_SESSION["select"]=$select;
@@ -391,7 +452,8 @@ for($row=1; $row<=$pages; $row++)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>Home - RISHTAWEB</title>
+<title>Free online rishta in pakistan - Free matrimonial website</title>
+<meta name="description" content="Find free online rishta in pakistan, rishtaweb is free online web based portal to search out rishta in your desired city, caste and religion and connect.">
 
 
 
@@ -408,11 +470,7 @@ for($row=1; $row<=$pages; $row++)
 	#navbarToggleButtonTopImage{color:#FFFFFF; font-size:24px; border:none; padding:0px; margin-top:9px; margin-bottom:5px; cursor:pointer; border-radius:2px; border-radius:4px;}
 	#navbarToggleButtonTopImage:hover{ background-color:#A00000}
 }
-@font-face 
-{
-    font-family: 'QanelasSoftDEMO-ExtraBold';
-    src: url('QanelasSoftDEMO-ExtraBold.otf');
-}
+
 #logoText1{font-size:39px; color:#FFFFFF; font-family: 'QanelasSoftDEMO-ExtraBold';}
 #logoText2{color:#c48f65}
 @media only screen and (max-width: 767px) {#logoText1{ font-size:26px; margin-top:9px}}
@@ -542,11 +600,6 @@ for($row=1; $row<=$pages; $row++)
 
 
 #changeCenter:hover { border:1px solid lightgray; box-shadow:0px 0px 8px lightgray;}
-@font-face 
-{
-    font-family: 'QanelasSoftDEMO-ExtraBold';
-    src: url('QanelasSoftDEMO-ExtraBold.otf');
-}
 
 
 </style>
@@ -567,25 +620,9 @@ for($row=1; $row<=$pages; $row++)
 ?>
 
 
-
-
-
-
-
-
-
-
-
-<h1 style="display:none">Home</h1>
-
-
 <div class="container-fluid">
 	<div class="row">
-	
-	<div class="col-lg-12" style="margin-bottom:10px;">
-		
-	</div>
-	
+		<h1 class="se-h1-title"> free online marriage, shadi or rishta website in pakistan, </h1>
 		<div class="col-lg-12 searchguest-bg" style="padding: unset;">
             <div class="col-lg-12" style="margin-top:50px; padding:0px; margin-bottom:30px">
             <div class="container-fluid">
@@ -2689,7 +2726,7 @@ function District()
 								</div>
 								<div class="col-lg-3 col-md-2 col-sm-2 col-xs-5 hidePrefrences">
 									<div>
-										<i class="fas fa-comments"></i>
+										<i class="fas fa-envelope"></i>
 									</div>
 								</div>
 								

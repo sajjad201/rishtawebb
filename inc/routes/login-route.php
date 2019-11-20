@@ -25,17 +25,17 @@ $emailErr = $passwordErr  = $allErrorsOfPhp = "";
 if($_SERVER['REQUEST_METHOD']=="POST")
 {		
 
-	function test_input($data)
-	{
+	
+	function test_input($data){
+		global $conn;
 		$data=trim($data);
 		$data=stripslashes($data);
 		$data=htmlspecialchars($data);
-		$data=mysqli_real_escape_string(mysqli_connect("localhost","root","","rishtawebchat"), $data);
+		$data=mysqli_real_escape_string($conn, $data);
 		$data=str_replace("'", "", $data);
 		$data=str_replace("`", "", $data);
 		$data=str_replace("''", "", $data);
 		$data=str_replace(";", "", $data);
-		$data=str_replace(" ", "", $data);
 		return $data;
 	}
 	

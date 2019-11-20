@@ -2,13 +2,6 @@
 session_start();
 require 'inc/connection/connect.php';
 
-
-if(isset($_SESSION["firstPersonId"])){
-  header("Location: searchguest.php");
-}
-
-
-
 $varify="false";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -81,10 +74,6 @@ function ageCalculator($dob){
 	<script src="assets/select2/select2min.js"></script> 
 	<link rel="stylesheet" href="assets/select2/select2.css"> 
 	<link href="assets/css/style.css" rel="stylesheet" />
-
-	<!-- fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -375,10 +364,17 @@ function Form1Script(){
 
 	
 <!---navbar--->
-<?php include('inc/pages/navbar-index.php');?>
-
+<?php 
+    if(isset($_SESSION["firstPersonId"])) {
+		include('inc/pages/navbar-login.php');          // login navbar
+		?><div class="container-fluid" id="bodyCenter" style="z-index:4; position:relative; margin-top:16px;"><?php
+    }
+    else{
+		include('inc/pages/navbar-index.php');         // guest navbar
+		?><div class="container-fluid" id="bodyCenter" style="z-index:4; position:relative"><?php
+    }
+?>
 <!---body--->
-<div class="container-fluid" id="bodyCenter" style="z-index:4; position:relative">
 
 	<div class="col-lg-12" style="padding:0px; background-color:#CC3300; ">
 		<div class="carousel slide" data-ride="carousel">
@@ -403,16 +399,34 @@ function Form1Script(){
 					<div class="col-lg-8 index-search">
 						<form class="form-inline" action="searchguest.php" method="post">
 							<div class="row">
-								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
+							<?php 
+							if(!isset($_SESSION['firstPersonId'])){?>
+								<div class="col-md-3 col-xs-4 form-group ind-form-group-search all-form-group-search" style="padding: 0px 2px;">
 									<label class="index-search-label" for="gender">Gender</label>
-									<select class="form-control select2 Gender" name="gender" id="gender">
+									<select class="form-control select2 Gender1" name="gender" id="gender1">
+										<option value="0">Select</option>
 										<option value="male">male</option>
 										<option value="female">female</option>
 									</select>
 								</div>
+								
+							<?php }else{?>
+								<div class="col-md-3 col-xs-4 form-group ind-form-group-search all-form-group-search" style="padding: 0px 2px;">
+									<label class="index-search-label" for="caste">Caste</label>
+									<select class="form-control select2 Caste1" name="caste" id="caste1">
+										<option value="0">Select</option>
+										<?php
+											$result=mysqli_query($conn, "select * from caste");
+											while($r=mysqli_fetch_array($result)){?>
+												<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+											<?php }
+										?>
+									</select>
+								</div>
+							<?php }?>
 								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
 									<label class="index-search-label" for="city">City</label>
-									<select class="form-control select2 City" name="city" id="City">
+									<select class="form-control select2 City1" name="city" id="city1">
 										<option value="0">Select</option>
 										<option value="Islamabad">Islamabad</option>
 										<option value="Karachi">Karachi</option>
@@ -442,7 +456,7 @@ function Form1Script(){
 								</div>
 								<div class="col-md-3 col-xs-4 form-group ind-form-group-search">
 									<label class="index-search-label" for="profession">Profession</label>
-									<select class="form-control select2 Profession" name="profession" id="profession">
+									<select class="form-control select2 Profession1" name="profession" id="profession1">
 										<option value="0">Select</option>
 										<?php
 										$result=mysqli_query($conn, "select * from profession");
@@ -727,6 +741,231 @@ function Form1Script(){
 	</div>
 </div>
 
+
+<section class="ind-adv-section">
+	<div class="container ind-adv-ser">
+		<div class="all-cat-div-title all-cat-div-title-top">
+			Advanced Search Options
+		</div>
+		<div class="row cat-search-div all-search-div">
+			<div class="col-lg-12 index-search cat-index-search">
+				<form class="form-inline cat-search-form-width" action="<?php echo $base_url;?>searchguest.php" method="post">
+					<div class="row">
+						<?php 
+						if(!isset($_SESSION['firstPersonId'])){?>
+							<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+								<label class="index-search-label" for="gender">Gender</label>
+								<select class="form-control select2 Gender" name="gender" id="gender">
+										<option value="0">Select</option>
+									<option value="male">male</option>
+									<option value="female">female</option>
+								</select>
+							</div>
+							
+						<?php }?>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="caste">Caste</label>
+							<select class="form-control select2 Caste" name="caste" id="caste">
+								<option value="0">Select</option>
+								<?php
+									$result=mysqli_query($conn, "select * from caste");
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="city">City</label>
+							<select class="form-control select2 City" name="city" id="City">
+								<option value="0">Select</option>
+								<?php
+									$result=mysqli_query($conn, "select * from city");
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="district">District</label>
+							<select class="form-control select2 District" name="district" id="district">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from district");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="province">Province</label>
+							<select class="form-control select2 Province" name="province" id="province">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from province");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="country">Country</label>
+							<select class="form-control select2 Country" name="country" id="country">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from country");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="religion">Religion</label>
+							<select class="form-control select2 Religion" name="religion" id="religion">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from religion");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="profession">Profession</label>
+							<select class="form-control select2 Profession" name="profession" id="profession">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from profession");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="language">Language</label>
+							<select class="form-control select2 Language" name="language" id="language">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from language");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="clan">Clan</label>
+							<select class="form-control select2 Clan" name="clan" id="clan">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from clan");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="education">Education</label>
+							<select class="form-control select2 Education" name="education" id="education">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from education");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="hobby">Hobby</label>
+							<select class="form-control select2 Hobby" name="hobby" id="hobby">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from hobby");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="familyType">Family Type</label>
+							<select class="form-control select2 FamilyType" name="familyType" id="familyType">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from familytype");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="familyvalues">Family Values</label>
+							<select class="form-control select2 Familyvalues" name="familyvalues" id="familyvalues">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from familyvalues");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-2 col-xs-4 form-group ind-form-group-search all-form-group-search">
+							<label class="index-search-label" for="familyaffluence">Family Affluence</label>
+							<select class="form-control select2 Familyaffluence" name="familyaffluence" id="familyaffluence">
+								<option value="0">Select</option>
+								<?php
+								$result=mysqli_query($conn, "select * from familyaffluence");
+								if(mysqli_num_rows($result) > 0){
+									while($r=mysqli_fetch_array($result)){?>
+										<option value="<?php echo $r['name']?>"><?php echo $r['name']?></option>
+									<?php }
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-md-12 col-xs-12 form-group ind-form-group-search all-form-group-search-btn">
+							<button type="submit" class="btn btn-block btn-info ind-form-group-search all-form-group-search-btn cat-form-group-search-btn all-search-btn" name="indexsearch">SEARCH RISHTA</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
 <div class="container-fluid ind-txt-con">
 	<div class="row">
 		<div class="container ind-txt-container">
@@ -780,6 +1019,12 @@ function Form1Script(){
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
 
 <!---//body--->
 

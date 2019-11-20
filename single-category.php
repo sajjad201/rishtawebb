@@ -5,6 +5,9 @@ require 'inc/connection/connect.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title>Free rishta in pakistan - Category: <?php echo $_GET['name']?></title>
+    <meta name="description" content="Find rishta in category <?php echo $_GET['name']?>. Rishtaweb is free online website in pakistan to search rishta in your desired city, caste and religion and connect.">
+
     <?php include('inc/pages/links-one.php');?>
 
 
@@ -24,11 +27,10 @@ require 'inc/connection/connect.php';
 
 <section class="all-cat all-cat">
     <div class="container">
-        <h1><?php echo $_GET['name'];?></h1>
         <div class="all-cat-div-main">
-            <div class="all-cat-div-title single-cat-div-title ">
-                find rishta by <?php echo $_GET['name']?> in pakistan
-            </div>
+            <h1 class="all-cat-div-title single-cat-div-title ">
+                find rishta by <b><?php echo $_GET['name']?> </b>in pakistan
+            </h1>
             <div class="container-fluid">
                 <div class="row">
                     <?php $name=$_GET['name'];
@@ -44,7 +46,7 @@ require 'inc/connection/connect.php';
                                     </div>
                                 </div> 
                             </a> 
-                    <?php }}else{echo 'nothing found';}?>
+                    <?php }}else{echo 'This category is not available. '; echo "<br><a href='../all-categories.php'>go back</a>";}?>
 
                 </div>
             </div>

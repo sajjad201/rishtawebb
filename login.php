@@ -1,15 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<title>Login - Rishtaweb</title>
+	<meta name="description" content="Find authentic and quality rishta in your city, country or clan with rishtaweb. Just login to your account and search rishta on rishtaweb ">
+	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<?php include('inc/pages/links-one.php');?>
 </head>
 <body style="background-color:#F0F0F0">
 
 
 <?php include('inc/pages/navbar-index.php');?>
-
-
-<h1 style="display:none">Login</h1>
 
 <div class="container-fluid" id="loginDivMargin">
 <div class="row">
@@ -18,9 +18,9 @@
 		
 		<div class="col-lg-4" id="loginDiv">
 			<div class="col-lg-12" id="innerDiv" >
-				<p style="font-size:24px; font-family:'Trebuchet MS'; text-align:center; font-weight:700; color:#00539c">
+				<h1 style="font-size:24px; font-family:'Trebuchet MS'; text-align:center; font-weight:700; color:#00539c">
 				<i class="fas fa-sign-in-alt" style="margin-right:15px"></i>        Login to Your Account
-				</p>
+				</h1>
 				<form class="form-horizontal" action="inc/routes/login-route.php" method="post" name="login">
 					<div class="form-group">
 						<div class="col-sm-12" style="margin-top:10px">

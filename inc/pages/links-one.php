@@ -35,7 +35,7 @@ $base_url="http://localhost/rishtawebb/";
 <meta name="robots" content="index, follow">
 
 <!-- icon -->
-<link rel="shortcut icon" href="../assets/allpics/rw8.png">
+<link rel="shortcut icon" href="<?php echo $base_url;?>assets/allpics/rw8.png">
 
 <!-- bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -46,8 +46,9 @@ $base_url="http://localhost/rishtawebb/";
 <!-- fonts -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet">
-<!-- font-family: 'Raleway', sans-serif; -->
+<link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet"><!-- font-family: 'Raleway', sans-serif; -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet"><!-- font-family: 'Open Sans', sans-serif; -->
 
 <!-- select2 -->
 <script src="http://localhost/rishtawebb/assets/select2/select2popper.js"></script> 

@@ -7,14 +7,15 @@ $firstPerson=@$_SESSION["firstPersonId"];
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<title>Terms and Conditions - Rishtaweb</title>
+	<meta name="description" content="Kindly read our Terms and Conditions before using the rishta portal. Your account might be suspended if you don't follow the terms of use. ">
+	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<?php include('inc/pages/links-one.php');?>
 </head>
 <body style="background-color:#F2F2F2">
 
 <?php if (!isset($_SESSION["firstPersonId"])){?>
 <?php include('inc/pages/navbar-index.php');?>
-<h1 style="display:none">Contact Us</h1>
-
 <?php } else{?>
 
 
@@ -32,7 +33,7 @@ $firstPerson=@$_SESSION["firstPersonId"];
 				<div class="col-lg-1"></div>
 				<div class="col-lg-10" style="padding:0px;">
 				
-				<p style="font-size:24px; font-family:'Calibri Light'; font-weight:bolder; text-decoration:underline">Terms & Conditions</p>
+				<h1 style="font-size:24px; font-family:'Calibri Light'; font-weight:bolder; text-decoration:underline">Terms and Conditions</h1>
 				<ul>
 					<li style="list-style-type:none; margin-left:-15px; color:#333333; font:'Calibri Light'">
 						Wellcome to RISHTAWEB.com<br>Dear Member, Please read the Terms of Service carefully before you start to use the Site. 

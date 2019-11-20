@@ -49,18 +49,18 @@
 	<div class="modal-content">
 		<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title vp-modal-flex-title">Login or Register to send Message!</h4>
+		<h4 class="modal-title vp-modal-flex-title">Login or Register on RISHTAWEB</h4>
 		</div>
 		<div class="modal-body" style="margin-top: 14px; height: 95px">
 			<div class="vp-modal-flex">
 				<div>
 					<a href="<?php echo $base_url;?>login.php" class="vp-modal-flex-btn">
-						Login
+						<i class="fas fa-sign-in-alt" style="margin-right:15px"></i>Login
 					</a>
 				</div>
 				<div>
 					<a href="<?php echo $base_url;?>completesignup.php" class="vp-modal-flex-btn">
-						Register Now
+						<i class="fas fa-user-plus" style="margin-right:15px"></i>Register Now
 					</a>
 				</div>
 			</div>

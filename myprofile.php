@@ -24,8 +24,8 @@ function ageCalculator($dob){
 
 if($_SERVER['REQUEST_METHOD']=="POST")
 {		
-	function test_input($data)
-	{
+	
+	function test_input($data){
 		global $conn;
 		$data=trim($data);
 		$data=stripslashes($data);
@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 		$data=str_replace("''", "", $data);
 		$data=str_replace(";", "", $data);
 		return $data;
-	}	
+	}
 
 	if(isset($_POST["hideOrPublicForm"]))
 	{

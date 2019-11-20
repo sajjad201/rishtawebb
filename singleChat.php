@@ -16,8 +16,8 @@ $firstPerson=test_input($_SESSION["firstPersonId"]);
 
 
 
-function test_input($data)
-{
+
+function test_input($data){
 	global $conn;
 	$data=trim($data);
 	$data=stripslashes($data);

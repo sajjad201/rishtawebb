@@ -4,11 +4,15 @@ require 'inc/connection/connect.php';
 
 $firstPerson=@$_SESSION["firstPersonId"];
 
-function test_input($data)
-{
+
+function test_input($data){
+	global $conn;
+	$data=trim($data);
+	$data=stripslashes($data);
+	$data=htmlspecialchars($data);
+	$data=mysqli_real_escape_string($conn, $data);
 	return $data;
 }
-
 
 $errorList=array(); 
 $errorList["emailErr"] = $errorList["subjectErr"] = $errorList["messageErr"] =
@@ -74,6 +78,9 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Contact Us - Rishtaweb</title>
+	<meta name="description" content="If you are facing any technical, non-technical problem on rishta portal or having trouble to find rishta then you can send you message directly to rishtaweb. ">
+	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<?php include('inc/pages/links-one.php');?>
 </head>
 <body style="background-color:#EFEFEF">

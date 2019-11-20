@@ -43,12 +43,12 @@ $errorOccurred=false;
 if($_SERVER['REQUEST_METHOD']=="POST")
 {		
 
-	function test_input($data)
-	{
+	function test_input($data){
+		global $conn;
 		$data=trim($data);
 		$data=stripslashes($data);
 		$data=htmlspecialchars($data);
-		$data=mysqli_real_escape_string(mysqli_connect("localhost","root","","rishtawebchat"), $data);
+		$data=mysqli_real_escape_string($conn, $data);
 		$data=str_replace("'", "", $data);
 		$data=str_replace("`", "", $data);
 		$data=str_replace("''", "", $data);
@@ -799,17 +799,13 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="RISHTAWEB is a rishta portal working with the aim to facilitate people in pakistan to find their life partner. Create your free account, 
-search rishta according to your choice and send them marriage proposals. If your are single and worry about your rishta or marriage than your problem will be solved here in 
-finding rishta. There are very simple and easy steps to use this portal. It is user freindly and even a person who dont know more about technology, can use and understand this 
-portal easily and quickly." />
-<meta name="keywords" content="rishtaweb.com, rishtaweb, pakistani rishta free, online rishta pakistan, find rishta in pakistan, zaroorat rishta, rishta in lahore, rishta in islamabad, rishta in karachi, rishta online, rishta in pakistan, top pakistani matrimonial sites, pakistani matrimony, pakistani matrimonial, Marriage, rishtay, shaadi,
-shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, create account rishtaweb" />
-<meta name="Author" content="RISHTAWEB.com" />
-<meta name="copyright" content="RISHTAWEB.com" />
-<meta name="Distribution" content="general" />
-<meta name="robots" content="index, follow">
-<title>Create Account - RISHTAWEB</title>
+	<title>Create Free Account on Rishta, Matrimonial portal - Rishtaweb</title>
+	<meta name="description" content="Find authentic and quality rishta in your city, country or clan with rishtaweb. Just select options to fill the form and create your account on rishtaweb ">
+	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
+	<meta name="Author" content="RISHTAWEB.com" />
+	<meta name="copyright" content="RISHTAWEB.com" />
+	<meta name="Distribution" content="general" />
+	<meta name="robots" content="index, follow">
 
 <meta name="robots" content="index, follow">
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -821,12 +817,11 @@ shaadi in pakistan, pakistan marriage site, top marriage site in pakistan, creat
 
   gtag('config', 'UA-133484988-1');
 </script>
-<link rel="shortcut icon" href="rw8.png">
+<link rel="shortcut icon" href="assets/allpics/rw8.png">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="MessageScript.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -1048,7 +1043,6 @@ $('#updateModal').modal({
 
 <?php include('inc/pages/navbar-index.php');?>
 
-<h1 style="display:none">Create Account</h1>
 
 <div class="container-fluid mainBody" style=" background-color:#E4E4E4;">
 	<div class="row">
@@ -1061,10 +1055,9 @@ $('#updateModal').modal({
 				 
 				<div class="row"  >
 					<div class="col-lg-12" id="createYourAccount">
-						<span id="createYourRishtawebAccount"><i class="fas fa-user-edit" style="margin-right:15px"></i>
-							Create Rishtaweb Account
-							
-						</span>
+						<h1 id="createYourRishtawebAccount"><i class="fas fa-user-edit" style="margin-right:15px"></i>
+							Create Free Rishtaweb Account
+						</h1>
 					</div>
 					<div class="col-lg-12" style="background-color:#eae6da; padding:0px;">
 						<div style="font-size:13px; color:#BF0000; background-color:#FFFFE8; text-align:center; ">
