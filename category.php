@@ -32,7 +32,7 @@ while($r=mysqli_fetch_array($result)){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title><?php echo $tit=str_replace('-', ' ', $_GET['url']);?> - RISHTAWEB</title>
+<title><?php echo ucwords(str_replace('-', ' ', $_GET['url']));?> - RISHTAWEB</title>
 <meta name="description" content="Find online rishta in <?php echo $category; 
 if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='familyvalues' || $_GET['name']=='familyaffluence'
 || $_GET['name']=='caste' || $_GET['name']=='clan' || $_GET['name']=='religion' || $_GET['name']=='language'){
@@ -48,7 +48,7 @@ if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='fami
 
 <?php include('inc/pages/links-one.php');
 
-$sql="select * from $category_name where url='$url' ";
+$sql="select * from $category_name where url='$url' limit 1";
 $result=mysqli_query($conn, $sql);
 while($r=mysqli_fetch_array($result)){
     $category=$r['name'];
@@ -139,25 +139,33 @@ font-family: 'Lato', sans-serif; -->
             <div class="col-md-11 p-0">
                 <div class="all-main-div">
                     <div class="row">
-                        <div class="col-md-9"> 
-                        
-
-                            <div class="cat-text-div">
-                                <h1 class="cat-h1-title">
-                                    <?php echo $tit=str_replace('-', ' ', $_GET['url']);?>
-                                </h1>
-                                <div class="cat-h1-body">
-                                    <?php
-                                        $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                        while($r=mysqli_fetch_array($result)){
-                                            echo $r['section'];
-                                        }
-                                    ?>
-                                </div>
-                                
-                            </div>
+                        <div class="col-md-9 all-main-div-col-9"> 
+  
+                    
+                            <?php 
+                                $result=mysqli_query($conn, "select * from articles where name='$category' ");
+                                if(mysqli_num_rows($result) > 0){?>
+                                    <div class="cat-head-txt-title">
+                                        <h1 class="cat-h1-title">
+                                            <?php echo $tit=str_replace('-', ' ', $_GET['url']);?>
+                                        </h1>
+                                    </div>
+                                    <?php while($r=mysqli_fetch_array($result)){?>
+                                        <div class="cat-h1-body">
+                                            <?php echo $r['section1']; ?>
+                                        </div>    
+                                    <?php }
+                                }else{?>
+                                    <div class="cat-head-txt-title-no">
+                                        <h1 class="cat-h1-title">
+                                            <?php echo $tit=str_replace('-', ' ', $_GET['url']);?>
+                                        </h1>
+                                    </div>
+                               <?php }
+                            ?>
+                            
                             <div class="row cat-search-div">
-                                <div class="col-lg-12 index-search cat-index-search">
+                                <div class="col-lg-12 index-search cat-index-search cat-index-search-rad">
                                     <form class="form-inline cat-search-form-width" action="<?php echo $base_url;?>searchguest.php" method="post">
                                         <div class="row">
                                             <?php 
@@ -230,7 +238,9 @@ font-family: 'Lato', sans-serif; -->
                                             </div>
                                             <div class="col-md-3 col-xs-12 form-group ind-form-group-search">
                                                 <label class="index-search-label index-search-label-s" for="search">Select one/multiple inputs</label>
-                                                <button type="submit" class="btn btn-block btn-info ind-form-group-search-btn cat-form-group-search-btn" name="indexsearch">SEARCH RISHTA</button>
+                                                <button type="submit" class="btn btn-block btn-info ind-form-group-search-btn cat-form-group-search-btn" name="indexsearch">
+                                                    <span class="glyphicon glyphicon-search" style=" margin-right:15px; margin-left:-30px"></span>SEARCH RISHTA
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -516,8 +526,10 @@ font-family: 'Lato', sans-serif; -->
                                 </div>
                                 <?php }	
                                 else{ ?>
-                                    <div class="container-fluid" style="background-color:#CCCCCC; font-size:40px; padding:20px;  text-align:center">
-                                        No record Found
+                                    <div class="container-fluid" style="background-color:white; font-size:40px; padding:20px;  text-align:center; 
+                                    border:1px solid lightgray; color #333333; border-radius:4px;">
+                                        No Profile found for <?php echo $category; ?>!<br>
+                                        <h5>Select input fields from above and search for more/different results.</h5>
                                     </div>
                                 <?php }?>
                                 </div>
@@ -530,115 +542,118 @@ font-family: 'Lato', sans-serif; -->
                                             <div class="rishta-div-head">
                                                 Rishta by Gender
                                             </div>
-                                            <div class="rishta-div-body">
-                                                <a href="../../check-category/gender/male-rishta-in-pakistan" class="rishta-div-body-link">Female Rishta</a>
-                                            </div>
-                                            <div class="rishta-div-body">
-                                                <a href="../../check-category/gender/female-rishta-in-pakistan" class="rishta-div-body-link" >Male Rishta</a>
-                                            </div>
+                                            <?php
+                                                $result=mysqli_query($conn, "select * from gender");
+                                                if(mysqli_num_rows($result) > 0){
+                                                    while($r=mysqli_fetch_array($result)){?>
+                                                        <div class="rishta-div-body">
+                                                            <a href="../../check-category/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                            </a>
+                                                        </div>
+                                                    <?php }
+                                                }
+                                            ?>
                                         </div>
                                     <?php }?>
                                     <div class="right-div">
                                         <div class="rishta-div-head">
                                             Rishty by Clan
                                         </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/punjabi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in Punjabi Family</a>
+                                        <?php
+                                            $result=mysqli_query($conn, "select * from clan");
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($r=mysqli_fetch_array($result)){?>
+                                                    <div class="rishta-div-body">
+                                                        <a href="../../check-category/clan/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                        </a>
+                                                    </div>
+                                                <?php }
+                                            }
+                                        ?>
+                                    </div>
+                                    <div class="right-div">
+                                        <div class="rishta-div-head">
+                                            Rishty by City
                                         </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/sindhi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in sindhi Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/baloch-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in baloch Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/pashtun-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in pashtun Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/saraiki-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in saraiki Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/brouhi-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in brouhi Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/irani-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in irani Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/arab-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in arab Family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/clan/turk-rishta-in-pakistan" class="rishta-div-body-link" >Rishta in turk Family</a>
-                                        </div>
+                                        <?php
+                                            $result=mysqli_query($conn, "select * from city limit 10");
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($r=mysqli_fetch_array($result)){?>
+                                                    <div class="rishta-div-body">
+                                                        <a href="../../check-category/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                        </a>
+                                                    </div>
+                                                <?php }
+                                            }
+                                        ?>
                                     </div>
                                     <div class="right-div">
                                         <div class="rishta-div-head">
                                             Rishty by Family Affluence
                                         </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyaffluence/rishta-in-upper-middle-class-family" class="rishta-div-body-link">upper middle class</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyaffluence/rishta-in-middle-class-family" class="rishta-div-body-link">middle class</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyaffluence/rishta-in-lower-class-family" class="rishta-div-body-link">lower class</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyaffluence/rishta-in-affluent-family" class="rishta-div-body-link">Affluent</a>
-                                        </div>
+                                        <?php
+                                            $result=mysqli_query($conn, "select * from familyaffluence");
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($r=mysqli_fetch_array($result)){?>
+                                                    <div class="rishta-div-body">
+                                                        <a href="../../check-category/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                        </a>
+                                                    </div>
+                                                <?php }
+                                            }
+                                        ?>
                                     </div>
                                     <div class="right-div">
                                         <div class="rishta-div-head">
                                             Rishty by Family Type
                                         </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familytype/rishta-in-joint-family" class="rishta-div-body-link">joint family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familytype/rishta-in-nuclear-family" class="rishta-div-body-link">nuclear family</a>
-                                        </div>
+                                        <?php
+                                            $result=mysqli_query($conn, "select * from familytype");
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($r=mysqli_fetch_array($result)){?>
+                                                    <div class="rishta-div-body">
+                                                        <a href="../../check-category/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                        </a>
+                                                    </div>
+                                                <?php }
+                                            }
+                                        ?>
                                     </div>
                                     <div class="right-div">
                                         <div class="rishta-div-head">
                                             Rishty by Family Values
                                         </div>
-                                    <div class="rishta-div-body">
-                                            <a href="../../check-category/familyvalues/rishta-in-traditional-family" class="rishta-div-body-link">traditional family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyvalues/rishta-in-moderate--family" class="rishta-div-body-link">moderan family</a>
-                                        </div>
-                                        <div class="rishta-div-body">
-                                            <a href="../../check-category/familyvalues/rishta-in-liberal-family" class="rishta-div-body-link">liberal family</a>
-                                        </div>	
+                                        <?php
+                                            $result=mysqli_query($conn, "select * from familyvalues");
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($r=mysqli_fetch_array($result)){?>
+                                                    <div class="rishta-div-body">
+                                                        <a href="../../check-category/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                        </a>
+                                                    </div>
+                                                <?php }
+                                            }
+                                        ?>
                                     </div>
                         
 					            </div>
                                 <div class="col-md-9" style="margin:50px 0px">
-                                    <div class="cat-above-foot-sec">
-                                        <div class="cat-text-div">
-                                            <h1>Arain Rishta in pakistan</h1>
-                                           <div class="cat-h1-body">
-                                            <?php
-                                                $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                                while($r=mysqli_fetch_array($result)){
-                                                    echo $r['section2'];
-                                                }
-                                                ?>
-                                           </div>
-                                        </div>
-                                        <div class="cat-text-div">
-                                            <h1>Arain Rishta in pakistan</h1>
-                                            <div class="cat-h1-body">
-                                                <?php
-                                                $result=mysqli_query($conn, "select * from articles where name='forall' ");
-                                                while($r=mysqli_fetch_array($result)){
-                                                    echo $r['section3'];
-                                                }
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php
+                                        $result=mysqli_query($conn, "select * from articles where name='$category' ");
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($r=mysqli_fetch_array($result)){?>
+                                                <div class="cat-txt-div-bot">
+                                                    <?php echo $r['section2'];?>
+                                                </div>
+                                            <?php }
+                                        }
+                                    ?>
                                 </div>
 
                             </div>

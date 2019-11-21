@@ -42,6 +42,16 @@ function test_input($data){
 }
 
 
+$result=mysqli_query($conn, "select gender from signup where id='$viewProfileId' limit 1");
+while($r=mysqli_fetch_array($result)){
+	$select_gender= $r['gender'];
+}
+if($select_gender == ""){
+	header('Location: '.$base_url);
+}
+
+
+
 ?>
 
 
@@ -155,19 +165,20 @@ padding: 10px;
 <!---center--->
 <?php
 
-$city = $caste = $familyaffluence ="";
+$city = $caste = $familyaffluence = $maritalStatus = "";
 $country ="";
-$result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' limit 1");
+$result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' AND gender='$select_gender' limit 1");
 if(@mysqli_num_rows( $result) > 0 ){
 while($queryArray=mysqli_fetch_array($result)){
 	$city = $queryArray["city"];
 	$caste =$queryArray["caste"];
+	$maritalStatus =$queryArray["maritalStatus"];
 	$familyAffluence =$queryArray["familyAffluence"];
 	$country=$queryArray["country"];
 ?>
 <div class="container-fluid" id="whitePageMargin">
 	<div class="row">
-		<div class="col-lg-12" style="padding:0px; margin-top:100px;">
+		<div class="col-lg-12" style="padding:0px; margin-top:50px;">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-8 col-xs-12" style="padding:0px; border-radius:15px;">
 				<div class="col-lg-12 col-xs-12" id="whitePage">
@@ -523,7 +534,7 @@ while($queryArray=mysqli_fetch_array($result)){
 					</div>
 					
 					<!-- message modal -->
-					<div class="modal fade" id="sendMessageModal" role="dialog" style="padding-right:0px !important">
+					<div class="modal fade" id="sendMessageModal" role="dialog">
 					<div class="modal-dialog" id="modalMarginTop">
 					  <div class="modal-content" id="modalMargin">
 					  	<div class="modal-header" style="padding-bottom:0px; border:none; margin-bottom:0px">
@@ -553,7 +564,7 @@ while($queryArray=mysqli_fetch_array($result)){
 						
 						 
 						 <div id="modalPaddingInner">
-							<div class="modal-body" style="padding:0px; margin-top:0px; height:160px">
+							<div class="modal-body" style="padding:0px; margin-top:0px; height:200px">
 							
 							
 							  <form>
@@ -636,37 +647,50 @@ while($queryArray=mysqli_fetch_array($result)){
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12 pr-col3-right" >
-			<div class="pr-col3-right-in">						
+			<div class="pr-col3-right-in">		
+				<div class="pr-col3-right-in-txt-sm">Similar Profiles</div>				
 									<!-- city -->
 				<?php 
-				$result=mysqli_query($conn, "select * from signup where city='$city'  limit 7");
-				if(@mysqli_num_rows( $result) > 0 ){?>
-					<div class="vp-div3">
-						<div class="vp-div3-head">Other Rishty from <?php echo $city; ?></div>
-						<div class="vp-div3-body">
-							<?php
-							while($queryArray=mysqli_fetch_array($result)){?>
-								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-									<div class="vp-div3-body-row">
-										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
-										<div class="vp-div3-body-row-des">
-											<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
-											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
-											<?php echo $queryArray['profession'];?>
+				if($country == 'pakistan'){
+					if(isset($_SESSION["firstPersonId"])){
+						$result=mysqli_query($conn, "select * from signup where city='$city' AND gender!='$select_gender' order by id desc limit 5");
+					}
+					else{
+						$result=mysqli_query($conn, "select * from signup where city='$city' order by id desc limit 5");
+					}
+					if(@mysqli_num_rows( $result) > 0 ){?>
+						<div class="vp-div3">
+							<div class="vp-div3-head">Other Rishty from <?php echo $city; ?></div>
+							<div class="vp-div3-body">
+								<?php
+								while($queryArray=mysqli_fetch_array($result)){?>
+									<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+										<div class="vp-div3-body-row">
+											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+											<div class="vp-div3-body-row-des">
+												<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+												<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+												<?php echo $queryArray['profession'];?>
+											</div>
 										</div>
-									</div>
-								</a>
-							<?php }?>
+									</a>
+								<?php }?>
+							</div>
 						</div>
-					</div>
-				<?php }?>
+					<?php }
+				}?>
 				
 				<!-- caste -->
-				<?php 
-				$result=mysqli_query($conn, "select * from signup where caste='$caste'  limit 7");
+				<?php
+				if(isset($_SESSION["firstPersonId"])){
+					$result=mysqli_query($conn, "select * from signup where caste='$caste' AND gender!='$select_gender' order by id desc limit 5");
+				}
+				else{
+					$result=mysqli_query($conn, "select * from signup where caste='$caste' order by id desc limit 5");
+				} 
 				if(@mysqli_num_rows( $result) > 0 ){?>
 					<div class="vp-div3">
-						<div class="vp-div3-head">Other Rishty from <?php echo $caste; ?></div>
+						<div class="vp-div3-head">Rishta in <?php echo $caste; ?> Family</div>
 						<div class="vp-div3-body">
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
@@ -687,18 +711,23 @@ while($queryArray=mysqli_fetch_array($result)){
 
 				<!-- famyaffluence -->
 				<?php 
-				$result=mysqli_query($conn, "select * from signup where familyAffluence='$familyAffluence'  limit 7");
+				if(isset($_SESSION["firstPersonId"])){
+					$result=mysqli_query($conn, "select * from signup where familyAffluence='$familyAffluence' AND gender!='$select_gender' order by id desc limit 5");
+				}
+				else{
+					$result=mysqli_query($conn, "select * from signup where familyAffluence='$familyAffluence' order by id desc limit 5");
+				} 
 				if(@mysqli_num_rows( $result) > 0 ){?>
 					<div class="vp-div3">
-						<div class="vp-div3-head">Other Rishty from <?php echo $familyaffluence; ?></div>
+						<div class="vp-div3-head">Rishta in <?php  echo $familyAffluence; ?> Family</div>
 						<div class="vp-div3-body">
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
 								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 									<div class="vp-div3-body-row">
-										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['familyAffluence']." Family rishta in ".$queryArray['city'];?></div>
 										<div class="vp-div3-body-row-des">
-											<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
+											<?php echo $queryArray['gender'];?> 
 											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
 											<?php echo $queryArray['profession'];?>
 										</div>
@@ -709,10 +738,43 @@ while($queryArray=mysqli_fetch_array($result)){
 					</div>
 				<?php } else{echo 'no family';}?>	
 
+				<!-- maritalstatus -->
+				<?php 
+				if(isset($_SESSION["firstPersonId"])){
+					$result=mysqli_query($conn, "select * from signup where maritalStatus='$maritalStatus' AND gender!='$select_gender' order by id desc limit 5");
+				}
+				else{
+					$result=mysqli_query($conn, "select * from signup where maritalStatus='$maritalStatus' order by id desc limit 5");
+				} 
+				if(@mysqli_num_rows( $result) > 0 ){?>
+					<div class="vp-div3">
+						<div class="vp-div3-head">Other Rishty From <?php echo $maritalStatus; ?></div>
+						<div class="vp-div3-body">
+							<?php
+							while($queryArray=mysqli_fetch_array($result)){?>
+								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
+									<div class="vp-div3-body-row">
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['maritalStatus']." rishta in ".$queryArray['city'];?></div>
+										<div class="vp-div3-body-row-des">
+											<?php echo $queryArray['gender'];?> 
+											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
+											<?php echo $queryArray['profession'];?>
+										</div>
+									</div>
+								</a>
+							<?php }?>
+						</div>
+					</div>
+				<?php }?>
+
 				<!-- country -->
 				<?php
-				if($country != 'pakistan'){
-					$result=mysqli_query($conn, "select * from signup where country='$country'  limit 7");
+					if(isset($_SESSION["firstPersonId"])){
+						$result=mysqli_query($conn, "select * from signup where country='$country' AND gender!='$select_gender' order by id desc limit 5");
+					}
+					else{
+						$result=mysqli_query($conn, "select * from signup where country='$country' order by id desc limit 5");
+					} 
 					if(@mysqli_num_rows( $result) > 0 ){?>
 						<div class="vp-div3">
 							<div class="vp-div3-head">Other Rishty from <?php echo $country; ?></div>
@@ -721,7 +783,7 @@ while($queryArray=mysqli_fetch_array($result)){
 								while($queryArray=mysqli_fetch_array($result)){?>
 									<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
 										<div class="vp-div3-body-row">
-											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['country'];?></div>
 											<div class="vp-div3-body-row-des">
 												<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
 												<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
@@ -732,9 +794,7 @@ while($queryArray=mysqli_fetch_array($result)){
 								<?php }?>
 							</div>
 						</div>
-					<?php }else{echo 'no country';}
-					}
-				?>	
+				<?php }else{echo 'no rishta found';} ?>	
 
 			
 			</div>

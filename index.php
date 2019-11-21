@@ -470,7 +470,9 @@ function Form1Script(){
 								</div>
 								<div class="col-md-3 col-xs-12 form-group ind-form-group-search">
 									<label class="index-search-label index-search-label-s" for="search">Search</label>
-									<button type="submit" class="btn btn-block btn-info ind-form-group-search-btn" name="indexsearch">SEARCH RISHTA</button>
+									<button type="submit" class="btn btn-block btn-info ind-form-group-search-btn" name="indexsearch">
+										<span class="glyphicon glyphicon-search" style=" margin-right:15px; margin-left:-30px"></span>SEARCH RISHTA
+									</button>
 								</div>
 							</div>
 						</form>
@@ -550,8 +552,17 @@ function Form1Script(){
 									<div class="col-lg-12 col-xs-12" style="padding:0px; background-color:#F5F5F5; border-top-left-radius:5px; border-top-right-radius:5px">
 										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-4" style="padding:0px; padding:8px;">
 											<div style="height:75px; width:75px; border-radius:50%; border:3px solid #FFFFFF; box-shadow:0px 0px 2px #CCCCCC; padding:0px;">
-											<?php if($maleArray["gender"]=="male"){?><img src="assets/allpics/male4.png" height="100%" width="100%" style="border-radius:50%" alt="User Image"/><?php }
-                                			else{?><img src="assets/allpics/female4.png" height="100%" width="100%" alt="User Image" style="border-radius:50%" /><?php } ?>										
+											<?php
+											if (!isset($_SESSION["firstPersonId"])){?>
+												<?php if($maleArray["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/male4.png" height="100%" width="100%" style="border-radius:50px;" alt="User Image"/><?php }
+												else{?><img src="<?php echo $base_url?>assets/allpics/female4.png" height="100%" width="100%" style="border-radius:50px;" alt="User Image"/><?php } ?>
+											<?php }
+											else{?>
+												<?php if($maleArray["publicProfile"]!="Private"){?>
+												<img src="<?php echo $base_url?><?php echo $maleArray['uploadProfilePicture']; ?>"	height="100%" width="100%" style="border-radius:50px;" alt="User Image"> 
+												<?php }else if($maleArray["gender"]=="male"){?><img src="<?php echo $base_url?>assets/allpics/male4.png" height="100%" width="100%" style="border-radius:50px;" alt="User Image"/><?php }
+												else{?><img src="<?php echo $base_url?>assets/allpics/female4.png" height="100%" width="100%" style="border-radius:50px;" alt="User Image"/><?php } ?>
+											<?php } ?>								
 								 </div>
 										</div>
 										<div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 location_icon">
@@ -745,7 +756,8 @@ function Form1Script(){
 <section class="ind-adv-section">
 	<div class="container ind-adv-ser">
 		<div class="all-cat-div-title all-cat-div-title-top">
-			Advanced Search Options
+			Advanced Search Options<br>
+			<span class="all-cat-div-title-top-span">Select one/multiple values and search</span>
 		</div>
 		<div class="row cat-search-div all-search-div">
 			<div class="col-lg-12 index-search cat-index-search">
@@ -956,7 +968,9 @@ function Form1Script(){
 							</select>
 						</div>
 						<div class="col-md-12 col-xs-12 form-group ind-form-group-search all-form-group-search-btn">
-							<button type="submit" class="btn btn-block btn-info ind-form-group-search all-form-group-search-btn cat-form-group-search-btn all-search-btn" name="indexsearch">SEARCH RISHTA</button>
+							<button type="submit" class="btn btn-block btn-info ind-form-group-search all-form-group-search-btn cat-form-group-search-btn all-search-btn" name="indexsearch">
+								<span class="glyphicon glyphicon-search" style=" margin-right:15px; margin-left:-30px"></span>SEARCH RISHTA
+							</button>
 						</div>
 					</div>
 				</form>
