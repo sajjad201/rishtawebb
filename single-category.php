@@ -40,7 +40,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="../check-category/<?php echo $name?>/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 single-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 single-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>

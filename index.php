@@ -489,8 +489,7 @@ function Form1Script(){
 			<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding:0px">
 			<a rel="canonical" href="CompleteSignUp.php" style="text-decoration:none; ">
-			<div style="padding:15px; border:1px solid lightgray; box-shadow:0px 0px 2px 0px lightgray; border-radius:4px; color:#f96714; 
-			font-family:'Segoe UI'; font-size:24px; font-weight:600">
+			<div class="ind-round-boxes">
 				<i class="far fa-edit"></i>
 				<div style="margin-top:5px; font-size:16px">Create Free Account</div>
 				<div style="font-size:12px; font-family:'Segoe UI';">Fill the signup form and login to your RISHTAWEB account </div>
@@ -503,8 +502,7 @@ function Form1Script(){
 			<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding:0px">
 			<a rel="canonical" href="CompleteSignUp.php" style="text-decoration:none; ">
-			<div style="padding:15px; border:1px solid lightgray; box-shadow:0px 0px 2px 0px lightgray; border-radius:4px;  color:#f96714; 
-			font-family:'Segoe UI'; font-size:24px; font-weight:600">	
+			<div class="ind-round-boxes">	
 				<i class="fas fa-search"></i>
 				<div style="margin-top:5px; font-size:16px">Search Rishta</div>
 				<div style="font-size:12px; font-family:'Segoe UI';">Advanced Search Bar enables You to find rishta according to your choice</div>
@@ -517,8 +515,7 @@ function Form1Script(){
 			<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding:0px">
 			<a rel="canonical" href="CompleteSignUp.php" style="text-decoration:none; ">
-			<div style="padding:15px; border:1px solid lightgray; box-shadow:0px 0px 2px 0px lightgray; border-radius:4px; color:#f96714; 
-			font-family:'Segoe UI'; font-size:24px; font-weight:600">	
+			<div class="ind-round-boxes">	
 				<i class="fas fa-comments"></i><div style="margin-top:5px; font-size:16px">Send Free Messages</div>
 				<div style="font-size:12px; font-family:'Segoe UI';">Connect and send unlimited messages for free</div>
 			</div>

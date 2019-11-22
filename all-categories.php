@@ -31,7 +31,7 @@ require 'inc/connection/connect.php';
 
 
 <section class="all-cat all-cat">
-    <div class="container">
+    <div class="container all-cat-con">
 
 
         <!-- caste -->
@@ -271,7 +271,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/caste/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -296,7 +296,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/city/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -321,7 +321,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/district/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -346,7 +346,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/province/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -368,7 +368,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/country/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -393,7 +393,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/religion/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -415,7 +415,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/profession/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -440,7 +440,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/language/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -465,7 +465,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/clan/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -487,7 +487,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/education/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -509,7 +509,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/hobby/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -534,7 +534,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/familytype/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -556,7 +556,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/familyvalues/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -578,7 +578,7 @@ require 'inc/connection/connect.php';
                     if(@mysqli_num_rows( $result) > 0 ){
                         while($queryArray=mysqli_fetch_array($result)){?>
                              <a href="check-category/familyaffluence/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
+                                <div class="col-md-4 all-md-2 col-xs-12">
                                     <div>find rishta in 
                                         <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
                                     </div>
@@ -589,27 +589,7 @@ require 'inc/connection/connect.php';
             </div>
         </div>
 
-        <!-- gender -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>gender</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from gender limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/gender/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-6">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="all-cat-div-main-arti">
         <h1>Rishta in Lahore, Karachi and Islamabad - Check All Categories</h1><br>

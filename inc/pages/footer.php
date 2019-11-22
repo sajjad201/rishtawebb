@@ -291,4 +291,4 @@
     });
 
 </script>
-<script src="http://localhost/rishtawebb/assets/js/foot.js"></script> 
+<script src="<?php echo $base_url;?>rishtawebb/assets/js/foot.js"></script> 

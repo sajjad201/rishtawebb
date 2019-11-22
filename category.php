@@ -258,10 +258,11 @@ font-family: 'Lato', sans-serif; -->
                             if(@mysqli_num_rows($query2) > 0){
                                 while($array2=mysqli_fetch_array($query2)){?>
                                     
-                                    <a href="../../profile/<?php echo $array2['id']?>" class="all-div-link">
+                                    <a href="../../profile/<?php echo $array2['id']?>" class="all-div-link" rel="canonical">
                                         <div class="all-main-prof">
                                             <div class="container-fluid p-0">
                                                 <div class="col-md-2 col-xs-12">
+                                                    <div class="all-main-prof-id">id: <?php echo $array2['id']; ?></div>
                                                     <div class="all-main-div1">
                                                         <div class="all-main-div-img">
                                                         
@@ -285,31 +286,34 @@ font-family: 'Lato', sans-serif; -->
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-xs-6">
+                                                <div class="col-md-5 col-xs-12 all-main-profile-detail-col5-1">
                                                     <div class="all-main-profile-detail">
                                                         <div>
                                                             <div class="all-main-prof-bold">
-                                                                Id
+                                                                <i class="fas fa-male all-main-prof-icon" style="margin-right:17px; font-size:13px;"></i>Name
                                                             </div>
                                                             <div class="all-main-prof-bold">
-                                                                Name
+                                                                <i class="fas fa-user-clock all-main-prof-icon" style="margin-right:8px; font-size:13px;"></i>Caste
                                                             </div>
                                                             <div class="all-main-prof-bold">
-                                                                Education
+                                                                <i class="fas fa-map-marker-alt all-main-prof-icon" style="margin-right:12px; font-size:14px"></i>Location
                                                             </div>
                                                             <div class="all-main-prof-bold">
-                                                                Profession
+                                                                <i class="fas fa-user-graduate all-main-prof-icon" style="margin-right:12px; font-size:13px"></i>Education
                                                             </div>
                                                             <div class="all-main-prof-bold">
-                                                                Religion
+                                                                <i class="fas fa-chalkboard-teacher all-main-prof-icon" style="margin-right:8px; font-size:13px"></i>Profession
                                                             </div>
                                                         </div>
                                                         <div>
                                                             <div class="all-main-prof-normal">
-                                                            <?php echo $array2['id']; ?>
+                                                            <?php echo $array2['firstName']." ".$array2['lastName']; ?>
                                                             </div>
                                                             <div class="all-main-prof-normal">
-                                                            <?php echo $array2['firstName']." ".$array2['lastName']; ?>
+                                                            <?php echo $array2['caste']; ?>
+                                                            </div>
+                                                            <div class="all-main-prof-normal">
+                                                            <?php if($array2['city']=='0' OR $array2['city'] == ''){echo $array2['city'];}else{echo $array2['country'];} ?>
                                                             </div>
                                                             <div class="all-main-prof-normal">
                                                             <?php echo $array2['education']; ?>
@@ -317,20 +321,17 @@ font-family: 'Lato', sans-serif; -->
                                                             <div class="all-main-prof-normal">
                                                             <?php echo $array2['profession']; ?>
                                                             </div>
-                                                            <div class="all-main-prof-normal">
-                                                            <?php echo $array2['religion']; ?>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 col-xs-6">
+                                                <div class="col-md-5 col-xs-12 all-main-profile-detail-col5-2">
                                                     <div class="all-main-profile-detail">
                                                         <div class="all-main-profile-detail-div-2">
                                                             <div class="all-main-prof-bold">
-                                                                Location
+                                                                Religion
                                                             </div>
                                                             <div class="all-main-prof-bold">
-                                                                Caste
+                                                                Marital Status
                                                             </div>
                                                             <div class="all-main-prof-bold">
                                                                 Height
@@ -344,10 +345,10 @@ font-family: 'Lato', sans-serif; -->
                                                         </div>
                                                         <div>
                                                             <div class="all-main-prof-normal">
-                                                            <?php echo $array2['city']; ?>
+                                                            <?php echo $array2['religion']; ?>
                                                             </div>
                                                             <div class="all-main-prof-normal">
-                                                            <?php echo $array2['caste']; ?>
+                                                            <?php echo $array2['maritalStatus']; ?>
                                                             </div>
                                                             <div class="all-main-prof-normal">
                                                             <?php echo $array2['height']; ?>
@@ -361,15 +362,7 @@ font-family: 'Lato', sans-serif; -->
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="all-main-profile-right">
-                                                        <div class="all-main-profile-right-in">
-                                                            <span class="all-main-profile-right-btn">
-                                                                <i class="fas fa-envelope" style="margin-right:10px;"></i>Send Message
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </a>
@@ -386,16 +379,16 @@ font-family: 'Lato', sans-serif; -->
                                     <div class="col-lg-12 col-xs-12" style=" height:auto; padding:0px">
                                         <?php	if( $page>1 ){	$previous=$page-1; ?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $previous; ?> ">
-                                                    <div class="col-lg-3 col-xs-12" style="padding:0px">
+                                                    <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-right:15px; font-size:16px" class="glyphicon glyphicon-chevron-left"></span>
-                                                            Pervious
+                                                            Back
                                                         </button>
                                                     </div>
                                                 </a>
                                                 <?php if($firstOne != 1){?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $firstOne-1;?>">
-                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                         <span style="font-size:12px; margin-left:-10px;" class="glyphicon glyphicon-menu-left"></span>
                                                             <span style="margin-left:-4px;"><?php echo $firstOne-1;?></span>
@@ -410,7 +403,7 @@ font-family: 'Lato', sans-serif; -->
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
                                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
-                                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
                                                                                 <?php echo $arrayOfIndexes[$row][$thisRow];?>
@@ -428,7 +421,7 @@ font-family: 'Lato', sans-serif; -->
                                                     }
                                                 }?>
                                                 <a href="#">
-                                                    <div class="col-lg-3 col-xs-12" style="padding:0px">
+                                                    <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
                                                         </button>
@@ -444,7 +437,7 @@ font-family: 'Lato', sans-serif; -->
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
                                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
-                                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if($page == $arrayOfIndexes[$row][$thisRow]){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
                                                                                 <?php echo $lastOne=$arrayOfIndexes[$row][$thisRow];?>
@@ -464,7 +457,7 @@ font-family: 'Lato', sans-serif; -->
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
-                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?>
                                                             <span style="font-size:12px; margin-left:-3px" class="glyphicon glyphicon-menu-right"></span>
@@ -473,7 +466,7 @@ font-family: 'Lato', sans-serif; -->
                                                 </a>
                                                 <?php }?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
-                                                    <div class="col-lg-3 col-xs-12" style="padding:0px">
+                                                    <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
                                                         </button>
@@ -486,7 +479,7 @@ font-family: 'Lato', sans-serif; -->
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1;$thisRow<=$lengthOfRow;$thisRow++){?>
                                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
-                                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
                                                                                 <?php echo $lastOne=$arrayOfIndexes[$row][$thisRow];?>
@@ -506,7 +499,7 @@ font-family: 'Lato', sans-serif; -->
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
-                                                    <div class="col-lg-1 col-xs-2" style="padding:0px">
+                                                    <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?></span>
                                                             <span style="font-size:12px; margin-left:-3px" class="glyphicon glyphicon-menu-right"></span>
@@ -515,7 +508,7 @@ font-family: 'Lato', sans-serif; -->
                                                 </a>
                                                 <?php }?>
                                                 <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
-                                                    <div class="col-lg-3 col-xs-12" style="padding:0px">
+                                                    <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
                                                         </button>
@@ -526,8 +519,7 @@ font-family: 'Lato', sans-serif; -->
                                 </div>
                                 <?php }	
                                 else{ ?>
-                                    <div class="container-fluid" style="background-color:white; font-size:40px; padding:20px;  text-align:center; 
-                                    border:1px solid lightgray; color #333333; border-radius:4px;">
+                                    <div class="container-fluid cat-no-prof-container">
                                         No Profile found for <?php echo $category; ?>!<br>
                                         <h5>Select input fields from above and search for more/different results.</h5>
                                     </div>
@@ -536,18 +528,38 @@ font-family: 'Lato', sans-serif; -->
                                 
                                 
                                 <div id="RightSideBar" class="col-lg-3 col-md-2 col-sm-12 col-xs-12 cat-right-side-bar">
-                                    <?php
-                                    if(!isset($_SESSION['firstPersonId'])){?>
+                                    <?php if(@mysqli_num_rows($query2) < 1){?>
+
+                                        <?php
+                                        if(!isset($_SESSION['firstPersonId'])){?>
+                                            <div class="right-div">
+                                                <div class="rishta-div-head">
+                                                    Rishta by Gender
+                                                </div>
+                                                <?php
+                                                    $result=mysqli_query($conn, "select * from gender");
+                                                    if(mysqli_num_rows($result) > 0){
+                                                        while($r=mysqli_fetch_array($result)){?>
+                                                            <div class="rishta-div-body">
+                                                                <a href="../../check-category/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                    <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                                </a>
+                                                            </div>
+                                                        <?php }
+                                                    }
+                                                ?>
+                                            </div>
+                                        <?php }?>
                                         <div class="right-div">
                                             <div class="rishta-div-head">
-                                                Rishta by Gender
+                                                Rishty by City
                                             </div>
                                             <?php
-                                                $result=mysqli_query($conn, "select * from gender");
+                                                $result=mysqli_query($conn, "select * from city limit 10");
                                                 if(mysqli_num_rows($result) > 0){
                                                     while($r=mysqli_fetch_array($result)){?>
                                                         <div class="rishta-div-body">
-                                                            <a href="../../check-category/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <a href="../../check-category/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                 <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                             </a>
                                                         </div>
@@ -555,95 +567,256 @@ font-family: 'Lato', sans-serif; -->
                                                 }
                                             ?>
                                         </div>
-                                    <?php }?>
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishty by Clan
+                                        <div class="right-div">
+                                            <div class="rishta-div-head">
+                                                Rishty by Family Affluence
+                                            </div>
+                                            <?php
+                                                $result=mysqli_query($conn, "select * from familyaffluence");
+                                                if(mysqli_num_rows($result) > 0){
+                                                    while($r=mysqli_fetch_array($result)){?>
+                                                        <div class="rishta-div-body">
+                                                            <a href="../../check-category/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                            </a>
+                                                        </div>
+                                                    <?php }
+                                                }
+                                            ?>
                                         </div>
-                                        <?php
-                                            $result=mysqli_query($conn, "select * from clan");
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($r=mysqli_fetch_array($result)){?>
-                                                    <div class="rishta-div-body">
-                                                        <a href="../../check-category/clan/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-                                                        </a>
+                                        <div class="right-div">
+                                            <div class="rishta-div-head">
+                                                Rishty by Family Type
+                                            </div>
+                                            <?php
+                                                $result=mysqli_query($conn, "select * from familytype");
+                                                if(mysqli_num_rows($result) > 0){
+                                                    while($r=mysqli_fetch_array($result)){?>
+                                                        <div class="rishta-div-body">
+                                                            <a href="../../check-category/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                            </a>
+                                                        </div>
+                                                    <?php }
+                                                }
+                                            ?>
+                                        </div>
+                                        <div class="right-div">
+                                            <div class="rishta-div-head">
+                                                Rishty by Family Values
+                                            </div>
+                                            <?php
+                                                $result=mysqli_query($conn, "select * from familyvalues");
+                                                if(mysqli_num_rows($result) > 0){
+                                                    while($r=mysqli_fetch_array($result)){?>
+                                                        <div class="rishta-div-body">
+                                                            <a href="../../check-category/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
+                                                            </a>
+                                                        </div>
+                                                    <?php }
+                                                }
+                                            ?>
+                                        </div>
+
+                                    <?php } else{?>    
+                                         <?php if(!isset($_SESSION['firstPersonId'])){?>
+
+                                            
+                                                <?php 
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='male' && caste='$category' order by id desc limit 15");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='male' && city='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='male' && district='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='male' && province='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='male' && country='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='male' && religion='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='male' && profession='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='male' && language='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='male' && clan='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='male' && education='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='male' && hobby='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyType='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyValues='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    else {$result=mysqli_query($conn, "select * from signup where gender='male' "); }
+
+                                                    if(mysqli_num_rows($result) > 0){?>
+                                                        <div class="right-div">
+                                                            <div class="rishta-div-head">
+                                                                <?php echo $category?> Male Rishta
+                                                            </div>
+                                                            <?php while($r=mysqli_fetch_array($result)){?>
+                                                            <div class="rishta-div-body">
+                                                                <a href="../../profile/<?php echo $r['id']?>" class="rishta-div-body-link" >
+                                                                    <div>
+                                                                        <?php
+                                                                            if($category_name == 'city'){
+                                                                                echo $r['caste'].", ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }else{
+                                                                                echo $category." ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }
+                                                                        ?>
+
+                                                                        <div class="rishta-div-body-txt">
+                                                                            <?php 
+                                                                                echo $r['maritalStatus'].", ".$r['religion']." ";
+                                                                                $row11 = array('dob'=>$r['dob']);	echo ageCalculator($row11['dob'])." old, ";	
+                                                                                echo "boy rishta";
+                                                                            ?> 
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        <?php } ?>
+                                                        </div>
+                                                    <?php }
+                                                ?>
+                                            
+
+                                            
+                                                <?php 
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='female' && caste='$category' order by id desc limit 15");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='female' && city='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='female' && district='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='female' && province='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='female' && country='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='female' && religion='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='female' && profession='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='female' && language='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='female' && clan='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='female' && education='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='female' && hobby='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyType='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyValues='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    else {$result=mysqli_query($conn, "select * from signup where gender='female' "); }
+
+                                                    if(mysqli_num_rows($result) > 0){?>
+                                                        <div class="right-div">
+                                                            <div class="rishta-div-head">
+                                                                <?php echo $category?> Female Rishta
+                                                            </div>
+                                                            <?php while($r=mysqli_fetch_array($result)){?>
+                                                            <div class="rishta-div-body">
+                                                                <a href="../../profile/<?php echo $r['id']?>" class="rishta-div-body-link" >
+                                                                    <div>
+                                                                        <?php
+                                                                            if($category_name == 'city'){
+                                                                                echo $r['caste'].", ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }else{
+                                                                                echo $category." ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }
+                                                                        ?>
+
+                                                                        <div class="rishta-div-body-txt">
+                                                                            <?php 
+                                                                                echo $r['maritalStatus'].", ".$r['religion']." ";
+                                                                                $row11 = array('dob'=>$r['dob']);	echo ageCalculator($row11['dob'])." old, ";	
+                                                                                echo "boy rishta";
+                                                                            ?> 
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
+                                                    <?php }
+                                                ?>
+                                            
+                                        <?php } else{ 
+                                            
+                                            $id=$_SESSION['firstPersonId'];
+                                            $result=mysqli_query($conn, "select gender from signup where id='$id' ");
+                                            while($r=mysqli_fetch_array($result)){$gender=$r['gender'];}
+                                            if($gender == "male"){$gender='female';}
+                                            ?>
+                                            
+                                                <?php 
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && caste='$category' order by id desc limit 15");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && city='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && district='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && province='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && country='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && religion='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && profession='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && language='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && clan='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && education='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && hobby='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyType='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyValues='$category' order by id desc limit 15 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    else {$result=mysqli_query($conn, "select * from signup where gender='$gender' "); }
+
+                                                    if(mysqli_num_rows($result) > 0){?>
+                                                        <div class="right-div">
+                                                            <div class="rishta-div-head">
+                                                                <?php echo $category." ".$gender?> Rishta
+                                                            </div>
+                                                        <?php while($r=mysqli_fetch_array($result)){?>
+                                                            <div class="rishta-div-body">
+                                                                <a href="../../profile/<?php echo $r['id']?>" class="rishta-div-body-link" >
+                                                                    <div>
+                                                                        <?php
+                                                                            if($category_name == 'city'){
+                                                                                echo $r['caste'].", ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }else{
+                                                                                echo $category.", ".$r['familyAffluence']." family Rishta in ";
+                                                                                if($r['city'] == "" || $r['city'] == "0"){
+                                                                                    echo $r['country'];
+                                                                                }else{
+                                                                                    echo $r['city'];
+                                                                                }
+                                                                            }
+                                                                        ?>
+
+                                                                        <div class="rishta-div-body-txt">
+                                                                            <?php 
+                                                                                echo $r['maritalStatus'].", ".$r['religion']." ";
+                                                                                $row11 = array('dob'=>$r['dob']);	echo ageCalculator($row11['dob'])." old, ";	
+                                                                                echo "boy rishta";
+                                                                            ?> 
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        <?php }?>
                                                     </div>
                                                 <?php }
-                                            }
-                                        ?>
-                                    </div>
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishty by City
-                                        </div>
-                                        <?php
-                                            $result=mysqli_query($conn, "select * from city limit 10");
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($r=mysqli_fetch_array($result)){?>
-                                                    <div class="rishta-div-body">
-                                                        <a href="../../check-category/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-                                                        </a>
-                                                    </div>
-                                                <?php }
-                                            }
-                                        ?>
-                                    </div>
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishty by Family Affluence
-                                        </div>
-                                        <?php
-                                            $result=mysqli_query($conn, "select * from familyaffluence");
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($r=mysqli_fetch_array($result)){?>
-                                                    <div class="rishta-div-body">
-                                                        <a href="../../check-category/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-                                                        </a>
-                                                    </div>
-                                                <?php }
-                                            }
-                                        ?>
-                                    </div>
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishty by Family Type
-                                        </div>
-                                        <?php
-                                            $result=mysqli_query($conn, "select * from familytype");
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($r=mysqli_fetch_array($result)){?>
-                                                    <div class="rishta-div-body">
-                                                        <a href="../../check-category/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-                                                        </a>
-                                                    </div>
-                                                <?php }
-                                            }
-                                        ?>
-                                    </div>
-                                    <div class="right-div">
-                                        <div class="rishta-div-head">
-                                            Rishty by Family Values
-                                        </div>
-                                        <?php
-                                            $result=mysqli_query($conn, "select * from familyvalues");
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($r=mysqli_fetch_array($result)){?>
-                                                    <div class="rishta-div-body">
-                                                        <a href="../../check-category/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-                                                            <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-                                                        </a>
-                                                    </div>
-                                                <?php }
-                                            }
-                                        ?>
-                                    </div>
+                                                ?>
+                                            
+                                        
+                                        <?php }?>        
+                                    <?php }?>    
+
                         
 					            </div>
-                                <div class="col-md-9" style="margin:50px 0px">
+                                <div class="col-md-9 cat-art-two-col9">
                                     <?php
                                         $result=mysqli_query($conn, "select * from articles where name='$category' ");
                                         if(mysqli_num_rows($result) > 0){

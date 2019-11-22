@@ -46,9 +46,6 @@ $result=mysqli_query($conn, "select gender from signup where id='$viewProfileId'
 while($r=mysqli_fetch_array($result)){
 	$select_gender= $r['gender'];
 }
-if($select_gender == ""){
-	header('Location: '.$base_url);
-}
 
 
 
@@ -647,6 +644,8 @@ while($queryArray=mysqli_fetch_array($result)){
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12 pr-col3-right" >
+
+
 			<div class="pr-col3-right-in">		
 				<div class="pr-col3-right-in-txt-sm">Similar Profiles</div>				
 									<!-- city -->
@@ -798,6 +797,8 @@ while($queryArray=mysqli_fetch_array($result)){
 
 			
 			</div>
+
+			
 		</div>
 </div>
 			

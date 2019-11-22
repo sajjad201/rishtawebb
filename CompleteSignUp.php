@@ -397,7 +397,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["fatherStatusErr"]="please select father status ";
 		$_SESSION['signup-fatherstatus-error']=$errorList["fatherStatusErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -408,7 +407,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["motherStatusErr"]="please select mother status ";
 		$_SESSION['signup-motherstatus-error']=$errorList["motherStatusErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -419,7 +417,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["noOfBrothersErr"]="please select no of brothers ";
 		$_SESSION['signup-noofbrothers-error']=$errorList["noOfBrothersErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -430,7 +427,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["noOfSistersErr"]="please select no of sisters ";
 		$_SESSION['signup-noofsisters-error']=$errorList["noOfSistersErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -474,7 +470,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerMaritalStatusErr"]="select marital status ";
 		$_SESSION['signup-pmaritalstatus-error']=$errorList["partnerMaritalStatusErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -485,7 +480,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerAgeErr"]="select age ";
 		$_SESSION['signup-page-error']=$errorList["partnerAgeErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -496,7 +490,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerHeightErr"]="select height ";
 		$_SESSION['signup-pheight-error']=$errorList["partnerHeightErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -507,7 +500,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerReligionErr"]="select religion ";
 		$_SESSION['signup-preligion-error']=$errorList["partnerReligionErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -518,7 +510,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerLanguageErr"]="select language ";
 		$_SESSION['signup-planguage-error']=$errorList["partnerLanguageErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -529,7 +520,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerEducationErr"]="select education ";
 		$_SESSION['signup-peducation-error']=$errorList["partnerEducationErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -540,7 +530,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerComplexionErr"]="select complexion ";
 		$_SESSION['signup-pcomplexion-error']=$errorList["partnerComplexionErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -551,7 +540,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerClanErr"]="select clan ";
 		$_SESSION['signup-pclan-error']=$errorList["partnerClanErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -562,7 +550,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerFamilyAffluenceErr"]="select partner family affluence ";
 		$_SESSION['signup-pfamilyaffluence-error']=$errorList["partnerFamilyAffluenceErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -573,7 +560,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerLocationErr"]="select location ";
 		$_SESSION['signup-plocation-error']=$errorList["partnerLocationErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -585,7 +571,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$errorList["partnerAboutErr"]="please write something  ";
 		$_SESSION['signup-pabout-error']=$errorList["partnerAboutErr"];
-		$errorOccurred=true;
 	}
 	else
 	{	
@@ -649,7 +634,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 		}
    }
 	
-	if( $errorOccurred == true )
+	if( $errorOccurred == false )
 	{
 		$checkEmail=$conn->prepare("SELECT email FROM signup WHERE email=?");
 		$checkEmail->bind_param("s", $email);
@@ -756,7 +741,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 			if($print) 
 			{	
 				$_SESSION['firstPersonId'] =$id;
-				header('Location: ../../searchguest.php');
+				header('Location: '.$base_url.'searchguest.php');
 			}
 			else
 			{
@@ -817,7 +802,9 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 
   gtag('config', 'UA-133484988-1');
 </script>
-<link rel="shortcut icon" href="assets/allpics/rw8.png">
+
+<link rel="icon" href="<?php echo $base_url;?>assets/allpics/rw8.png" type="image/vnd.microsoft.icon">
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -904,7 +891,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 @media only screen and (max-width: 767px) 
 {
 	#whitePage {border-radius:8px; border:0px solid #eae6da; box-shadow:0px 0px 16px gray !important;}
-	#createYourRishtawebAccount{font-size:21px; font-weight:700}
+	#createYourRishtawebAccount{font-size:18px; font-weight:700}
 	#backPadding{ padding:0px}
 	.form-control{ height:40px}
 	#nextPadding{padding-right:15px}
@@ -922,6 +909,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 	#urduLineHeight{line-height:25px}	
 	#iconMargin{margin-top:7px}
 	#modalHeaderPadding{ padding:8px}	
+	#createYourAccount{padding: 20px 0px}
 }
 @media only screen and (min-width: 767px)
 {
@@ -1070,7 +1058,7 @@ $('#updateModal').modal({
 					</div>
 				</div>
 
-					<div class="row" style="background-color:#FFFFFF; padding:30px 0px; border-bottom: 3px solid gray;" id="whitePageCenter">
+					<div class="row" style="background-color:#FFFFFF; padding:15px 0px; border-bottom: 3px solid gray;" id="whitePageCenter">
 						<div class="col-lg-2"></div>
 						
 						<!---CompleteForm--->
@@ -1193,7 +1181,7 @@ $('#updateModal').modal({
 										<div>
 										<div class="col-sm-6" id="backPadding">
 											<div  class="back-button" onClick="backToPage1()">
-												<i class="fas fa-arrow-left" style="margin-right:8px; font-size:20px"></i>
+												<i class="fas fa-arrow-left back-button-font"></i>
 											</div>
 										</div>
 										</div>
@@ -1913,7 +1901,7 @@ $('#updateModal').modal({
 										<label class="col-sm-4 control-label">Write About Youself</label>
 										<div class="col-sm-6">
 											<textarea class="form-control" id="aboutYourself" name="aboutYourself" title="write about yourself"
-											style="resize:vertical" rows="2" onBlur="AboutYourself()" onKeyUp="countChar()" placeholder="write something about yourself"></textarea>
+											style="resize:vertical" rows="2" onBlur="AboutYourself()" onKeyUp="countChar()" placeholder="write something about yourself"><?php if(!empty($_POST['aboutYourself'])){echo $_POST['aboutYourself'];}?></textarea>
 											<div id="explainYourselfError" style="font-size:12px; color:#BF0000;">
 												<?php if(isset($_SESSION['signup-about-error'])){ echo $_SESSION['signup-about-error']; unset($_SESSION['signup-about-error']);} ?>
 											</div>
@@ -2374,7 +2362,7 @@ $('#updateModal').modal({
 							</form>
 						</div>
 						<!---EndedCompleteForm--->
-						<div class="col-lg-2" style="text-align:center; padding:35px;"><!--rightSideOfForm --></div>
+						<div class="col-lg-2 com-ended"><!--rightSideOfForm --></div>
 					</div>
 				<div class="row" style="">
 					
@@ -2386,6 +2374,53 @@ $('#updateModal').modal({
 		</div>
 	</div>
 </div>
+
+<?php 
+
+if($_SERVER['REQUEST_METHOD']=="POST"){ ?>	
+
+<script type="text/javascript">
+	document.getElementById('ProfileCreatedBy').value = "<?php echo $_POST['profileCreatedBy'];?>";
+	document.getElementById('Country').value = "<?php echo $_POST['country'];?>";
+	document.getElementById('Province').value = "<?php echo $_POST['province'];?>";
+	document.getElementById('District').value = "<?php echo $_POST['district'];?>";
+	document.getElementById('City').value = "<?php echo $_POST['city'];?>";
+	document.getElementById('Day').value = "<?php echo $_POST['day'];?>";
+	document.getElementById('Month').value = "<?php echo $_POST['month'];?>";
+	document.getElementById('Year').value = "<?php echo $_POST['year'];?>";
+	document.getElementById('Language').value = "<?php echo $_POST['language'];?>";
+	document.getElementById('Education').value = "<?php echo $_POST['education'];?>";
+	document.getElementById('Profession').value = "<?php echo $_POST['profession'];?>";
+	document.getElementById('Salary').value = "<?php echo $_POST['salary'];?>";
+	document.getElementById('FamilyType').value = "<?php echo $_POST['familyType'];?>";
+	document.getElementById('FamilyValues').value = "<?php echo $_POST['familyValues'];?>";
+	document.getElementById('FamilyAffluence').value = "<?php echo $_POST['familyAffluence'];?>";
+	document.getElementById('MaritalStatus').value = "<?php echo $_POST['maritalStatus'];?>";
+	document.getElementById('Clan').value = "<?php echo $_POST['clan'];?>";
+	document.getElementById('Caste').value = "<?php echo $_POST['caste'];?>";
+	document.getElementById('Religion').value = "<?php echo $_POST['religion'];?>";
+	document.getElementById('Height').value = "<?php echo $_POST['height'];?>";
+	document.getElementById('Complexion').value = "<?php echo $_POST['complexion'];?>";
+	document.getElementById('BodyType').value = "<?php echo $_POST['bodyType'];?>";
+	document.getElementById('Hobby').value = "<?php echo $_POST['hobby'];?>";
+	document.getElementById('Disability').value = "<?php echo $_POST['disability'];?>";
+	document.getElementById('FatherStatus').value = "<?php echo $_POST['fatherStatus'];?>";
+	document.getElementById('MotherStatus').value = "<?php echo $_POST['motherStatus'];?>";
+	document.getElementById('NoOfBrothers').value = "<?php echo $_POST['noOfBrothers'];?>";
+	document.getElementById('NoOfSisters').value = "<?php echo $_POST['noOfSisters'];?>";
+	document.getElementById('PartnerMaritalStatus').value = "<?php echo $_POST['partnerMaritalStatus'];?>";
+	document.getElementById('PartnerAge').value = "<?php echo $_POST['partnerAge'];?>";
+	document.getElementById('PartnerHeight').value = "<?php echo $_POST['partnerHeight'];?>";
+	document.getElementById('PartnerReligion').value = "<?php echo $_POST['partnerReligion'];?>";
+	document.getElementById('PartnerLanguage').value = "<?php echo $_POST['partnerLanguage'];?>";
+	document.getElementById('PartnerEducation').value = "<?php echo $_POST['partnerEducation'];?>";
+	document.getElementById('PartnerComplexion').value = "<?php echo $_POST['partnerComplexion'];?>";
+	document.getElementById('PartnerClan').value = "<?php echo $_POST['partnerClan'];?>";
+	document.getElementById('PartnerFamilyAffluence').value = "<?php echo $_POST['partnerFamilyAffluence'];?>";
+</script>
+
+<?php } ?>
+
 <?php include('inc/pages/footer.php');?>
 <script src="assets/js/register.js"></script>
 </body>

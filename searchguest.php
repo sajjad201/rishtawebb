@@ -175,6 +175,7 @@ if(isset($_POST["submitSearchById"]))
 if(isset($_POST["submitForm"]))
 {
 	$select="SELECT * FROM signup WHERE 1=1  ";	
+	if(isset($_POST["gender"]))				{	setAllCheckBox($select,$_POST["gender"],"gender");	}
 	if(isset($_POST["publicProfile"]))		{	setAllCheckBox($select,$_POST["publicProfile"],"publicProfile");	}
 	if(isset($_POST["dob"]))				{	setAllCheckBox($select,$_POST["dob"],"dob");	}
 	if(isset($_POST["maritalStatus"]))		{	setAllCheckBox($select,$_POST["maritalStatus"],"maritalStatus");	}
@@ -569,7 +570,13 @@ for($row=1; $row<=$pages; $row++)
 .con-fl-pa{
     padding:0px 40px;
 }		
-#leftSideBar{ padding: 0px 10px 0px 40px;}									
+#leftSideBar{ padding: 0px 10px 0px 40px;}	
+.RightSideBar-txt{
+	font-size:24px;
+	color: #333333;
+	margin:5px 0px 10px;
+	display:none;
+}								
 @media only screen and (max-width: 775px) 
 {
 	#hidePrefrences{  border-left:2px solid #F4F4FF; }
@@ -587,10 +594,13 @@ for($row=1; $row<=$pages; $row++)
 	#searchButtonHeight{height:45px}
 	#searchByIdBox{border:1px solid #999999; margin-bottom:25px; box-shadow:0px 0px 10px lightgray }
 	#selectOptionText{font-size:12px; font-weight:400; color:#333333; }	
-    #RightSideBar{display:none}	
+    #RightSideBar{padding: 5px; background-color:white; border-radius: 4px; margin-bottom:10px;}	
     .con-fl-pa{
         padding:10px;
-    }	
+	}	
+	.RightSideBar-txt{
+		display:block;
+	}
 }
 
 
@@ -630,7 +640,7 @@ for($row=1; $row<=$pages; $row++)
 	<div class="row">
 		<h1 class="se-h1-title"> free online marriage, shadi or rishta website in pakistan, </h1>
 		<div class="col-lg-12 searchguest-bg" style="padding: unset;">
-            <div class="col-lg-12" style="margin-top:50px; padding:0px; margin-bottom:30px">
+            <div class="col-lg-12 sg-ser-padd">
             <div class="container-fluid">
                 <span id="search-icon-guest" class="navbar-toggle search-icon-guest"  style="font-size:25px;">
 					 <i class="fas fa-search" style="font-weight:700"></i>
@@ -691,7 +701,22 @@ for($row=1; $row<=$pages; $row++)
 									
 										<div class="col-lg-12" style="padding:10px; padding-top:0px; margin-top:20px">
 											
-											<?php if(!isset($firstPerson)){?>
+											<?php if(!isset($_SESSION["firstPersonId"])){?>
+												<div class="col-lg-12" style="padding:0px">
+													<div class="col-lg-12" style="padding:5px; padding-top:0px">
+														<div class="coll col-lg-12 collapse in" style="cursor:pointer; font-family:'Segoe UI'; font-weight:600;" id="textcolor" 
+																	data-toggle="collapse" data-target="#genderColl">Gender</div>
+														<div class="col-lg-12 collapse in" id="genderColl" style="margin-top:8px">
+															<label class="checkBoxLabel">Male
+															<input type="checkbox" name="gender[]" value="Male" id="focus"><span class="checkmark"></span>
+															</label>
+															<label class="checkBoxLabel">Female
+															<input type="checkbox" name="gender[]" value="Female"><span class="checkmark"></span>
+															</label>
+														</div>
+														<div class="col-lg-12"><p style="border-top:1px solid #F4F4F4; margin-top:5px"></p></div>
+													</div>
+												</div>
 												<div class="col-lg-12" style="padding:0px">
 													<div class="col-lg-12" style="padding:5px; padding-top:0px">
 														<div class="coll col-lg-12 collapse in" style="cursor:pointer; font-family:'Segoe UI'; font-weight:600;" id="textcolor" 
@@ -1769,26 +1794,8 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 					
 					<!---RightSideBar--->
 					<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12" id="RightSideBar">
-					<?php
-						if(!isset($_SESSION['firstPersonId'])){?>
-							<div class="right-div">
-								<div class="rishta-div-head">
-									Rishta by Gender
-								</div>
-								<?php
-									$result=mysqli_query($conn, "select * from gender");
-									if(mysqli_num_rows($result) > 0){
-										while($r=mysqli_fetch_array($result)){?>
-											<div class="rishta-div-body">
-												<a href="check-category/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
-													<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
-												</a>
-											</div>
-										<?php }
-									}
-								?>
-							</div>
-						<?php }?>
+					<div class="RightSideBar-txt">Similar Profiles</div>
+						
 						<div class="right-div">
 							<div class="rishta-div-head">
 								Rishty by Clan

@@ -1,18 +1,7 @@
 <?php @session_start(); 
+$conn = new mysqli("localhost", "root", "", "rishtawebchat");
 
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24))); 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "rishtawebchat";
-global $conn;
-$conn = new mysqli($servername, $username, $password, $dbname);
-global $con;
-$con = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
-
-$base_url="http://localhost/rishtawebb/"; 
 
 ?>
 <!-- Google Analytics -->
@@ -51,15 +40,15 @@ $base_url="http://localhost/rishtawebb/";
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet"><!-- font-family: 'Open Sans', sans-serif; -->
 
 <!-- select2 -->
-<script src="http://localhost/rishtawebb/assets/select2/select2popper.js"></script> 
-<script src="http://localhost/rishtawebb/assets/select2/select2min.js"></script> 
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/select2/select2.css"> 
+<script src="<?php echo $base_url; ?>assets/select2/select2popper.js"></script> 
+<script src="<?php echo $base_url; ?>assets/select2/select2min.js"></script> 
+<link rel="stylesheet" href="<?php echo $base_url; ?>assets/select2/select2.css"> 
 
 <!-- local -->
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/owl/docs/assets/owlcarousel/assets/owl.theme.default.css">
-<link rel="stylesheet" href="http://localhost/rishtawebb/assets/owl/docs/assets/owlcarousel/assets/owl.carousel.min.css">
-<link href="http://localhost/rishtawebb/assets/css/old.css" rel="stylesheet" />
-<link href="http://localhost/rishtawebb/assets/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="<?php echo $base_url; ?>assets/owl/docs/assets/owlcarousel/assets/owl.theme.default.css">
+<link rel="stylesheet" href="<?php echo $base_url; ?>assets/owl/docs/assets/owlcarousel/assets/owl.carousel.min.css">
+<link href="<?php echo $base_url; ?>assets/css/old.css" rel="stylesheet" />
+<link href="<?php echo $base_url; ?>assets/css/style.css" rel="stylesheet" />
 
 
 
