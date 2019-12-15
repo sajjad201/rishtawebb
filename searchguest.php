@@ -661,7 +661,7 @@ for($row=1; $row<=$pages; $row++)
 					<div class="col-lg-12 " style="padding:0px; margin-bottom:100px" >
 					
 				  		<div class="col-lg-12 leftSideBar-all">
-				  			<a href="" class="leftSideBar-all-li">RESET ALL FILTERS</a>
+				  			<a href="searchguest.php" class="leftSideBar-all-li">RESET ALL FILTERS</a>
 						</div>
 						<div class="col-lg-12 " id="searchByIdBox">
 							<form name="searchById" method="post" action="searchguest.php">
@@ -1805,7 +1805,7 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 								if(mysqli_num_rows($result) > 0){
 									while($r=mysqli_fetch_array($result)){?>
 										<div class="rishta-div-body">
-											<a href="check-category/clan/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+											<a href="find/clan/<?php echo $r['url'];?>" class="rishta-div-body-link" >
 												<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
 											</a>
 										</div>
@@ -1822,7 +1822,7 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 								if(mysqli_num_rows($result) > 0){
 									while($r=mysqli_fetch_array($result)){?>
 										<div class="rishta-div-body">
-											<a href="check-category/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+											<a href="find/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
 												<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
 											</a>
 										</div>
@@ -1839,7 +1839,7 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 								if(mysqli_num_rows($result) > 0){
 									while($r=mysqli_fetch_array($result)){?>
 										<div class="rishta-div-body">
-											<a href="check-category/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+											<a href="find/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
 												<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
 											</a>
 										</div>
@@ -1856,7 +1856,7 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 								if(mysqli_num_rows($result) > 0){
 									while($r=mysqli_fetch_array($result)){?>
 										<div class="rishta-div-body">
-											<a href="check-category/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+											<a href="find/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
 												<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
 											</a>
 										</div>
@@ -1873,7 +1873,7 @@ font-size:20px; margin-top:0px; padding:20px; height:auto;  margin-bottom:10px; 
 								if(mysqli_num_rows($result) > 0){
 									while($r=mysqli_fetch_array($result)){?>
 										<div class="rishta-div-body">
-											<a href="check-category/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+											<a href="find/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
 												<?php echo ucwords(str_replace('-', ' ', $r['url']));?>
 											</a>
 										</div>

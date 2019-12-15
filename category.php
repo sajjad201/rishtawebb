@@ -32,6 +32,16 @@ while($r=mysqli_fetch_array($result)){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
+<?php 
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if (strpos($actual_link, 'http://localhost/rishtawebb/find/') === false) {
+    $arr="http://localhost/rishtawebb/find/";
+    $arr1=explode("http://localhost/rishtawebb/",$actual_link);
+    $arr2=explode("/", $arr1[1]);
+    $can=$arr."".$arr2[0]."/".$arr2[1];?>
+    <link rel="canonical" href="<?php echo $can;?>"/>
+<?Php }?>
+
 <title><?php echo ucwords(str_replace('-', ' ', $_GET['url']));?> - RISHTAWEB</title>
 <meta name="description" content="Find online rishta in <?php echo $category; 
 if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='familyvalues' || $_GET['name']=='familyaffluence'
@@ -46,7 +56,9 @@ if($_GET['name']=='caste' || $_GET['name']=='familytype' || $_GET['name']=='fami
 ?>. You can also find rishta in your desired cast, religion. profession and within your city or country">
 <meta name="keywords" content="Find <?php echo $category; ?> girls rishta in pakistan. Find <?php echo $category; ?> boys rishta in pakistan. <?php echo $category; ?> female rishta in pakistan. <?php echo $category; ?> male rishta in pakistan.">
 
-<?php include('inc/pages/links-one.php');
+<?php
+
+include('inc/pages/links-one.php');
 
 $sql="select * from $category_name where url='$url' limit 1";
 $result=mysqli_query($conn, $sql);
@@ -120,6 +132,31 @@ font-family: 'Lato', sans-serif; -->
 
 </head>
 <body class="cat-body">
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v5.0'
+  });
+};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+attribution=setup_tool
+page_id="415465259225045"
+theme_color="#0084ff">
+</div>
+
     
 <!-- navbar -->
 <?php 
@@ -378,7 +415,7 @@ font-family: 'Lato', sans-serif; -->
                                 <div class="col-lg-12 col-xs-12 cat-pagi-pad">
                                     <div class="col-lg-12 col-xs-12" style=" height:auto; padding:0px">
                                         <?php	if( $page>1 ){	$previous=$page-1; ?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $previous; ?> ">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $previous; ?> ">
                                                     <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-right:15px; font-size:16px" class="glyphicon glyphicon-chevron-left"></span>
@@ -387,7 +424,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php if($firstOne != 1){?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $firstOne-1;?>">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $firstOne-1;?>">
                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                         <span style="font-size:12px; margin-left:-10px;" class="glyphicon glyphicon-menu-left"></span>
@@ -402,7 +439,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1; $col<=$lengthOfRow; $col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
-                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -420,7 +457,7 @@ font-family: 'Lato', sans-serif; -->
                                                         }
                                                     }
                                                 }?>
-                                                <a href="#">
+                                                <a rel="canonical" href="#">
                                                     <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
@@ -436,7 +473,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1; $col<=$lengthOfRow; $col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1; $thisRow<=$lengthOfRow; $thisRow++){?>
-                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if($page == $arrayOfIndexes[$row][$thisRow]){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -456,7 +493,7 @@ font-family: 'Lato', sans-serif; -->
                                                 }
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?>
@@ -465,7 +502,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php }?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
                                                     <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
@@ -478,7 +515,7 @@ font-family: 'Lato', sans-serif; -->
                                                     for($col=1;$col<=$lengthOfRow;$col++){
                                                         if($arrayOfIndexes[$row][$col] == $page){
                                                             for($thisRow=1;$thisRow<=$lengthOfRow;$thisRow++){?>
-                                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
+                                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $arrayOfIndexes[$row][$thisRow];?>">
                                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                                         <?php if( $page == $arrayOfIndexes[$row][$thisRow] ){?>
                                                                             <button type="button" class="btn btn-primary btn-block pagination-btn">
@@ -498,7 +535,7 @@ font-family: 'Lato', sans-serif; -->
                                                 }
                                                 $lastOne=$lastOne+1;
                                                 if($pages >= $lastOne){?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $lastOne;?>">
                                                     <div class="col-lg-1 col-xs-1" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             <span style="margin-left:-3px;"><?php echo $lastOne;?></span>
@@ -507,7 +544,7 @@ font-family: 'Lato', sans-serif; -->
                                                     </div>
                                                 </a>
                                                 <?php }?>
-                                                <a href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
+                                                <a rel="canonical" href="<?php echo "../../".$category_name."/".$url."/"?><?php echo $page+1; ?>  ">
                                                     <div class="col-lg-3 col-xs-3" style="padding:0px">
                                                         <button type="button" class="btn btn-default btn-block pagination-btn">
                                                             Next<span style="margin-left:15px; font-size:16px" class="glyphicon glyphicon-chevron-right"></span>
@@ -541,7 +578,7 @@ font-family: 'Lato', sans-serif; -->
                                                     if(mysqli_num_rows($result) > 0){
                                                         while($r=mysqli_fetch_array($result)){?>
                                                             <div class="rishta-div-body">
-                                                                <a href="../../check-category/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                                <a href="../../find/gender/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                     <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                                 </a>
                                                             </div>
@@ -559,7 +596,7 @@ font-family: 'Lato', sans-serif; -->
                                                 if(mysqli_num_rows($result) > 0){
                                                     while($r=mysqli_fetch_array($result)){?>
                                                         <div class="rishta-div-body">
-                                                            <a href="../../check-category/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <a href="../../find/city/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                 <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                             </a>
                                                         </div>
@@ -576,7 +613,7 @@ font-family: 'Lato', sans-serif; -->
                                                 if(mysqli_num_rows($result) > 0){
                                                     while($r=mysqli_fetch_array($result)){?>
                                                         <div class="rishta-div-body">
-                                                            <a href="../../check-category/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <a href="../../find/familyaffluence/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                 <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                             </a>
                                                         </div>
@@ -593,7 +630,7 @@ font-family: 'Lato', sans-serif; -->
                                                 if(mysqli_num_rows($result) > 0){
                                                     while($r=mysqli_fetch_array($result)){?>
                                                         <div class="rishta-div-body">
-                                                            <a href="../../check-category/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <a href="../../find/familytype/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                 <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                             </a>
                                                         </div>
@@ -610,7 +647,7 @@ font-family: 'Lato', sans-serif; -->
                                                 if(mysqli_num_rows($result) > 0){
                                                     while($r=mysqli_fetch_array($result)){?>
                                                         <div class="rishta-div-body">
-                                                            <a href="../../check-category/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
+                                                            <a href="../../find/familyvalues/<?php echo $r['url'];?>" class="rishta-div-body-link" >
                                                                 <?php echo ucwords(str_replace('-', ' ', $r['url']));?>
                                                             </a>
                                                         </div>
@@ -624,20 +661,20 @@ font-family: 'Lato', sans-serif; -->
 
                                             
                                                 <?php 
-                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='male' && caste='$category' order by id desc limit 15");}
-                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='male' && city='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='male' && district='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='male' && province='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='male' && country='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='male' && religion='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='male' && profession='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='male' && language='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='male' && clan='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='male' && education='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='male' && hobby='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyType='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyValues='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='male' && caste='$category' order by id desc limit 10");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='male' && city='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='male' && district='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='male' && province='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='male' && country='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='male' && religion='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='male' && profession='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='male' && language='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='male' && clan='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='male' && education='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='male' && hobby='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyType='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyValues='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='male' && familyAffluence='$category' order by id desc limit 10 ");}
                                                     else {$result=mysqli_query($conn, "select * from signup where gender='male' "); }
 
                                                     if(mysqli_num_rows($result) > 0){?>
@@ -685,20 +722,20 @@ font-family: 'Lato', sans-serif; -->
 
                                             
                                                 <?php 
-                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='female' && caste='$category' order by id desc limit 15");}
-                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='female' && city='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='female' && district='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='female' && province='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='female' && country='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='female' && religion='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='female' && profession='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='female' && language='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='female' && clan='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='female' && education='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='female' && hobby='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyType='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyValues='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='female' && caste='$category' order by id desc limit 10");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='female' && city='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='female' && district='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='female' && province='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='female' && country='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='female' && religion='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='female' && profession='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='female' && language='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='female' && clan='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='female' && education='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='female' && hobby='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyType='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyValues='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='female' && familyAffluence='$category' order by id desc limit 10 ");}
                                                     else {$result=mysqli_query($conn, "select * from signup where gender='female' "); }
 
                                                     if(mysqli_num_rows($result) > 0){?>
@@ -752,20 +789,20 @@ font-family: 'Lato', sans-serif; -->
                                             ?>
                                             
                                                 <?php 
-                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && caste='$category' order by id desc limit 15");}
-                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && city='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && district='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && province='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && country='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && religion='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && profession='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && language='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && clan='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && education='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && hobby='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyType='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyValues='$category' order by id desc limit 15 ");}
-                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyAffluence='$category' order by id desc limit 15 ");}
+                                                    if($category_name == 'caste'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && caste='$category' order by id desc limit 10");}
+                                                    else if($category_name == 'city'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && city='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'district'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && district='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'province'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && province='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'country'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && country='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'religion'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && religion='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'profession'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && profession='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'language'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && language='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'clan'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && clan='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'education'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && education='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'hobby'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && hobby='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyType'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyType='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyValues'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyValues='$category' order by id desc limit 10 ");}
+                                                    else if($category_name == 'familyAffluence'){$result=mysqli_query($conn, "select * from signup where gender='$gender' && familyAffluence='$category' order by id desc limit 10 ");}
                                                     else {$result=mysqli_query($conn, "select * from signup where gender='$gender' "); }
 
                                                     if(mysqli_num_rows($result) > 0){?>

@@ -784,7 +784,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Create Free Account on Rishta, Matrimonial portal - Rishtaweb</title>
+	<title>Create Account - RISHTAWEB</title>
 	<meta name="description" content="Find authentic and quality rishta in your city, country or clan with rishtaweb. Just select options to fill the form and create your account on rishtaweb ">
 	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<meta name="Author" content="RISHTAWEB.com" />
@@ -980,6 +980,7 @@ option{ cursor:pointer}
 <body style="background-color:#E4E4E4;">
 
 
+
 <script type="text/javascript">
 $( document ).ready(function() {
    $('#updateModal').modal('toggle');
@@ -1159,7 +1160,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;" 
+											<button type="button" class="button btn-block" style="border-radius:3px;" 
 											name="form1" id="form1" onClick="form1Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
@@ -1375,7 +1376,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form2Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form2Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 										</div>
@@ -1623,7 +1624,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form3Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form3Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 											
@@ -1732,7 +1733,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form3_3Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form3_3Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 										</div>
@@ -1910,7 +1911,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form4Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form4Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 										</div>
@@ -1994,7 +1995,7 @@ $('#updateModal').modal({
 										</div>
 									<div class="form-group" style="padding:0px">
 										<div class="col-sm-12" id="signUpButton">
-											<button type="button" class="button button-ripple btn-block" onClick="form5Script()" style="border-radius:3px;">
+											<button type="button" class="button  btn-block" onClick="form5Script()" style="border-radius:3px;">
 											<span class="button-text-white">Create Account</span>
 											</button>
 										</div>
@@ -2098,7 +2099,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form7Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form7Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 											
@@ -2341,7 +2342,7 @@ $('#updateModal').modal({
 									<div class="form-group">
 										<label class="col-sm-4 col-xs-12 control-label"></label>
 										<div class="col-sm-6 col-xs-12" id="nextPadding">
-											<button type="button" class="button button-ripple btn-block" style="border-radius:3px;"  onClick="form8Script()">
+											<button type="button" class="button  btn-block" style="border-radius:3px;"  onClick="form8Script()">
 											<span class="button-text-white">Next</span>
 											<i class="fa fa-angle-right" style="margin-left:15px"></i></button>
 											

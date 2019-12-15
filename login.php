@@ -1,7 +1,8 @@
+<?php session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Login - Rishtaweb</title>
+	<title>Login - RISHTAWEB</title>
 	<meta name="description" content="Find authentic and quality rishta in your city, country or clan with rishtaweb. Just login to your account and search rishta on rishtaweb ">
 	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<?php include('inc/pages/links-one.php');?>
@@ -9,7 +10,12 @@
 <body style="background-color:#F0F0F0">
 
 
+
+
+<!-- navbar -->
+<?php if (isset($_SESSION["firstPersonId"])){header('Location: '.$base_url);}?>
 <?php include('inc/pages/navbar-index.php');?>
+
 
 <div class="container-fluid" id="loginDivMargin">
 <div class="row">

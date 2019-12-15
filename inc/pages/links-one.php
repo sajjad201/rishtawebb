@@ -1,6 +1,6 @@
 <?php @session_start(); 
 $conn = new mysqli("localhost", "root", "", "rishtawebchat");
-
+$base_url="http://localhost/rishtawebb/"; 
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24))); 
 
 ?>
@@ -22,6 +22,7 @@ header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24)));
 <meta name="copyright" content="RISHTAWEB.com" />
 <meta name="Distribution" content="general" />
 <meta name="robots" content="index, follow">
+<html lang="en">
 
 <!-- icon -->
 <link rel="shortcut icon" href="<?php echo $base_url;?>assets/allpics/rw8.png">

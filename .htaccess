@@ -1,19 +1,20 @@
-Options -Indexes
-ErrorDocument 404 /Page-Not-Found.html
-ErrorDocument 403 /Page-Not-Found.html
+
 
 <IfModule mod_rewrite.c>
     Options +FollowSymLinks -MultiViews
     RewriteEngine On
-    RewriteBase /
+    
     
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^singlecategory/([a-zA-Z0-9-/]+)/?$ single-category.php?name=$1 [L,NC,QSA]
+
     RewriteRule ^profile/([a-zA-Z0-9-/]+)/?$ profile.php?viewProfileId=$1 [L,NC,QSA]
     
-    RewriteRule ^check-category/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2 [L,NC,QSA]
+    RewriteRule ^find/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2 [L,NC,QSA]
+
     RewriteRule ^([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/?$ category.php?name=$1&url=$2&page=$3 [L,NC,QSA]
+
 </IfModule>
 
 

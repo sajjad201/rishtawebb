@@ -19,7 +19,7 @@
                                         $result=mysqli_query($conn, "select * from caste limit 10");
                                         if(mysqli_num_rows($result) > 0){
                                             while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                                <div><a href="<?php echo $base_url?>check-category/caste/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                                <div><a href="<?php echo $base_url?>find/caste/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                             <?php }
                                         }
                                         ?>
@@ -39,10 +39,10 @@
                                 </span>
                                 <div class="foot-five-box-he-li">
                                     <?php
-                                        $result=mysqli_query($conn, "select * from city limit 10");
+                                        $result=mysqli_query($conn, "select * from city order by id desc limit 10");
                                         if(mysqli_num_rows($result) > 0){
                                             while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                                <div><a href="<?php echo $base_url?>check-category/city/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                                <div><a href="<?php echo $base_url?>find/city/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                             <?php }
                                         }
                                         ?>
@@ -62,7 +62,7 @@
                                 </span>
                                 <div class="foot-five-box-he-li">
                                     <?php
-                                        $result=mysqli_query($conn, "select * from profession limit 11");
+                                        $result=mysqli_query($conn, "select * from profession limit 10");
                                         if(mysqli_num_rows($result) > 0){
                                             while($r=mysqli_fetch_array($result)){ 
                                                 $url=str_replace('-', ' ', $r['url']); 
@@ -70,7 +70,7 @@
                                                 if($url != 'not working yet pakistan'){
                                                 ?>
                                                 <div>
-                                                    <a href="<?php echo $base_url?>check-category/profession/<?php echo $r['url']?>" class="foot-five-box-he-sub-a">
+                                                    <a href="<?php echo $base_url?>find/profession/<?php echo $r['url']?>" class="foot-five-box-he-sub-a">
                                                         <?php echo $url." rishta"?>
                                                     </a>
                                                 </div>
@@ -96,7 +96,7 @@
                                     $result=mysqli_query($conn, "select * from familytype limit 10");
                                     if(mysqli_num_rows($result) > 0){
                                         while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                            <div><a href="<?php echo $base_url?>check-category/familytype/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                            <div><a href="<?php echo $base_url?>find/familytype/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                         <?php }
                                     }
                                     ?>
@@ -104,7 +104,7 @@
                                     $result=mysqli_query($conn, "select * from familyvalues limit 10");
                                     if(mysqli_num_rows($result) > 0){
                                         while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                            <div><a href="<?php echo $base_url?>check-category/familyvalues/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                            <div><a href="<?php echo $base_url?>find/familyvalues/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                         <?php }
                                     }
                                     ?>
@@ -112,7 +112,7 @@
                                     $result=mysqli_query($conn, "select * from familyaffluence limit 10");
                                     if(mysqli_num_rows($result) > 0){
                                         while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                            <div><a href="<?php echo $base_url?>check-category/familyaffluence/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                            <div><a href="<?php echo $base_url?>find/familyaffluence/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                         <?php }
                                     }
                                     ?>
@@ -136,7 +136,7 @@
                                         $result=mysqli_query($conn, "select * from religion limit 10");
                                         if(mysqli_num_rows($result) > 0){
                                             while($r=mysqli_fetch_array($result)){ $url=str_replace('-', ' ', $r['url']); ?>
-                                                <div><a href="<?php echo $base_url?>check-category/religion/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
+                                                <div><a href="<?php echo $base_url?>find/religion/<?php echo $r['url']?>" class="foot-five-box-he-sub-a"><?php echo $url?></a></div>
                                             <?php }
                                         }
                                         ?>
@@ -291,4 +291,4 @@
     });
 
 </script>
-<script src="<?php echo $base_url;?>rishtawebb/assets/js/foot.js"></script> 
+<script src="<?php echo $base_url;?>/assets/js/foot.js"></script> 

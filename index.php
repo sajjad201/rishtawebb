@@ -64,7 +64,7 @@ function ageCalculator($dob){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Rishta in Pakistan - Rishtaweb</title>
+	<title>Find Free Rishta in Pakistan, Matrimonial Website - RISHTAWEB</title>
 	<meta name="description" content="Rishtaweb is free matchmaking/matrimonial/rishta portal in pakistan that facilitate peoples to find their suitable match while sitting at home within pakistan or accross the world">
 	<meta name="keywords" content="">
 	<?php include('inc/pages/links-one.php');?>
@@ -80,28 +80,28 @@ function ageCalculator($dob){
 <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
 <script>
-function OpenMessenger(){
-	  window.fbAsyncInit = function() {
-		FB.init({
-		  xfbml            : true,
-		  version          : 'v3.2'
-		});
-	  };
-	
-	  (function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-}	
-</script>
+window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v5.0'
+  });
+};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
-<div class="fb-customerchat" attribution=setup_tool page_id="415465259225045" theme_color="#20cef5" logged_in_greeting="​​کسی بھی قسم کی رہنمائی کے لیے ابھی رابطہ کریں۔"
-  logged_out_greeting="​​کسی بھی قسم کی رہنمائی کے لیے ابھی رابطہ کریں۔">
+<div class="fb-customerchat"
+attribution=setup_tool
+page_id="415465259225045"
+theme_color="#0084ff">
 </div>
+
 
 
 
@@ -529,7 +529,7 @@ function Form1Script(){
 	<div class="row">
 		<div class="col-lg-12 col-xs-12" style="padding:0px">
 			<div class="col-lg-12 ind-recent-pro">
-				<div class="col-lg-12" style="font-size:26px; color:#935529; border-left:3px solid #935529; padding:5px; margin-bottom:10px; padding-left:7px; padding-top:0px">
+				<div class="col-lg-12" style="font-size:26px; color:#f96714; border-left:3px solid #f96714; padding:5px; margin-bottom:10px; padding-left:7px; padding-top:0px">
 					<div style="font-weight:600; font-family:'Segoe UI'; margin-top:-8px;">Recent Profiles</div>
 					<span style="font-size:12px; font-weight:500; ">Login to contact</span>
 				</div>
@@ -982,11 +982,11 @@ function Form1Script(){
 		<div class="container ind-txt-container">
 			<div class="ind-txt-img">
 				<div class="ind-txt-img-in">
-					<div class="m-0 ind-txt-title">Free Rishta/Matrimonial Portal in Pakistan</div><br>
+					<h1 class="m-0 ind-txt-title">Free Rishta/Matrimonial Portal in Pakistan</h1><br>
 				</div>
 				<div class="ind-txt-img-center">
 					
-					<h1 class="g-font-one-bold">Rishta in Pakistan</h1>
+					<h2 class="g-font-one-bold">Rishta in Pakistan</h2>
 					Rishtaweb is an online free matrimonial, marriage or rishta portal/website that facilitate people to find out their sole mates within Pakistan and across the world. 
 					In this modern era, the technology has connected the whole world and gathered all the communities/societies on the internet that hosts 
 					websites, mobile apps and other platforms. 

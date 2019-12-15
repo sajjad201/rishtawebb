@@ -129,7 +129,7 @@ while($secondPersonNameResult=@mysqli_fetch_array($secondPersonNameQuery))
 				
 				</div>
 				<div class="col-lg-11 col-xs-10" style="padding-left:6px; padding-top:5px;">
-					<a target="_blank" href="viewprofile.php?viewProfileId=<?php echo $secondPerson;?>" style="text-decoration:none">
+					<a target="_blank" href="profile/<?php echo $secondPerson;?>" style="text-decoration:none">
 						<?php echo $person2Fname." ".$person2Lname;?>
 					</a>
 					<span style="color:#000000; font-size:9px; font-weight:normal;">Id:<?php echo $secondPerson?></span>

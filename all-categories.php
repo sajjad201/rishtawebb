@@ -5,9 +5,9 @@ require 'inc/connection/connect.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Rishta in lahore, karachi, islamabad - RISHTAWEB Categories  </title>
+    <title>Find Rishta on Free Matrimonial, Rishta Website - RISHTAWEB  </title>
     <meta name="description" content="RISHTAWEB Categories - Find free online rishta in pakistan, rishtaweb is free online web based portal to search out rishta in your desired city, caste and religion and connect.">
-
+    <meta name="keywords" content="Free Online female rishta in pakistan, Free online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
     <?php include('inc/pages/links-one.php');?>
 
 <!-- select2 -->
@@ -18,6 +18,31 @@ require 'inc/connection/connect.php';
 
 </head>
 <body id="body">
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v5.0'
+  });
+};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+attribution=setup_tool
+page_id="415465259225045"
+theme_color="#0084ff">
+</div>
+
 
 <!-- navbar -->
 <?php 
@@ -36,6 +61,368 @@ require 'inc/connection/connect.php';
 
         <!-- caste -->
         <div class="all-cat-div-main">
+
+            <div class="all-cat-div-main-arti">
+            <h1>Find Rishta on Free Matrimonial, Rishta Website </h1><br>
+                <p>
+                    Here are all categories, you can find rishta in your clan, caste, country, city and desired profession.
+                    There are many options to find out rishta on RISHTAWEB, you can search a profile using profile ID or there are 
+                    a lot of custom search options and usign these options, you can filter out profiles. 
+                    If you want to do custom advanced search, then visit <a href="searchguest.php">advanced rishta search</a> and filter out results
+                    according to your need. <br>
+                    Below are the option that you can directly select and filter out the results. 
+                    On this page, we tried to display all the possibel rishta categories based on different criteria. 
+                    Here we showed less number of links of a specific category, If you want to view all links of a single category then you can click 
+                    the View All button.<br>
+                    If you filterd out desired profiles and want to connect with people, then simply <a href="login.php">login</a> to connect.
+                    If you are new to RISHTAWEB, then we will strongly suggest to <a href="CompleteSignUp.php">create account</a> so that you can 
+                    send free messages.
+                </p>
+                <h3>How to use Matrimonial, Shaadi, Rishta Portal</h3>
+                It's pretty simple. Just Create your account, search profiels by ID, or use advanced search options using. Advanced Search options are below the 
+                all categories optios. Just scroll down to the end of the page and select single or multiple option below and hit search button. All the filtered
+                results will be shown to you. 
+                <h3>How to cotact with people</h3>
+                User Contact information will not shown to any individual. Just select profile that you want to connect with. Visit profile and scroll down to the 
+                bottom of the page. Click on send message send, type your message and hit send. Your message will be sent and other person will be notified through 
+                the email he/she provided. 
+                One will will see you message, there will be two green tick shown to you. 
+                <h3>Is it free to send messages?</h3>
+                Yes, You can send free messages to desired person.
+            </div>
+
+
+
+
+
+
+
+            <div class="all-cat-div-title">
+                find rishta by <b>caste</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from caste limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/caste/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/caste">View All Castes</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- city -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>city</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from city order by id desc limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/city/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/city">View All City</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- district -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>district</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from district limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/district/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/district">View All district</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- province -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>province</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from province limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/province/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- country -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>country</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from country order by id desc limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/country/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/country">View All country</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- religion -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>religion</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from religion limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/religion/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- profession -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>profession</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from profession limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/profession/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/profession">View All Profession</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- language -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>language</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from language limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/language/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/language">View All language</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- clan -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>clan</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from clan limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/clan/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- education -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>education</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from education limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/education/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- hobby -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>hobby</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from hobby limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/hobby/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+                <div class="all-cat-div-view-al">
+                    <a href="singlecategory/hobby">View All hobby</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- family type -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>family type</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from familytype limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/familytype/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- family values -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>family values</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from familyvalues limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/familyvalues/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
+
+        <!-- family affluence -->
+        <div class="all-cat-div-main">
+            <div class="all-cat-div-title">
+                find rishta by <b>family affluence</b> in pakistan
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <?php $result=mysqli_query($conn, "select * from familyaffluence limit 12");
+                    if(@mysqli_num_rows( $result) > 0 ){
+                        while($queryArray=mysqli_fetch_array($result)){?>
+                             <a href="find/familyaffluence/<?php echo $queryArray['url'];?>">
+                                <div class="col-md-4 all-md-2 col-xs-12">
+                                    <div>find rishta in 
+                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
+                                    </div>
+                                </div> 
+                            </a> 
+                    <?php }}?>
+                </div>
+            </div>
+        </div>
 
         <div class="all-cat-div-title all-cat-div-title-top all-cat-ser-top">
             Select Single/Multiple Inputs & Search
@@ -256,362 +643,8 @@ require 'inc/connection/connect.php';
                     </div>
                 </form>
             </div>
-        </div>
-
-            
-            <div class="all-cat-div-main-head">
-                All Categories
-            </div>
-            <div class="all-cat-div-title">
-                find rishta by <b>caste</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from caste limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/caste/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/caste">View All Castes</a>
-                </div>
-            </div>
-        </div>
+        </div>                    
         
-        <!-- city -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>city</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from city limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/city/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/city">View All City</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- district -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>district</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from district limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/district/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/district">View All district</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- province -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>province</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from province limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/province/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- country -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>country</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from country limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/country/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/country">View All country</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- religion -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>religion</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from religion limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/religion/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- profession -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>profession</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from profession limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/profession/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/profession">View All Profession</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- language -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>language</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from language limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/language/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/language">View All language</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- clan -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>clan</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from clan limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/clan/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- education -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>education</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from education limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/education/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- hobby -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>hobby</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from hobby limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/hobby/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-                <div class="all-cat-div-view-al">
-                    <a href="singlecategory/hobby">View All hobby</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- family type -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>family type</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from familytype limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/familytype/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- family values -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>family values</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from familyvalues limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/familyvalues/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        <!-- family affluence -->
-        <div class="all-cat-div-main">
-            <div class="all-cat-div-title">
-                find rishta by <b>family affluence</b> in pakistan
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php $result=mysqli_query($conn, "select * from familyaffluence limit 12");
-                    if(@mysqli_num_rows( $result) > 0 ){
-                        while($queryArray=mysqli_fetch_array($result)){?>
-                             <a href="check-category/familyaffluence/<?php echo $queryArray['url'];?>">
-                                <div class="col-md-4 all-md-2 col-xs-12">
-                                    <div>find rishta in 
-                                        <span class="all-cat-nam-sty"><?php echo $queryArray['name']; ?></span>
-                                    </div>
-                                </div> 
-                            </a> 
-                    <?php }}?>
-                </div>
-            </div>
-        </div>
-
-        
-
-        <div class="all-cat-div-main-arti">
-        <h1>Rishta in Lahore, Karachi and Islamabad - Check All Categories</h1><br>
-            <p>
-                Here are all categories, you can find rishta in your clan, caste, country, city and desired profession.
-                There are many options to find out rishta on RISHTAWEB, you can search a profile using profile ID or there are 
-                a lot of custom search options and usign these options, you can filter out profiles. 
-                If you want to do custom advanced search, then visit <a href="searchguest.php">advanced rishta search</a> and filter out results
-                according to your need. <br>
-                Below are the option that you can directly select and filter out the results. 
-                On this page, we tried to display all the possibel rishta categories based on different criteria. 
-                Here we showed less number of links of a specific category, If you want to view all links of a single category then you can click 
-                the View All button.<br>
-                If you filterd out desired profiles and want to connect with people, then simply <a href="login.php">login</a> to connect.
-                If you are new to RISHTAWEB, then we will strongly suggest to <a href="CompleteSignUp.php">create account</a> so that you can 
-                send free messages.
-            </p><br>
-        </div>
-
-
-        
-
     </div>
 </section>
 

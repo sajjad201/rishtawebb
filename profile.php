@@ -66,7 +66,8 @@ while($r=mysqli_fetch_array($result)){
 			$result=mysqli_query($conn, "select * from signup where id=$viewProfileId AND makeMeHide='show' limit 1");
 			if(@mysqli_num_rows( $result) > 0 ){
 				while($r=mysqli_fetch_array($result)){
-					$title=$r['gender'].", ".$r['caste'].", ".$r['city'].", ".$r['familyAffluence']." rishta profile - ".$r['id'];
+					if($r['city'] == "" || $r['city'] == "0"){$loc=$r['country'];}else{$loc=$r['city'];}
+					$title=$r['caste'].", ".$r['gender'].", rishta in ".$loc." profile - ".$r['id'];
 					echo ucwords($title);
 				}
 			}
@@ -664,8 +665,8 @@ while($queryArray=mysqli_fetch_array($result)){
 								<?php
 								while($queryArray=mysqli_fetch_array($result)){?>
 									<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-										<div class="vp-div3-body-row">
-											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+										<div class="vp-div3-body-row">			<?php if($queryArray['city'] == "" || $queryArray['city'] == "0"){$loc=$queryArray['country'];}else{$loc=$queryArray['city'];}?>
+											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['gender'];?></div>
 											<div class="vp-div3-body-row-des">
 												<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
 												<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
@@ -694,8 +695,8 @@ while($queryArray=mysqli_fetch_array($result)){
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
 								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-									<div class="vp-div3-body-row">
-										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row">			<?php if($queryArray['city'] == "" || $queryArray['city'] == "0"){$loc=$queryArray['country'];}else{$loc=$queryArray['city'];}?>
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$loc;?></div>
 										<div class="vp-div3-body-row-des">
 											<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
 											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
@@ -723,8 +724,8 @@ while($queryArray=mysqli_fetch_array($result)){
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
 								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-									<div class="vp-div3-body-row">
-										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['familyAffluence']." Family rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row">			<?php if($queryArray['city'] == "" || $queryArray['city'] == "0"){$loc=$queryArray['country'];}else{$loc=$queryArray['city'];}?>
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['familyAffluence']." Family rishta in ".$loc;?></div>
 										<div class="vp-div3-body-row-des">
 											<?php echo $queryArray['gender'];?> 
 											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
@@ -752,8 +753,8 @@ while($queryArray=mysqli_fetch_array($result)){
 							<?php
 							while($queryArray=mysqli_fetch_array($result)){?>
 								<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-									<div class="vp-div3-body-row">
-										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['maritalStatus']." rishta in ".$queryArray['city'];?></div>
+									<div class="vp-div3-body-row">			<?php if($queryArray['city'] == "" || $queryArray['city'] == "0"){$loc=$queryArray['country'];}else{$loc=$queryArray['city'];}?>
+										<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['maritalStatus']." rishta in ".$loc?></div>
 										<div class="vp-div3-body-row-des">
 											<?php echo $queryArray['gender'];?> 
 											<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 
@@ -781,8 +782,8 @@ while($queryArray=mysqli_fetch_array($result)){
 								<?php
 								while($queryArray=mysqli_fetch_array($result)){?>
 									<a href="../profile/<?php echo $queryArray['id']?>" class="vp-div3-body-row-link">
-										<div class="vp-div3-body-row">
-											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$queryArray['country'];?></div>
+										<div class="vp-div3-body-row">			<?php if($queryArray['city'] == "" || $queryArray['city'] == "0"){$loc=$queryArray['country'];}else{$loc=$queryArray['city'];}?>
+											<div class="vp-div3-body-row-title"><?php echo $queryArray['caste']." ".$queryArray['gender']." rishta in ".$loc?></div>
 											<div class="vp-div3-body-row-des">
 												<?php echo $queryArray['firstName']." ".$queryArray['lastName'];?> 
 												<?php $row11 = array('dob'=>$queryArray['dob']);	echo ageCalculator($row11['dob']);	?> old - 

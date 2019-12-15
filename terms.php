@@ -7,12 +7,37 @@ $firstPerson=@$_SESSION["firstPersonId"];
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Terms and Conditions - Rishtaweb</title>
+	<title>Terms and Conditions - RISHTAWEB</title>
 	<meta name="description" content="Kindly read our Terms and Conditions before using the rishta portal. Your account might be suspended if you don't follow the terms of use. ">
 	<meta name="keywords" content="Online female rishta in pakistan, online male rishta in pakistan, online girl rishta in pakistan, online boys rishta in pakistan, free rishta site in pakistan.">
 	<?php include('inc/pages/links-one.php');?>
 </head>
 <body style="background-color:#F2F2F2">
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v5.0'
+  });
+};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+attribution=setup_tool
+page_id="415465259225045"
+theme_color="#0084ff">
+</div>
+
 
 <?php if (!isset($_SESSION["firstPersonId"])){?>
 <?php include('inc/pages/navbar-index.php');?>
